@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Untitled-3.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Grunt idle0000" x="0" y="0" width="330" height="507" frameX="0" frameY="0" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0001" x="0" y="0" width="330" height="507" frameX="0" frameY="0" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0002" x="0" y="0" width="330" height="507" frameX="0" frameY="-1" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0003" x="0" y="0" width="330" height="507" frameX="0" frameY="-1" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0004" x="330" y="0" width="330" height="507" frameX="0" frameY="-2" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0005" x="330" y="0" width="330" height="507" frameX="0" frameY="-2" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0006" x="660" y="0" width="330" height="505" frameX="0" frameY="-5" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0007" x="660" y="0" width="330" height="505" frameX="0" frameY="-5" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0008" x="990" y="0" width="330" height="503" frameX="0" frameY="-7" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0009" x="990" y="0" width="330" height="503" frameX="0" frameY="-7" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0010" x="1320" y="0" width="330" height="502" frameX="0" frameY="-8" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0011" x="1320" y="0" width="330" height="502" frameX="0" frameY="-8" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0012" x="1320" y="0" width="330" height="502" frameX="0" frameY="-8" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0013" x="1320" y="0" width="330" height="502" frameX="0" frameY="-8" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0014" x="990" y="0" width="330" height="503" frameX="0" frameY="-7" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0015" x="990" y="0" width="330" height="503" frameX="0" frameY="-7" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0016" x="1650" y="0" width="330" height="504" frameX="0" frameY="-6" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0017" x="1650" y="0" width="330" height="504" frameX="0" frameY="-6" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0018" x="1650" y="0" width="330" height="504" frameX="0" frameY="-5" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0019" x="1650" y="0" width="330" height="504" frameX="0" frameY="-5" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0020" x="0" y="507" width="330" height="504" frameX="0" frameY="-4" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0021" x="0" y="507" width="330" height="504" frameX="0" frameY="-4" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0022" x="330" y="507" width="330" height="505" frameX="0" frameY="-2" frameWidth="330" frameHeight="510"/>
+	<SubTexture name="Grunt idle0023" x="330" y="507" width="330" height="505" frameX="0" frameY="-2" frameWidth="330" frameHeight="510"/>
+</TextureAtlas>
