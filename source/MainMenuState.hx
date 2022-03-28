@@ -206,26 +206,14 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (controls.UI_UP_P)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(-1);
-			}
-
-			if (controls.UI_DOWN_P)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(1);
-			}
-
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
-
-			if (controls.ACCEPT)
+         menuItems.forEach(function(spr:FlxSprite) {
+			if (FlxG.mouse.overlaps(spr) && controls.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
@@ -272,6 +260,7 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
+
 			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
@@ -279,6 +268,7 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
 			#end
+        });
 		}
 
 		super.update(elapsed);
@@ -303,7 +293,7 @@ class MainMenuState extends MusicBeatState
 			spr.animation.play('idle');
 			spr.updateHitbox();
 
-			if (spr.ID == curSelected)
+			if (FlxG.mouse.overlaps(spr))
 			{
 				spr.animation.play('selected');
 				var add:Float = 0;
