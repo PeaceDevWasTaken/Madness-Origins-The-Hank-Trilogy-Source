@@ -17,7 +17,7 @@ class DiscordClient
 	{
 		trace("Discord Client starting...");
 		DiscordRpc.start({
-			clientID: "863222024192262205",
+			clientID: "958055358608343060",
 			onReady: onReady,
 			onError: onError,
 			onDisconnected: onDisconnected
@@ -45,7 +45,7 @@ class DiscordClient
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
-			largeImageText: "Psych Engine"
+			largeImageText: "Madness Origins: The Hank Trilogy"
 		});
 	}
 

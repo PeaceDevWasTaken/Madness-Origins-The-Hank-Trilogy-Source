@@ -41,6 +41,8 @@ class MainMenuState extends MusicBeatState
 
 	var magenta:FlxSprite;
 	var hankmenu:FlxSprite;
+	var movingbgidiots:FlxSprite;
+	var grunt:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
@@ -88,6 +90,32 @@ class MainMenuState extends MusicBeatState
 		hankmenu.height = 1;
 		add(hankmenu);
 
+		movingbgidiots = new FlxSprite(-80);
+		movingbgidiots.frames = Paths.getSparrowAtlas('mainmenu/Ugly_mofos');
+		movingbgidiots.animation.addByPrefix('idle', 'movin dudes0', 24, false);
+		movingbgidiots.scrollFactor.set(0, yScroll);
+		movingbgidiots.setGraphicSize(Std.int(movingbgidiots.width * 0.45));
+		movingbgidiots.updateHitbox();
+		movingbgidiots.screenCenter();
+		movingbgidiots.antialiasing = ClientPrefs.globalAntialiasing;
+		movingbgidiots.x = 0;
+		movingbgidiots.y = 0;
+		movingbgidiots.height = 1;
+		add(movingbgidiots);
+
+		grunt = new FlxSprite(-80);
+		grunt.frames = Paths.getSparrowAtlas('mainmenu/Untitled-3');
+		grunt.animation.addByPrefix('idle', 'Grunt idle0', 24, false);
+		grunt.scrollFactor.set(0, yScroll);
+		grunt.setGraphicSize(Std.int(movingbgidiots.width * 0.45));
+		grunt.updateHitbox();
+		grunt.screenCenter();
+		grunt.antialiasing = ClientPrefs.globalAntialiasing;
+		grunt.x = 0;
+		grunt.y = 0;
+		grunt.height = 1;
+		add(grunt);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -95,7 +123,7 @@ class MainMenuState extends MusicBeatState
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1));
+		magenta.setGraphicSize(Std.int(magenta.width * 0.45));
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
@@ -172,6 +200,9 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		grunt.animation.play('idle');
+
+		movingbgidiots.animation.play('idle');
 
 		if (!selectedSomethin)
 		{
