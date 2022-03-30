@@ -89,7 +89,7 @@ class MainMenuState extends MusicBeatState
 		movingbgidiots.screenCenter();
 		movingbgidiots.antialiasing = ClientPrefs.globalAntialiasing;
 		movingbgidiots.x = -1800;
-		movingbgidiots.y = -1800;
+		movingbgidiots.y = -1535;
 		movingbgidiots.height = 1;
 		add(movingbgidiots);
 
