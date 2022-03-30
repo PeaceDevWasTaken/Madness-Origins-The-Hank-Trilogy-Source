@@ -79,6 +79,33 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
+
+		movingbgidiots = new FlxSprite(-80);
+		movingbgidiots.frames = Paths.getSparrowAtlas('mainmenu/Ugly_mofos');
+		movingbgidiots.animation.addByPrefix('idle', 'movin dudes0', 24, false);
+		movingbgidiots.scrollFactor.set(0, yScroll);
+		movingbgidiots.setGraphicSize(Std.int(movingbgidiots.width * 1.6));
+		movingbgidiots.updateHitbox();
+		movingbgidiots.screenCenter();
+		movingbgidiots.antialiasing = ClientPrefs.globalAntialiasing;
+		movingbgidiots.x = -1800;
+		movingbgidiots.y = -1800;
+		movingbgidiots.height = 1;
+		add(movingbgidiots);
+
+		grunt = new FlxSprite(-80);
+		grunt.frames = Paths.getSparrowAtlas('mainmenu/Untitled-3');
+		grunt.animation.addByPrefix('idle', 'Grunt idle0', 24, false);
+		grunt.scrollFactor.set(0, yScroll);
+		grunt.setGraphicSize(Std.int(grunt.width * 0.75));
+		grunt.updateHitbox();
+		grunt.screenCenter();
+		grunt.antialiasing = ClientPrefs.globalAntialiasing;
+		grunt.x = 0;
+		grunt.y = 0;
+		grunt.height = 1;
+		add(grunt);
+
 		hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuOG'));
 		hankmenu.scrollFactor.set(0, yScroll);
 		hankmenu.setGraphicSize(Std.int(hankmenu.width * 0.45));
@@ -89,32 +116,6 @@ class MainMenuState extends MusicBeatState
 		hankmenu.y = 0;
 		hankmenu.height = 1;
 		add(hankmenu);
-
-		movingbgidiots = new FlxSprite(-80);
-		movingbgidiots.frames = Paths.getSparrowAtlas('mainmenu/Ugly_mofos');
-		movingbgidiots.animation.addByPrefix('idle', 'movin dudes0', 24, false);
-		movingbgidiots.scrollFactor.set(0, yScroll);
-		movingbgidiots.setGraphicSize(Std.int(movingbgidiots.width * 0.45));
-		movingbgidiots.updateHitbox();
-		movingbgidiots.screenCenter();
-		movingbgidiots.antialiasing = ClientPrefs.globalAntialiasing;
-		movingbgidiots.x = 0;
-		movingbgidiots.y = 0;
-		movingbgidiots.height = 1;
-		add(movingbgidiots);
-
-		grunt = new FlxSprite(-80);
-		grunt.frames = Paths.getSparrowAtlas('mainmenu/Untitled-3');
-		grunt.animation.addByPrefix('idle', 'Grunt idle0', 24, false);
-		grunt.scrollFactor.set(0, yScroll);
-		grunt.setGraphicSize(Std.int(movingbgidiots.width * 0.45));
-		grunt.updateHitbox();
-		grunt.screenCenter();
-		grunt.antialiasing = ClientPrefs.globalAntialiasing;
-		grunt.x = 0;
-		grunt.y = 0;
-		grunt.height = 1;
-		add(grunt);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
