@@ -573,9 +573,9 @@ class TitleState extends MusicBeatState
 		if(gfDance != null) {
 			danceLeft = !danceLeft;
 			if (danceLeft)
-				gfDance.animation.play('danceRight');
+				gfDance.x = 999999;
 			else
-				gfDance.animation.play('danceLeft');
+				gfDance.x = 999999;
 		}
 
 		if(!closedState) {
@@ -633,13 +633,13 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
 				case 13:
-					addMoreText('Friday');
+					addMoreText('Madness');
 				// credTextShit.visible = true;
 				case 14:
-					addMoreText('Night');
+					addMoreText('Origins');
 				// credTextShit.text += '\nNight';
 				case 15:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('The Hank Trillogy'); // credTextShit.text += '\nFunkin';
 
 				case 16:
 					skipIntro();
