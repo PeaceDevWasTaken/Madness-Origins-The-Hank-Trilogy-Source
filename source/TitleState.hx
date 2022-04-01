@@ -254,18 +254,21 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(titleJSON.bpm);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite();
-		
-		if (titleJSON.backgroundSprite != null && titleJSON.backgroundSprite.length > 0 && titleJSON.backgroundSprite != "none"){
-			bg.loadGraphic(Paths.image(titleJSON.backgroundSprite));
-		}else{
-			bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		}
-		
-		// bg.antialiasing = ClientPrefs.globalAntialiasing;
-		// bg.setGraphicSize(Std.int(bg.width * 0.6));
-		// bg.updateHitbox();
+		//var bg:FlxSprite = new FlxSprite();
+		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('bitchbg'));
+		bg.screenCenter(X);
+		bg.updateHitbox();
+	
+		bg.antialiasing = true;
 		add(bg);
+		
+		//if (titleJSON.backgroundSprite != null && titleJSON.backgroundSprite.length > 0 && titleJSON.backgroundSprite != "none"){
+		//	bg.loadGraphic(Paths.image(titleJSON.backgroundSprite));
+		//}else{
+		//	bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		//}
+		
+		
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -273,15 +276,18 @@ class TitleState extends MusicBeatState
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
+		logoBl.y += 305;
+		logoBl.x += 500;
+		logoBl.scale.set(1.2, 1.2);
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
-		switch(easterEgg.toUpperCase())
+		/*switch(easterEgg.toUpperCase())
 		{
 			#if TITLE_SCREEN_EASTER_EGG
 			case 'SHADOW':
@@ -314,6 +320,9 @@ class TitleState extends MusicBeatState
 		
 		add(gfDance);
 		gfDance.shader = swagShader.shader;
+		*/
+
+
 		add(logoBl);
 		logoBl.shader = swagShader.shader;
 
