@@ -35,7 +35,6 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		'credits',
 		'options'
 	];
 
@@ -97,12 +96,12 @@ class MainMenuState extends MusicBeatState
 		grunt.frames = Paths.getSparrowAtlas('mainmenu/Untitled-3');
 		grunt.animation.addByPrefix('idle', 'Grunt idle0', 24, false);
 		grunt.scrollFactor.set(0, yScroll);
-		grunt.setGraphicSize(Std.int(grunt.width * 0.75));
+		grunt.setGraphicSize(Std.int(grunt.width * 1));
 		grunt.updateHitbox();
 		grunt.screenCenter();
 		grunt.antialiasing = ClientPrefs.globalAntialiasing;
-		grunt.x = 0;
-		grunt.y = 0;
+		grunt.x = 122;
+		grunt.y = 215;
 		grunt.height = 1;
 		add(grunt);
 
@@ -147,6 +146,8 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
+			menuItem.x = 480;
+			menuItem.y = 193;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -251,8 +252,6 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 								}

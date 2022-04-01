@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="freeplay.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="select freeplay0000" x="0" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0001" x="240" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0002" x="480" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0003" x="720" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0004" x="960" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0005" x="1200" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0006" x="1440" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0007" x="1680" y="0" width="240" height="185"/>
+	<SubTexture name="select freeplay0008" x="0" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0009" x="240" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0010" x="480" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0011" x="720" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0012" x="960" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0013" x="1200" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0014" x="1440" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0015" x="1680" y="185" width="240" height="185"/>
+	<SubTexture name="select freeplay0016" x="0" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0017" x="240" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0018" x="480" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0019" x="720" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0020" x="960" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0021" x="1200" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0022" x="1440" y="370" width="240" height="185"/>
+	<SubTexture name="select freeplay0023" x="1680" y="370" width="240" height="185"/>
+</TextureAtlas>

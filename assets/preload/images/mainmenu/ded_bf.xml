@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ded_bf.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="died bf0000" x="0" y="0" width="482" height="425" frameX="-116" frameY="-75" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0001" x="0" y="0" width="482" height="425" frameX="-116" frameY="-75" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0002" x="482" y="0" width="504" height="423" frameX="-105" frameY="-83" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0003" x="482" y="0" width="504" height="423" frameX="-105" frameY="-83" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0004" x="986" y="0" width="497" height="421" frameX="-108" frameY="-90" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0005" x="986" y="0" width="497" height="421" frameX="-108" frameY="-90" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0006" x="1483" y="0" width="489" height="420" frameX="-112" frameY="-92" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0007" x="1483" y="0" width="489" height="420" frameX="-112" frameY="-92" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0008" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-86" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0009" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-86" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0010" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-82" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0011" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-82" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0012" x="2455" y="0" width="483" height="443" frameX="-115" frameY="-54" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0013" x="2938" y="0" width="483" height="477" frameX="-115" frameY="-20" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0014" x="3421" y="0" width="482" height="490" frameX="-116" frameY="-10" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0015" x="0" y="490" width="482" height="494" frameX="-116" frameY="-6" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0016" x="482" y="490" width="504" height="498" frameX="-105" frameY="-8" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0017" x="986" y="490" width="504" height="495" frameX="-105" frameY="-11" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0018" x="1490" y="490" width="497" height="494" frameX="-108" frameY="-17" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0019" x="1987" y="490" width="497" height="492" frameX="-108" frameY="-19" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0020" x="2484" y="490" width="489" height="488" frameX="-112" frameY="-24" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0021" x="2973" y="490" width="489" height="474" frameX="-112" frameY="-38" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0022" x="3462" y="490" width="483" height="457" frameX="-115" frameY="-53" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0023" x="0" y="988" width="483" height="445" frameX="-115" frameY="-65" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0024" x="483" y="988" width="483" height="437" frameX="-115" frameY="-69" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0025" x="966" y="988" width="483" height="432" frameX="-115" frameY="-74" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0026" x="1449" y="988" width="483" height="451" frameX="-115" frameY="-46" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0027" x="1932" y="988" width="483" height="485" frameX="-115" frameY="-12" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0028" x="2415" y="988" width="482" height="497" frameX="-116" frameY="-3" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0029" x="2897" y="988" width="494" height="500" frameX="-104" frameY="0" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0030" x="3391" y="988" width="516" height="504" frameX="-93" frameY="-2" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0031" x="0" y="1492" width="525" height="499" frameX="-84" frameY="-7" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0032" x="525" y="1492" width="532" height="498" frameX="-73" frameY="-13" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0033" x="1057" y="1492" width="551" height="495" frameX="-54" frameY="-16" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0034" x="1608" y="1492" width="560" height="489" frameX="-41" frameY="-23" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0035" x="2168" y="1492" width="571" height="473" frameX="-30" frameY="-39" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0036" x="2739" y="1492" width="581" height="454" frameX="-17" frameY="-56" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0037" x="3320" y="1492" width="586" height="440" frameX="-12" frameY="-70" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0038" x="0" y="1991" width="590" height="431" frameX="-8" frameY="-75" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0039" x="590" y="1991" width="598" height="425" frameX="0" frameY="-81" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0040" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-73" frameWidth="609" frameHeight="512"/>
+	<SubTexture name="died bf0041" x="1972" y="0" width="483" height="424" frameX="-115" frameY="-73" frameWidth="609" frameHeight="512"/>
+</TextureAtlas>
