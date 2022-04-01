@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf's.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="select bfs0000" x="0" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0001" x="247" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0002" x="494" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0003" x="741" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0004" x="988" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0005" x="1235" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0006" x="1482" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0007" x="1729" y="0" width="247" height="186" />
+	<SubTexture name="select bfs0008" x="0" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0009" x="247" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0010" x="494" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0011" x="741" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0012" x="988" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0013" x="1235" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0014" x="1482" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0015" x="1729" y="186" width="247" height="186" />
+	<SubTexture name="select bfs0016" x="0" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0017" x="247" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0018" x="494" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0019" x="741" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0020" x="988" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0021" x="1235" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0022" x="1482" y="372" width="247" height="186" />
+	<SubTexture name="select bfs0023" x="1729" y="372" width="247" height="186" />
+</TextureAtlas>
