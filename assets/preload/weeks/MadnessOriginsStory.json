@@ -1,0 +1,68 @@
+{
+	"storyName": "Madness Origins Story",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Uprising",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Origins",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Carnage",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bloodbath",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Skullcrusher",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Madness Origins Story"
+}
