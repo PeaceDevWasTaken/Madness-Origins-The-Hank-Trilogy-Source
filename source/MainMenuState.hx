@@ -48,7 +48,10 @@ class MainMenuState extends MusicBeatState
 		{path: "Auditor", prefix: 'Grunt idle', scale: 1.15},
 		{path: "GruntDead", prefix: 'Grunt idle', scale: 1.25},
 		{path: "Zombie", prefix: 'Grunt idle', scale: 1.25},
-		{path: "grunt", prefix: 'Grunt idle', scale: 1.25}
+		{path: "grunt", prefix: 'Grunt idle', scale: 1.25},
+		{path: "skellytricky", prefix: 'Grunt idle', scale: 1},
+		{path: "menu_grunt2", prefix: 'Grunt idle', scale: 1.25},
+		{path: "menu_scrapeface", prefix: 'Grunt idle', scale: 1.25}
 	];
 
 	var magenta:FlxSprite;
@@ -127,6 +130,14 @@ class MainMenuState extends MusicBeatState
 				grunt.y -= 100;
 
 			case 'grunt':
+				grunt.y -= 100;
+
+			case 'skellytricky':
+				grunt.x -= 120;
+				grunt.y -= 200;
+
+			case 'menu_grunt2':
+				grunt.x -= 50;
 				grunt.y -= 100;
 		}
 
