@@ -3,17 +3,21 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
-	"weekBefore": "tutorial",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
 	"songs": [
 		[
-			"Uprising",
+			"Origins",
 			"hank-grunt",
 			[
 				146,
@@ -22,7 +26,7 @@
 			]
 		],
 		[
-			"Origins",
+			"Uprising",
 			"hank-grunt",
 			[
 				146,
@@ -40,7 +44,7 @@
 			]
 		],
 		[
-			"Bloodbath",
+			"Switchblade",
 			"hank-grunt",
 			[
 				146,
@@ -58,11 +62,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Madness Origins Story"
+	"hideStoryMode": false,
+	"weekName": "Madness Origins Story",
+	"hiddenUntilUnlocked": false
 }

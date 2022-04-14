@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="peeking_Tricky.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ticky0000" x="0" y="0" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0001" x="0" y="0" width="213" height="226" frameX="0" frameY="-19" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0002" x="213" y="0" width="213" height="228" frameX="-10" frameY="-17" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0003" x="426" y="0" width="163" height="193" frameX="-36" frameY="-52" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0004" x="589" y="0" width="210" height="241" frameX="-35" frameY="-4" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0005" x="799" y="0" width="162" height="206" frameX="-61" frameY="-39" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0006" x="961" y="0" width="207" height="245" frameX="-55" frameY="0" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0007" x="1168" y="0" width="161" height="210" frameX="-80" frameY="-35" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0008" x="1329" y="0" width="200" height="237" frameX="-68" frameY="-8" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0009" x="1529" y="0" width="161" height="202" frameX="-88" frameY="-43" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0010" x="1690" y="0" width="194" height="228" frameX="-72" frameY="-18" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0011" x="0" y="245" width="193" height="226" frameX="-73" frameY="-20" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0012" x="193" y="245" width="161" height="199" frameX="-88" frameY="-47" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0013" x="354" y="245" width="194" height="228" frameX="-72" frameY="-18" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0014" x="548" y="245" width="161" height="199" frameX="-88" frameY="-47" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0015" x="709" y="245" width="195" height="229" frameX="-71" frameY="-17" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0016" x="904" y="245" width="194" height="229" frameX="-72" frameY="-17" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0017" x="1098" y="245" width="161" height="199" frameX="-88" frameY="-47" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0018" x="1259" y="245" width="194" height="228" frameX="-71" frameY="-18" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0019" x="548" y="245" width="161" height="199" frameX="-87" frameY="-47" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0020" x="1453" y="245" width="193" height="227" frameX="-71" frameY="-19" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0021" x="1646" y="245" width="161" height="199" frameX="-86" frameY="-47" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0022" x="1807" y="245" width="191" height="225" frameX="-62" frameY="-21" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0023" x="0" y="474" width="158" height="198" frameX="-79" frameY="-48" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0024" x="158" y="474" width="184" height="216" frameX="-54" frameY="-30" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0025" x="342" y="474" width="158" height="196" frameX="-66" frameY="-50" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0026" x="500" y="474" width="184" height="216" frameX="-13" frameY="-30" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0027" x="684" y="474" width="158" height="196" frameX="-25" frameY="-50" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0028" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0029" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0030" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0031" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0032" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0033" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0034" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0035" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0036" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0037" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0038" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0039" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0040" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+	<SubTexture name="ticky0041" x="842" y="474" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246"/>
+</TextureAtlas>
