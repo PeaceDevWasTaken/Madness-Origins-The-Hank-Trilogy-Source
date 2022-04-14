@@ -422,6 +422,30 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'bruhbg':
+				var bg:BGSprite = new BGSprite('bruhbg/QuandaleDingle', -600, -200, 0.9, 0.9);
+				bg.screenCenter();
+				add(bg);
+
+				var bg2:BGSprite = new BGSprite('bruhbg/IForgor', -600, -200, 0.9, 0.9);
+				bg2.screenCenter();
+				add(bg2);
+
+				var batman:BGSprite = new BGSprite('bruhbg/GothamCity', -600, -200, 0.9, 0.9);
+				batman.screenCenter();
+				add(batman);
+
+				var grassomg:BGSprite = new BGSprite('bruhbg/TouchSomeGrass', -600, -200, 0.9, 0.9);
+				grassomg.screenCenter();
+				add(grassomg);
+
+				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -600, -200, 0.9, 0.9);
+				vsTreeMod.screenCenter();
+				add(vsTreeMod);
+
+				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -600, -200, 0.9, 0.9);
+				hair.screenCenter();
+				add(hair);
 			case 'stage': //Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
