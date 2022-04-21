@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-171,
+				-357
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "DOWN instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-91,
+				-178
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "LEFT instance 1",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-171,
+				-226
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "IDLE instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				39,
+				-149
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "UP instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-209,
+				-343
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "RIGHT instance 1",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-179,
+				-372
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "DOWNMISS instance 1",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-181,
+				-213
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "hey",
+			"loop": false,
+			"name": "HEY!! instance 1"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/BFchar/TrickyBoyfriend",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "face",
+	"flip_x": true,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		-170,
+		440
+	],
+	"sing_duration": 6.1,
+	"scale": 1.5
+}

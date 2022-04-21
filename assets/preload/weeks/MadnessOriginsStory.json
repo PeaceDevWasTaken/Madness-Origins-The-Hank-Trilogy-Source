@@ -3,18 +3,14 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
+	"weekBefore": "tutorial",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "tutorial",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"Origins",
@@ -35,25 +31,7 @@
 			]
 		],
 		[
-			"Carnage",
-			"hank-grunt",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Switchblade",
-			"hank-grunt",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Skullcrusher",
+			"Clucksterfuck",
 			"hank-grunt",
 			[
 				146,
@@ -62,7 +40,11 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "Madness Origins Story",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Madness Origins Story"
 }
