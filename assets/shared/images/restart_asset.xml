@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="restart_asset.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="restart click0000" x="0" y="0" width="677" height="226" frameX="-21" frameY="-8" frameWidth="719" frameHeight="241"/>
+	<SubTexture name="restart click0001" x="0" y="0" width="677" height="226" frameX="-21" frameY="-8" frameWidth="719" frameHeight="241"/>
+	<SubTexture name="restart click0002" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0003" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0004" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0005" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0006" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0007" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0008" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0009" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0010" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0011" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0012" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0013" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0014" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0015" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0016" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0017" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0018" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0019" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0020" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0021" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart click0022" x="0" y="226" width="719" height="241"/>
+	<SubTexture name="restart clicked0000" x="0" y="467" width="766" height="256"/>
+	<SubTexture name="restart?0000" x="0" y="723" width="1012" height="278"/>
+</TextureAtlas>

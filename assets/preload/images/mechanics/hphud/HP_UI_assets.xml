@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="HP_UI_assets.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="HP 0%0000" x="0" y="0" width="66" height="324"/>
+	<SubTexture name="HP 0% ded0000" x="66" y="0" width="323" height="59" frameX="-47" frameY="0" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0001" x="66" y="0" width="323" height="59" frameX="-47" frameY="0" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0002" x="389" y="0" width="324" height="60" frameX="-46" frameY="-5" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0003" x="389" y="0" width="324" height="60" frameX="-46" frameY="-5" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0004" x="713" y="0" width="296" height="165" frameX="-45" frameY="-20" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0005" x="713" y="0" width="296" height="165" frameX="-45" frameY="-20" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0006" x="0" y="324" width="129" height="293" frameX="-48" frameY="-20" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0007" x="0" y="324" width="129" height="293" frameX="-48" frameY="-20" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0008" x="129" y="324" width="58" height="323" frameX="-41" frameY="-25" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0009" x="129" y="324" width="58" height="323" frameX="-41" frameY="-25" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0010" x="187" y="324" width="80" height="323" frameX="0" frameY="-23" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0011" x="187" y="324" width="80" height="323" frameX="0" frameY="-23" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0012" x="267" y="324" width="75" height="324" frameX="-6" frameY="-23" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0013" x="267" y="324" width="75" height="324" frameX="-6" frameY="-23" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0014" x="342" y="324" width="65" height="323" frameX="-16" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0015" x="342" y="324" width="65" height="323" frameX="-16" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0016" x="407" y="324" width="71" height="323" frameX="-10" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0017" x="407" y="324" width="71" height="323" frameX="-10" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0018" x="478" y="324" width="66" height="324" frameX="-15" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 0% ded0019" x="478" y="324" width="66" height="324" frameX="-15" frameY="-24" frameWidth="370" frameHeight="348"/>
+	<SubTexture name="HP 100%0000" x="544" y="324" width="323" height="59"/>
+	<SubTexture name="HP 20%0000" x="0" y="648" width="323" height="59"/>
+	<SubTexture name="HP 20% hit0000" x="323" y="648" width="323" height="59" frameX="-12" frameY="-5" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0001" x="323" y="648" width="323" height="59" frameX="-12" frameY="-5" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0002" x="646" y="648" width="323" height="62" frameX="0" frameY="-27" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0003" x="646" y="648" width="323" height="62" frameX="0" frameY="-27" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0004" x="0" y="710" width="323" height="58" frameX="-17" frameY="0" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0005" x="0" y="710" width="323" height="58" frameX="-17" frameY="0" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0006" x="323" y="710" width="322" height="65" frameX="-17" frameY="-8" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0007" x="323" y="710" width="322" height="65" frameX="-17" frameY="-8" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0008" x="645" y="710" width="323" height="59" frameX="-16" frameY="-13" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0009" x="645" y="710" width="323" height="59" frameX="-16" frameY="-13" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0010" x="0" y="775" width="323" height="59" frameX="-12" frameY="-5" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 20% hit0011" x="0" y="775" width="323" height="59" frameX="-12" frameY="-5" frameWidth="340" frameHeight="89"/>
+	<SubTexture name="HP 50%0000" x="323" y="775" width="323" height="59" frameX="0" frameY="0" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0000" x="323" y="775" width="323" height="59" frameX="0" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0001" x="323" y="775" width="323" height="59" frameX="0" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0002" x="646" y="775" width="323" height="59" frameX="-1" frameY="-6" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0003" x="646" y="775" width="323" height="59" frameX="-1" frameY="-6" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0004" x="0" y="834" width="323" height="59" frameX="-9" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0005" x="0" y="834" width="323" height="59" frameX="-9" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0006" x="323" y="834" width="323" height="59" frameX="-5" frameY="-7" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0007" x="323" y="834" width="323" height="59" frameX="-5" frameY="-7" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0008" x="646" y="834" width="323" height="58" frameX="-5" frameY="0" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0009" x="646" y="834" width="323" height="58" frameX="-5" frameY="0" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0010" x="0" y="893" width="323" height="59" frameX="0" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 50% hit0011" x="0" y="893" width="323" height="59" frameX="0" frameY="-1" frameWidth="332" frameHeight="66"/>
+	<SubTexture name="HP 70%0000" x="323" y="893" width="323" height="59" frameX="0" frameY="0" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0000" x="323" y="893" width="323" height="59" frameX="-2" frameY="0" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0001" x="323" y="893" width="323" height="59" frameX="-2" frameY="0" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0002" x="646" y="893" width="323" height="58" frameX="0" frameY="-1" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0003" x="646" y="893" width="323" height="58" frameX="0" frameY="-1" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0004" x="0" y="952" width="323" height="59" frameX="-2" frameY="-4" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0005" x="0" y="952" width="323" height="59" frameX="-2" frameY="-4" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0006" x="0" y="952" width="323" height="59" frameX="-2" frameY="-5" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0007" x="0" y="952" width="323" height="59" frameX="-2" frameY="-5" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0008" x="323" y="952" width="323" height="58" frameX="-4" frameY="-3" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0009" x="323" y="952" width="323" height="58" frameX="-4" frameY="-3" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0010" x="323" y="893" width="323" height="59" frameX="-2" frameY="0" frameWidth="327" frameHeight="64"/>
+	<SubTexture name="HP 70% hit0011" x="323" y="893" width="323" height="59" frameX="-2" frameY="0" frameWidth="327" frameHeight="64"/>
+</TextureAtlas>

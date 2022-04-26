@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LoadingBar.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="LOADING... instance 10000" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10001" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10002" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10003" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10004" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10005" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10006" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10007" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10008" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10009" x="25" y="25" width="435" height="163" frameX="-26" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10010" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10011" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10012" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10013" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10014" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10015" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10016" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10017" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10018" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10019" x="460" y="25" width="459" height="163" frameX="-17" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10020" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10021" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10022" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10023" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10024" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10025" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10026" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10027" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10028" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10029" x="25" y="188" width="482" height="163" frameX="-9" frameY="0" frameWidth="505" frameHeight="163"/>
+	<SubTexture name="LOADING... instance 10030" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10031" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10032" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10033" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10034" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10035" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10036" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10037" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10038" x="25" y="351" width="505" height="163"/>
+	<SubTexture name="LOADING... instance 10039" x="25" y="351" width="505" height="163"/>
+</TextureAtlas>

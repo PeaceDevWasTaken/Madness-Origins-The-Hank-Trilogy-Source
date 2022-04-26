@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BofendLoading.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tankman running instance 10000" x="25" y="25" width="223" height="191" frameX="-5" frameY="-7" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10001" x="25" y="25" width="223" height="191" frameX="-5" frameY="-7" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10002" x="248" y="25" width="226" height="193" frameX="-2" frameY="-2" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10003" x="248" y="25" width="226" height="193" frameX="-2" frameY="-2" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10004" x="474" y="25" width="216" height="202" frameX="0" frameY="0" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10005" x="690" y="25" width="216" height="202" frameX="0" frameY="0" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10006" x="25" y="227" width="210" height="199" frameX="-3" frameY="-4" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10007" x="25" y="227" width="210" height="199" frameX="-3" frameY="-4" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10008" x="235" y="227" width="203" height="195" frameX="-9" frameY="-6" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10009" x="235" y="227" width="203" height="195" frameX="-9" frameY="-6" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10010" x="438" y="227" width="207" height="194" frameX="-1" frameY="-7" frameWidth="228" frameHeight="203"/>
+	<SubTexture name="tankman running instance 10011" x="438" y="227" width="207" height="194" frameX="-1" frameY="-7" frameWidth="228" frameHeight="203"/>
+</TextureAtlas>

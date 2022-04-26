@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="HANKNOTE.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blue hold end instance 10000" x="25" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="blue hold piece instance 10000" x="25" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="blue instance 10000" x="25" y="25" width="99" height="147"/>
+	<SubTexture name="green hold end instance 10000" x="124" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="green hold piece instance 10000" x="124" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="green instance 10000" x="124" y="25" width="99" height="147"/>
+	<SubTexture name="pruple end hold instance 10000" x="223" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="purple hold piece instance 10000" x="223" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="purple instance 10000" x="223" y="25" width="147" height="99"/>
+	<SubTexture name="red hold end instance 10000" x="370" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="red hold piece instance 10000" x="370" y="25" width="0" height="0" frameX="-107374182" frameY="-107374182" frameWidth="0" frameHeight="0"/>
+	<SubTexture name="red instance 10000" x="25" y="172" width="148" height="98"/>
+</TextureAtlas>
