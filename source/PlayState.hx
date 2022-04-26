@@ -1245,8 +1245,11 @@ class PlayState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
+					case 'origins':
+						startVideo('HANK-TRILLOGY_WEEK1_SONG1_SCENE');
+
 					case 'madness':
-						startVideo('HANK-TRILLOGY_SONG1_SCENE');
+						startVideo('HANK-TRILLOGY_WEEK2_SONG1_SCENE');
 
 				default:
 					startCountdown();
