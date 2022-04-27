@@ -1,0 +1,50 @@
+{
+	"storyName": "Madness Origins Story 2",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "MadnessOriginsStory",
+	"startUnlocked": false,
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Bloodshot",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Carnage",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Madness",
+			"hank-grunt",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Madness Origins Story 2",
+	"hiddenUntilUnlocked": false
+}
