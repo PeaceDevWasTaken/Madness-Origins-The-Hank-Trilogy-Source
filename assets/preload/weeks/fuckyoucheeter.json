@@ -1,0 +1,32 @@
+{
+	"storyName": "The End",
+	"difficulties": "",
+	"hideFreeplay": true,
+	"weekBackground": "",
+	"weekBefore": "MadnessOriginsStory2",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Reality Buster",
+			"white-hank",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": true,
+	"weekName": "Madness Origins Story 3"
+}

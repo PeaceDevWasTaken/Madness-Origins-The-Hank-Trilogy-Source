@@ -1,5 +1,5 @@
 {
-	"storyName": "Madness Origins Story 1",
+	"storyName": "Madness Origins Story 3",
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
@@ -8,8 +8,8 @@
 		113,
 		253
 	],
-	"weekBefore": "tutorial",
-	"startUnlocked": true,
+	"weekBefore": "MadnessOriginsStory2",
+	"startUnlocked": false,
 	"weekCharacters": [
 		"",
 		"",
@@ -17,7 +17,7 @@
 	],
 	"songs": [
 		[
-			"Origins",
+			"Rifle",
 			"hank-grunt",
 			[
 				146,
@@ -26,8 +26,8 @@
 			]
 		],
 		[
-			"Uprising",
-			"hank-grunt",
+			"Bandaged N' Damaged",
+			"dad",
 			[
 				146,
 				113,
@@ -35,8 +35,8 @@
 			]
 		],
 		[
-			"Clucksterfuck",
-			"hank-grunt",
+			"Flow",
+			"dad",
 			[
 				146,
 				113,
@@ -45,6 +45,6 @@
 		]
 	],
 	"hideStoryMode": false,
-	"weekName": "Madness Origins Story 1",
+	"weekName": "Madness Origins Story 3",
 	"hiddenUntilUnlocked": false
 }
