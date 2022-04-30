@@ -3,21 +3,17 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
+	"weekBefore": "MadnessOriginsStory2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "MadnessOriginsStory2",
 	"startUnlocked": false,
-	"weekCharacters": [
-		"",
-		"",
-		""
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
-			"Rifle",
+			"Breakout",
 			"hank-grunt",
 			[
 				146,
@@ -26,7 +22,7 @@
 			]
 		],
 		[
-			"Bandaged N' Damaged",
+			"Experiment",
 			"dad",
 			[
 				146,
@@ -35,7 +31,7 @@
 			]
 		],
 		[
-			"Flow",
+			"Calamity",
 			"dad",
 			[
 				146,
@@ -44,7 +40,11 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "Madness Origins Story 3",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Madness Origins Story 3"
 }
