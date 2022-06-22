@@ -3,57 +3,68 @@
 		{
 			"offsets": [
 				20,
-				-290
+				-292
 			],
-			"indices": [],
+			"loop": true,
 			"fps": 24,
 			"anim": "idle",
-			"loop": true,
+			"indices": [],
 			"name": "E1 Hank idle dance"
 		},
 		{
+			"loop": false,
 			"offsets": [
-				71,
-				-257
+				6,
+				-183
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": true,
-			"name": "E1 Hank left note"
+			"fps": 24,
+			"name": "E1 Hank left note",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				107,
-				-321
+				-22,
+				-330
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": true,
-			"name": "E1 Hank down note"
+			"fps": 24,
+			"name": "E1 Hank down note",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-12,
-				-281
+				-25,
+				-318
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": true,
-			"name": "E1 Hank up note"
+			"fps": 24,
+			"name": "E1 Hank up note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-49,
+				-335
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "E1 Hank right note",
+			"indices": []
 		},
 		{
 			"offsets": [
-				-38,
-				-323
+				-49,
+				-307
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "singRIGHT",
-			"loop": true,
-			"name": "E1 Hank right note"
+			"anim": "hankSALTY",
+			"loop": false,
+			"name": "E1 Hank YOU LITTLE S#%T"
 		}
 	],
 	"no_antialiasing": false,

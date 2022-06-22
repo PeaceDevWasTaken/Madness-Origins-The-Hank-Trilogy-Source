@@ -2,18 +2,18 @@
 <TextureAtlas imagePath="bg_grunt.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="BG Grunt0000" x="0" y="0" width="199" height="211" frameX="0" frameY="-4" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0001" x="0" y="0" width="199" height="211" frameX="0" frameY="-4" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0002" x="199" y="0" width="191" height="213" frameX="-4" frameY="-2" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0003" x="199" y="0" width="191" height="213" frameX="-4" frameY="-2" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0004" x="390" y="0" width="188" height="214" frameX="-5" frameY="-1" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0005" x="390" y="0" width="188" height="214" frameX="-5" frameY="-1" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0006" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0007" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0008" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0009" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0010" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0011" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0012" x="764" y="0" width="188" height="213" frameX="-6" frameY="-2" frameWidth="199" frameHeight="215"/>
-	<SubTexture name="BG Grunt0013" x="764" y="0" width="188" height="213" frameX="-6" frameY="-2" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0000" x="0" y="0" width="199" height="211" frameX="0" frameY="-4" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0001" x="0" y="0" width="199" height="211" frameX="0" frameY="-4" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0002" x="199" y="0" width="191" height="213" frameX="-4" frameY="-2" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0003" x="199" y="0" width="191" height="213" frameX="-4" frameY="-2" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0004" x="390" y="0" width="188" height="214" frameX="-5" frameY="-1" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0005" x="390" y="0" width="188" height="214" frameX="-5" frameY="-1" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0006" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0007" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0008" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0009" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0010" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0011" x="578" y="0" width="186" height="215" frameX="-6" frameY="0" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0012" x="764" y="0" width="188" height="213" frameX="-6" frameY="-2" frameWidth="199" frameHeight="215"/>
+	<SubTexture name="bg_grunt0013" x="764" y="0" width="188" height="213" frameX="-6" frameY="-2" frameWidth="199" frameHeight="215"/>
 </TextureAtlas>

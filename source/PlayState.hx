@@ -443,29 +443,75 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'bruhbg':
-				var bg:BGSprite = new BGSprite('bruhbg/QuandaleDingle', -600, -200, 0.9, 0.9);
-				bg.screenCenter();
+				var bg:BGSprite = new BGSprite('bruhbg/QuandaleDingle', -351,-439);
+				bg.setGraphicSize(Std.int(bg.width * 1));
+				gfGroup.alpha = 0;
 				add(bg);
 
-				var bg2:BGSprite = new BGSprite('bruhbg/IForgor', -600, -200, 0.9, 0.9);
-				bg2.screenCenter();
+				var bg2:BGSprite = new BGSprite('bruhbg/IForgor', -324,-567);
+				bg2.setGraphicSize(Std.int(bg2.width * 1));
 				add(bg2);
 
-				var batman:BGSprite = new BGSprite('bruhbg/GothamCity', -600, -200, 0.9, 0.9);
-				batman.screenCenter();
+				var batman:BGSprite = new BGSprite('bruhbg/GothamCity', -350, 156);
+				batman.setGraphicSize(Std.int(batman.width * 1));
 				add(batman);
 
-				var grassomg:BGSprite = new BGSprite('bruhbg/TouchSomeGrass', -600, -200, 0.9, 0.9);
-				grassomg.screenCenter();
+				var grassomg:BGSprite = new BGSprite('bruhbg/TouchSomeGrass', -349, 536);
+				grassomg.setGraphicSize(Std.int(grassomg.width * 1));
 				add(grassomg);
 
-				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -600, -200, 0.9, 0.9);
-				vsTreeMod.screenCenter();
+				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -242,-212);
+				vsTreeMod.setGraphicSize(Std.int(vsTreeMod.width * 0.8));
 				add(vsTreeMod);
 
-				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -600, -200, 0.9, 0.9);
-				hair.screenCenter();
+				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -137,-347);
+				hair.setGraphicSize(Std.int(hair.width * 0.8));
 				add(hair);
+
+				var dedfuck:FlxSprite = new FlxSprite (0, 0);
+				dedfuck.frames = Paths.getSparrowAtlas('bg_grunt');
+				dedfuck.animation.addByPrefix('bg_grunt', 'bg_grunt', 24);
+				dedfuck.animation.play('bg_grunt');
+				dedfuck.antialiasing = ClientPrefs.globalAntialiasing;
+				dedfuck.scrollFactor.set(0.9, 0.9);
+				dedfuck.updateHitbox();
+				add(dedfuck);
+
+				var sun:FlxSprite = new FlxSprite (0, 0);
+				sun.frames = Paths.getSparrowAtlas('The_sun');
+				sun.animation.addByPrefix('The_sun', 'The_sun', 24);
+				sun.animation.play('The_sun');
+				sun.antialiasing = ClientPrefs.globalAntialiasing;
+				sun.scrollFactor.set(0.9, 0.9);
+				sun.updateHitbox();
+				add(sun);
+
+				var gruntoes:FlxSprite = new FlxSprite (0, 0);
+				gruntoes.frames = Paths.getSparrowAtlas('Grunts');
+				gruntoes.animation.addByPrefix('Grunts', 'Grunts', 24);
+				gruntoes.animation.play('Grunts');
+				gruntoes.antialiasing = ClientPrefs.globalAntialiasing;
+				gruntoes.scrollFactor.set(0.9, 0.9);
+				gruntoes.updateHitbox();
+				add(gruntoes);
+
+				var hankwhofuckedthetimelines:FlxSprite = new FlxSprite (0, 0);
+				hankwhofuckedthetimelines.frames = Paths.getSparrowAtlas('peeking_Tricky');
+				hankwhofuckedthetimelines.animation.addByPrefix('peeking_Tricky', 'peeking_Tricky', 24);
+				hankwhofuckedthetimelines.animation.play('peeking_Tricky');
+				hankwhofuckedthetimelines.antialiasing = ClientPrefs.globalAntialiasing;
+				hankwhofuckedthetimelines.scrollFactor.set(0.9, 0.9);
+				hankwhofuckedthetimelines.updateHitbox();
+				add(hankwhofuckedthetimelines);
+
+				var dancingfuck:FlxSprite = new FlxSprite (0, 0);
+				dancingfuck.frames = Paths.getSparrowAtlas('Untitled-1');
+				dancingfuck.animation.addByPrefix('Untitled-1', 'Untitled-1', 24);
+				dancingfuck.animation.play('Untitled-1');
+				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
+				dancingfuck.scrollFactor.set(0.9, 0.9);
+				dancingfuck.updateHitbox();
+				add(dancingfuck);
 
 			case 'stage': // Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
@@ -766,9 +812,12 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		if (curStage == 'spooky')
-		{
-			add(halloweenWhite);
+		if (curStage == 'bruhbg') {
+			var vin:BGSprite = new BGSprite('bruhbg/wacky_effects_lmao', -350,-350, 5, 5);
+			vin.antialiasing = false;
+			vin.updateHitbox();
+			vin.scrollFactor.set(0.85, 0.85);
+			add(vin);
 		}
 
 		#if LUA_ALLOWED
