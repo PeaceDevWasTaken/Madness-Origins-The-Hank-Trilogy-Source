@@ -261,6 +261,10 @@ class MainMenuState extends MusicBeatState
 
 		movingbgidiots.animation.play('idle');
 
+		#if FLX_DEBUG
+		if (FlxG.keys.justPressed.FOUR)
+			FlxG.switchState(new CharacterSelect());
+		#end
 		if (!selectedSomethin)
 		{
 			if (controls.BACK)
