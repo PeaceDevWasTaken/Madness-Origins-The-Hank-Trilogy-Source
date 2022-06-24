@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				94,
+				59
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Friend idle"
+		},
+		{
+			"offsets": [
+				94,
+				194
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Friend up"
+		},
+		{
+			"offsets": [
+				94,
+				157
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Friend left"
+		},
+		{
+			"offsets": [
+				94,
+				131
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Friend down"
+		},
+		{
+			"offsets": [
+				94,
+				97
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Friend right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ur friend",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "Friend",
+	"flip_x": true,
+	"healthbar_colors": [
+		214,
+		214,
+		214
+	],
+	"camera_position": [
+		10,
+		-70
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				29,
+				133
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Icon idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				66,
+				124
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Icon down note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				27,
+				304
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Icon up note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-31,
+				162
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Icon right note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				103,
+				132
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Icon left note",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Icon_assets",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "icon",
+	"flip_x": true,
+	"healthbar_colors": [
+		101,
+		119,
+		134
+	],
+	"camera_position": [
+		-140,
+		20
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

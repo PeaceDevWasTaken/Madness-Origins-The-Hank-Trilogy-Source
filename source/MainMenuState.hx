@@ -313,7 +313,7 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'bfs':
-										trace('no bf customize menu yet :trolled:');
+										MusicBeatState.switchState(new CharacterSelect());
 									case 'story':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
