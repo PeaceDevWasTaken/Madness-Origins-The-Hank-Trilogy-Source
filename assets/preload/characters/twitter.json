@@ -8,7 +8,7 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "Icon idle dance",
+			"name": "idle",
 			"indices": []
 		},
 		{
@@ -19,7 +19,7 @@
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Icon down note",
+			"name": "down",
 			"indices": []
 		},
 		{
@@ -30,7 +30,7 @@
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "Icon up note",
+			"name": "up",
 			"indices": []
 		},
 		{
@@ -41,7 +41,7 @@
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Icon right note",
+			"name": "right",
 			"indices": []
 		},
 		{
@@ -52,17 +52,17 @@
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "Icon left note",
+			"name": "left",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Icon_assets",
+	"image": "BFchar/twitter",
 	"position": [
 		0,
 		350
 	],
-	"healthicon": "icon",
+	"healthicon": "face",
 	"flip_x": true,
 	"healthbar_colors": [
 		101,

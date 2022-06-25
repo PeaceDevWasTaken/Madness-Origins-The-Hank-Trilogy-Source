@@ -17,7 +17,7 @@ using StringTools;
 
 class CharacterSelect extends MusicBeatState
 {
-	var characterList:Array<String> = [
+	public static var characterList:Array<String> = [
 		'bf',
 		'bf-christmas',
 		'bf-pixel',
@@ -27,6 +27,7 @@ class CharacterSelect extends MusicBeatState
 		'tricky',
 		'tricky-ex'
 	];
+
 	var characterName:Array<String> = [
 		'Classic Boyfriend',
 		'Christmas Boyfriend',
@@ -38,7 +39,8 @@ class CharacterSelect extends MusicBeatState
 		'Expurgation Tricky'
 	];
 
-	var initScale:Array<Float> = [1, 1, 6, 1, 1, .65, 1.15, 1.15];
+	public static var initScale:Array<Float> = [1, 1, 6, 1, 1, .65, 1.15, 1.15];
+
 	var characterCost:Array<Int> = [0, 100, 250, 500, 750, 750, 1000, 1500];
 	var unlocked:Array<Bool> = [];
 

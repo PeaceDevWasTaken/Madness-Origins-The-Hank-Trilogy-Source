@@ -9,7 +9,7 @@
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "Friend idle"
+			"name": "idle"
 		},
 		{
 			"offsets": [
@@ -20,7 +20,7 @@
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "Friend up"
+			"name": "up"
 		},
 		{
 			"offsets": [
@@ -31,7 +31,7 @@
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "Friend left"
+			"name": "left"
 		},
 		{
 			"offsets": [
@@ -42,7 +42,7 @@
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "Friend down"
+			"name": "down"
 		},
 		{
 			"offsets": [
@@ -53,16 +53,16 @@
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "Friend right"
+			"name": "right"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/ur friend",
+	"image": "BFchar/nerve",
 	"position": [
 		0,
 		350
 	],
-	"healthicon": "Friend",
+	"healthicon": "face",
 	"flip_x": true,
 	"healthbar_colors": [
 		214,

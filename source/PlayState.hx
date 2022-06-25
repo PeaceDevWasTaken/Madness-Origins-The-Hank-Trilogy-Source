@@ -443,12 +443,12 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'bruhbg':
-				var bg:BGSprite = new BGSprite('bruhbg/QuandaleDingle', -351,-439);
+				var bg:BGSprite = new BGSprite('bruhbg/QuandaleDingle', -351, -439);
 				bg.setGraphicSize(Std.int(bg.width * 1));
 				gfGroup.alpha = 0;
 				add(bg);
 
-				var bg2:BGSprite = new BGSprite('bruhbg/IForgor', -324,-567);
+				var bg2:BGSprite = new BGSprite('bruhbg/IForgor', -324, -567);
 				bg2.setGraphicSize(Std.int(bg2.width * 1));
 				add(bg2);
 
@@ -460,15 +460,15 @@ class PlayState extends MusicBeatState
 				grassomg.setGraphicSize(Std.int(grassomg.width * 1));
 				add(grassomg);
 
-				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -242,-212);
+				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -242, -212);
 				vsTreeMod.setGraphicSize(Std.int(vsTreeMod.width * 0.8));
 				add(vsTreeMod);
 
-				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -137,-347);
+				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -137, -347);
 				hair.setGraphicSize(Std.int(hair.width * 0.8));
 				add(hair);
 
-				var dedfuck:FlxSprite = new FlxSprite (0, 0);
+				var dedfuck:FlxSprite = new FlxSprite(0, 0);
 				dedfuck.frames = Paths.getSparrowAtlas('bg_grunt');
 				dedfuck.animation.addByPrefix('bg_grunt', 'bg_grunt', 24);
 				dedfuck.animation.play('bg_grunt');
@@ -477,7 +477,7 @@ class PlayState extends MusicBeatState
 				dedfuck.updateHitbox();
 				add(dedfuck);
 
-				var sun:FlxSprite = new FlxSprite (0, 0);
+				var sun:FlxSprite = new FlxSprite(0, 0);
 				sun.frames = Paths.getSparrowAtlas('The_sun');
 				sun.animation.addByPrefix('The_sun', 'The_sun', 24);
 				sun.animation.play('The_sun');
@@ -486,7 +486,7 @@ class PlayState extends MusicBeatState
 				sun.updateHitbox();
 				add(sun);
 
-				var gruntoes:FlxSprite = new FlxSprite (0, 0);
+				var gruntoes:FlxSprite = new FlxSprite(0, 0);
 				gruntoes.frames = Paths.getSparrowAtlas('Grunts');
 				gruntoes.animation.addByPrefix('Grunts', 'Grunts', 24);
 				gruntoes.animation.play('Grunts');
@@ -495,7 +495,7 @@ class PlayState extends MusicBeatState
 				gruntoes.updateHitbox();
 				add(gruntoes);
 
-				var hankwhofuckedthetimelines:FlxSprite = new FlxSprite (0, 0);
+				var hankwhofuckedthetimelines:FlxSprite = new FlxSprite(0, 0);
 				hankwhofuckedthetimelines.frames = Paths.getSparrowAtlas('peeking_Tricky');
 				hankwhofuckedthetimelines.animation.addByPrefix('peeking_Tricky', 'peeking_Tricky', 24);
 				hankwhofuckedthetimelines.animation.play('peeking_Tricky');
@@ -504,7 +504,7 @@ class PlayState extends MusicBeatState
 				hankwhofuckedthetimelines.updateHitbox();
 				add(hankwhofuckedthetimelines);
 
-				var dancingfuck:FlxSprite = new FlxSprite (0, 0);
+				var dancingfuck:FlxSprite = new FlxSprite(0, 0);
 				dancingfuck.frames = Paths.getSparrowAtlas('Untitled-1');
 				dancingfuck.animation.addByPrefix('Untitled-1', 'Untitled-1', 24);
 				dancingfuck.animation.play('Untitled-1');
@@ -812,8 +812,9 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		if (curStage == 'bruhbg') {
-			var vin:BGSprite = new BGSprite('bruhbg/wacky_effects_lmao', -350,-350, 5, 5);
+		if (curStage == 'bruhbg')
+		{
+			var vin:BGSprite = new BGSprite('bruhbg/wacky_effects_lmao', -350, -350, 5, 5);
 			vin.antialiasing = false;
 			vin.updateHitbox();
 			vin.scrollFactor.set(0.85, 0.85);
@@ -942,7 +943,7 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
-		boyfriend = new Boyfriend(0, 0, SONG.player1);
+		boyfriend = new Boyfriend(0, 0, FlxG.save.data.curCharacter);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
@@ -1294,11 +1295,11 @@ class PlayState extends MusicBeatState
 						FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
-					case 'origins':
-						startVideo('HANK-TRILLOGY_WEEK1_SONG1_SCENE');
+				case 'origins':
+					startVideo('HANK-TRILLOGY_WEEK1_SONG1_SCENE');
 
-					case 'madness':
-						startVideo('HANK-TRILLOGY_WEEK2_SONG1_SCENE');
+				case 'madness':
+					startVideo('HANK-TRILLOGY_WEEK2_SONG1_SCENE');
 
 				default:
 					startCountdown();

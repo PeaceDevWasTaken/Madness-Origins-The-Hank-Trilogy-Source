@@ -8,7 +8,7 @@
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "DOWN instance 1",
+			"name": "down",
 			"indices": []
 		},
 		{
@@ -19,7 +19,7 @@
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "LEFT instance 1",
+			"name": "left",
 			"indices": []
 		},
 		{
@@ -30,7 +30,7 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "IDLE instance 1",
+			"name": "idle",
 			"indices": []
 		},
 		{
@@ -41,7 +41,7 @@
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "UP instance 1",
+			"name": "up",
 			"indices": []
 		},
 		{
@@ -52,7 +52,7 @@
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "RIGHT instance 1",
+			"name": "right",
 			"indices": []
 		},
 		{
@@ -63,7 +63,7 @@
 			],
 			"anim": "singDOWNmiss",
 			"fps": 24,
-			"name": "DOWNMISS instance 1",
+			"name": "miss down",
 			"indices": []
 		},
 		{
@@ -75,11 +75,11 @@
 			"fps": 24,
 			"anim": "hey",
 			"loop": false,
-			"name": "HEY!! instance 1"
+			"name": "HEY!!"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/BFchar/TrickyBoyfriend",
+	"image": "BFchar/tricky",
 	"position": [
 		0,
 		0
