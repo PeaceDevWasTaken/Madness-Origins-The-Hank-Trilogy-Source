@@ -290,6 +290,13 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+	// Checked during curBeat to have 'local-ish' functions without bloating playstate with one-off functions.
+	var beatFunctions:Map<Int, () -> Void> = [];
+
+	// Used to keep the camera on a straight horizontal line for a cleaner camera effect.
+	var camPosThingX:Float;
+	var camPosThingY:Float;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -430,59 +437,92 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
+		var addOnTop:() -> Void = null;
+
 		switch (curStage)
 		{
 			case 'bruhbg':
 				gfGroup.visible = false;
+
 				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/QuandaleDingle'));
-				skyBack.screenCenter();
 				skyBack.scrollFactor.set(0.3, 0.3);
+				skyBack.scale.set(1.5, 1.5);
+				skyBack.updateHitbox();
+				skyBack.setPosition(-430, -260);
 				add(skyBack);
 
 				var skyFront = new FlxSprite().loadGraphic(Paths.image('bruhbg/IForgor'));
-				skyFront.screenCenter();
 				skyFront.scrollFactor.set(0.3, 0.3);
+				skyFront.scale.set(1.5, 1.5);
+				skyFront.updateHitbox();
+				skyFront.setPosition(-430, -260);
 				add(skyFront);
 
 				var buildings = new FlxSprite().loadGraphic(Paths.image('bruhbg/GothamCity'));
-				buildings.screenCenter(X);
-				buildings.y = skyBack.y + skyBack.height - buildings.height;
 				buildings.scrollFactor.set(0.5, 0.5);
+				buildings.scale.set(1.35, 1.35);
+				buildings.updateHitbox();
+				buildings.setPosition(-445, 80);
 				add(buildings);
 
 				var foreground = new FlxSprite().loadGraphic(Paths.image('bruhbg/TouchSomeGrass'));
-				foreground.screenCenter(X);
-				foreground.y = skyBack.y + skyBack.height - foreground.height;
+				foreground.scale.set(1.3, 1.3);
+				foreground.updateHitbox();
+				foreground.setPosition(-600, 485);
 				add(foreground);
 
-				var hankwhofuckedthetimelines:FlxSprite = new FlxSprite(0, 0);
-				hankwhofuckedthetimelines.frames = Paths.getSparrowAtlas('bruhbg/peeking_Tricky');
-				hankwhofuckedthetimelines.animation.addByPrefix('peeking_Tricky', 'peeking_Tricky', 24);
-				hankwhofuckedthetimelines.animation.play('peeking_Tricky');
-				hankwhofuckedthetimelines.antialiasing = ClientPrefs.globalAntialiasing;
-				hankwhofuckedthetimelines.updateHitbox();
-				add(hankwhofuckedthetimelines);
+				var trik:FlxSprite = new FlxSprite();
+				trik.frames = Paths.getSparrowAtlas('bruhbg/peeking_Tricky');
+				trik.animation.addByPrefix('peeking_Tricky', 'peeking_Tricky', 24, false);
+				trik.animation.play('peeking_Tricky');
+				trik.antialiasing = ClientPrefs.globalAntialiasing;
+				trik.scale.set(1.1, 1.1);
+				trik.updateHitbox();
+				trik.setPosition(485, 280);
+				trik.visible = false;
+				add(trik);
 
-				var sun:FlxSprite = new FlxSprite(0, 0);
+				beatFunctions.set(320, function()
+				{
+					trik.visible = true;
+					trik.animation.play('peeking_Tricky', true);
+					trik.animation.finishCallback = function(name:String)
+					{
+						trik.visible = false;
+					};
+				});
+
+				var sun:FlxSprite = new FlxSprite();
 				sun.frames = Paths.getSparrowAtlas('bruhbg/The_sun');
 				sun.animation.addByPrefix('The_sun', 'The_sun', 24);
 				sun.animation.play('The_sun');
 				sun.antialiasing = ClientPrefs.globalAntialiasing;
+				sun.scrollFactor.set(0.8, 0.8);
+				sun.scale.set(1.4, 1.4);
+				sun.setPosition(1085, 80);
 				sun.updateHitbox();
 				add(sun);
 
-				var vsTreeMod:BGSprite = new BGSprite('bruhbg/DrippyTree', -242, -212);
-				add(vsTreeMod);
+				var tree = new FlxSprite().loadGraphic(Paths.image('bruhbg/DrippyTree'));
+				tree.scale.set(0.65, 0.65);
+				tree.updateHitbox();
+				tree.setPosition(-55, 25);
+				add(tree);
 
-				var hair:BGSprite = new BGSprite('bruhbg/FreshCut', -137, -347);
-				add(hair);
+				var treeLeaves = new FlxSprite().loadGraphic(Paths.image('bruhbg/FreshCut'));
+				treeLeaves.scale.set(0.65, 0.65);
+				treeLeaves.updateHitbox();
+				treeLeaves.setPosition(-30, -10);
+				add(treeLeaves);
 
 				var dedfuck:FlxSprite = new FlxSprite(0, 0);
 				dedfuck.frames = Paths.getSparrowAtlas('bruhbg/bg_grunt');
 				dedfuck.animation.addByPrefix('bg_grunt', 'bg_grunt', 24);
 				dedfuck.animation.play('bg_grunt');
 				dedfuck.antialiasing = ClientPrefs.globalAntialiasing;
+				dedfuck.scale.set(1.25, 1.25);
 				dedfuck.updateHitbox();
+				dedfuck.setPosition(635, 480);
 				add(dedfuck);
 
 				var dancingfuck:FlxSprite = new FlxSprite(0, 0);
@@ -490,7 +530,9 @@ class PlayState extends MusicBeatState
 				dancingfuck.animation.addByPrefix('Untitled-1', 'Untitled-1', 24);
 				dancingfuck.animation.play('Untitled-1');
 				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
+				dancingfuck.scale.set(1.35, 1.35);
 				dancingfuck.updateHitbox();
+				dancingfuck.setPosition(1335, 415);
 				add(dancingfuck);
 
 				var gruntoes:FlxSprite = new FlxSprite(0, 0);
@@ -498,20 +540,27 @@ class PlayState extends MusicBeatState
 				gruntoes.animation.addByPrefix('Grunts', 'Grunts', 24);
 				gruntoes.animation.play('Grunts');
 				gruntoes.antialiasing = ClientPrefs.globalAntialiasing;
+				gruntoes.scale.set(1.4, 1.4);
 				gruntoes.updateHitbox();
-				add(gruntoes);
+				gruntoes.setPosition(-460, 500);
 
-				debugObjects.push(foreground);
-				debugObjects.push(skyBack);
-				debugObjects.push(skyFront);
-				debugObjects.push(buildings);
-				debugObjects.push(vsTreeMod);
-				debugObjects.push(hair);
-				debugObjects.push(dedfuck);
-				debugObjects.push(dancingfuck);
-				debugObjects.push(gruntoes);
-				debugObjects.push(sun);
-				debugObjects.push(hankwhofuckedthetimelines);
+				addOnTop = function()
+				{
+					add(gruntoes);
+				}
+
+				var vignette = new FlxSprite().loadGraphic(Paths.image('bruhbg/wacky_effects_lmao'));
+				vignette.setGraphicSize(FlxG.width);
+				vignette.cameras = [camHUD];
+				vignette.screenCenter();
+				add(vignette);
+
+				defaultCamZoom = .75;
+
+				FlxG.camera.setScrollBoundsRect(skyBack.x, skyBack.y, skyBack.width, skyBack.height);
+
+				camPosThingX = foreground.x + foreground.width / 2;
+				camPosThingY = foreground.y + 50;
 		}
 
 		if (isPixelStage)
@@ -528,14 +577,8 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		if (curStage == 'bruhbg')
-		{
-			var vin:BGSprite = new BGSprite('bruhbg/wacky_effects_lmao', -350, -350, 5, 5);
-			vin.antialiasing = false;
-			vin.updateHitbox();
-			vin.scrollFactor.set(0.85, 0.85);
-			add(vin);
-		}
+		if (addOnTop != null)
+			addOnTop();
 
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
@@ -3245,16 +3288,13 @@ class PlayState extends MusicBeatState
 	{
 		if (isDad)
 		{
-			camFollow.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
-			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			camFollow.set(camPosThingX - 100, camPosThingY);
+
 			tweenCamIn();
 		}
 		else
 		{
-			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
-			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
-			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
+			camFollow.set(camPosThingX + 100, camPosThingY);
 
 			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
@@ -4527,6 +4567,9 @@ class PlayState extends MusicBeatState
 			// trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
 			return;
 		}
+
+		if (beatFunctions.exists(curBeat))
+			beatFunctions[curBeat]();
 
 		if (generatedMusic)
 		{
