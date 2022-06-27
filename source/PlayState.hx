@@ -4711,23 +4711,23 @@ class PlayState extends MusicBeatState
 		{
 			gf.dance();
 		}
-		if (curBeat % boyfriend.danceEveryNumBeats == 0
+		if (curBeat % 2 == 0
 			&& boyfriend.animation.curAnim != null
 			&& !boyfriend.animation.curAnim.name.startsWith('sing')
 			&& !boyfriend.stunned)
 		{
-			boyfriend.dance();
+			boyfriend.playAnim('idle', true);
 		}
-		if (curBeat % dad.danceEveryNumBeats == 0
-			&& dad.animation.curAnim != null
-			&& !dad.animation.curAnim.name.startsWith('sing')
-			&& !dad.stunned)
+		if (curBeat % 2 == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 		{
-			dad.dance();
+			dad.playAnim('idle', true);
 		}
 
-		for (dancer in boppers)
-			dancer.animation.play('idle', true);
+		if (curBeat % 2 == 0)
+		{
+			for (dancer in boppers)
+				dancer.animation.play('idle', true);
+		}
 
 		switch (curStage)
 		{
