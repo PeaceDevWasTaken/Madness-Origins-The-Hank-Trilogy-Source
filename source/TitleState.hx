@@ -154,6 +154,11 @@ class TitleState extends MusicBeatState
 			FlxG.save.data.curCharacter = 'bf';
 			FlxG.save.flush();
 		}
+		if (FlxG.save.data.coins == null)
+		{
+			FlxG.save.data.coins = 0;
+			FlxG.save.flush();
+		}
 
 		ClientPrefs.loadPrefs();
 

@@ -1,5 +1,7 @@
 package;
 
+import flixel.FlxG;
+
 class PlayResult extends MusicBeatSubstate
 {
 	var coins:Int = 0;
@@ -12,6 +14,9 @@ class PlayResult extends MusicBeatSubstate
 
 		this.coins = coins;
 		this.onExit = onExit;
+
+		FlxG.save.data.coins += coins;
+		FlxG.save.flush();
 	}
 
 	var ready:Bool = false;
