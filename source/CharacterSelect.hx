@@ -39,7 +39,7 @@ class CharacterSelect extends MusicBeatState
 		'Expurgation Tricky'
 	];
 
-	public static var initScale:Array<Float> = [1, 1, 6, 1, 1, .65, 1.15, 1.15];
+	public static var initScale:Array<Float> = [1, 1, 7.3, 1, 1, .65, 1.15, 1.15];
 
 	var characterCost:Array<Int> = [0, 100, 250, 500, 750, 750, 1000, 1500];
 	var unlocked:Array<Bool> = [];

@@ -297,6 +297,13 @@ class PlayState extends MusicBeatState
 	var camPosThingX:Float;
 	var camPosThingY:Float;
 
+	// Stores list of objects that bob to the beat, keeps objects local. Note that it needs the animation to be named `idle`
+	var boppers:Array<FlxSprite> = [];
+
+	// amount of coins you hit during a song
+	var coinsHit:Int = 0;
+	var coinText:FlxText;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -482,13 +489,19 @@ class PlayState extends MusicBeatState
 				trik.visible = false;
 				add(trik);
 
-				beatFunctions.set(320, function()
+				beatFunctions.set(202, function()
 				{
 					trik.visible = true;
 					trik.animation.play('peeking_Tricky', true);
+
+					isCameraOnForcedPos = true;
+					camFollow.set(trik.x + trik.width / 2, trik.y + trik.width / 2);
+					defaultCamZoom += .2;
 					trik.animation.finishCallback = function(name:String)
 					{
 						trik.visible = false;
+						isCameraOnForcedPos = false;
+						defaultCamZoom -= .2;
 					};
 				});
 
@@ -498,9 +511,9 @@ class PlayState extends MusicBeatState
 				sun.animation.play('The_sun');
 				sun.antialiasing = ClientPrefs.globalAntialiasing;
 				sun.scrollFactor.set(0.8, 0.8);
-				sun.scale.set(1.4, 1.4);
-				sun.setPosition(1085, 80);
+				sun.scale.set(1.6, 1.6);
 				sun.updateHitbox();
+				sun.setPosition(1115, 45);
 				add(sun);
 
 				var tree = new FlxSprite().loadGraphic(Paths.image('bruhbg/DrippyTree'));
@@ -517,13 +530,14 @@ class PlayState extends MusicBeatState
 
 				var dedfuck:FlxSprite = new FlxSprite(0, 0);
 				dedfuck.frames = Paths.getSparrowAtlas('bruhbg/bg_grunt');
-				dedfuck.animation.addByPrefix('bg_grunt', 'bg_grunt', 24);
-				dedfuck.animation.play('bg_grunt');
+				dedfuck.animation.addByPrefix('idle', 'bg_grunt', 24, false);
+				dedfuck.animation.play('idle');
 				dedfuck.antialiasing = ClientPrefs.globalAntialiasing;
 				dedfuck.scale.set(1.25, 1.25);
 				dedfuck.updateHitbox();
 				dedfuck.setPosition(635, 480);
 				add(dedfuck);
+				boppers.push(dedfuck);
 
 				var dancingfuck:FlxSprite = new FlxSprite(0, 0);
 				dancingfuck.frames = Paths.getSparrowAtlas('bruhbg/Untitled-1');
@@ -532,20 +546,29 @@ class PlayState extends MusicBeatState
 				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
 				dancingfuck.scale.set(1.35, 1.35);
 				dancingfuck.updateHitbox();
-				dancingfuck.setPosition(1335, 415);
+				dancingfuck.setPosition(1285, 415);
 				add(dancingfuck);
 
 				var gruntoes:FlxSprite = new FlxSprite(0, 0);
 				gruntoes.frames = Paths.getSparrowAtlas('bruhbg/Grunts');
-				gruntoes.animation.addByPrefix('Grunts', 'Grunts', 24);
-				gruntoes.animation.play('Grunts');
+				gruntoes.animation.addByPrefix('idle', 'Grunts', 24, false);
+				gruntoes.animation.play('idle');
 				gruntoes.antialiasing = ClientPrefs.globalAntialiasing;
 				gruntoes.scale.set(1.4, 1.4);
 				gruntoes.updateHitbox();
 				gruntoes.setPosition(-460, 500);
+				boppers.push(gruntoes);
+
+				var sunshine = new FlxSprite().loadGraphic(Paths.image('bruhbg/sunshine'));
+				sunshine.antialiasing = ClientPrefs.globalAntialiasing;
+				sunshine.scrollFactor.set(0.8, 0.8);
+				sunshine.scale.set(1.4, 1.4);
+				sunshine.updateHitbox();
+				sunshine.setPosition(255, -50);
 
 				addOnTop = function()
 				{
+					add(sunshine);
 					add(gruntoes);
 				}
 
@@ -561,6 +584,9 @@ class PlayState extends MusicBeatState
 
 				camPosThingX = foreground.x + foreground.width / 2;
 				camPosThingY = foreground.y + 50;
+
+				debugObjects.push(sun);
+				debugObjects.push(sunshine);
 		}
 
 		if (isPixelStage)
@@ -709,6 +735,18 @@ class PlayState extends MusicBeatState
 		boyfriendGroup.add(boyfriend);
 		debugObjects.push(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
+
+		// Boyfriend Positioning
+		switch (boyfriend.curCharacter)
+		{
+			case 'bf-pixel':
+				boyfriend.x += 230;
+				boyfriend.y += 120;
+
+			case 'twitter':
+				boyfriend.x += 110;
+				boyfriend.y += 150;
+		}
 
 		var camPos:FlxPoint = new FlxPoint(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
 		if (gf != null)
@@ -943,6 +981,21 @@ class PlayState extends MusicBeatState
 		{
 			botplayTxt.y = timeBarBG.y - 78;
 		}
+
+		var coinSpr = new FlxSprite().loadGraphic(Paths.image('coin'));
+		coinSpr.scale.set(0.2, 0.2);
+		coinSpr.updateHitbox();
+		coinSpr.cameras = [camHUD];
+		coinSpr.setPosition(20, healthBarBG.y + healthBarBG.height / 2 - coinSpr.height / 2);
+		add(coinSpr);
+
+		coinText = new FlxText(0, 0, 0, 'Placeholder');
+		coinText.setFormat(Paths.font('impact.ttf'), 32, FlxColor.WHITE, LEFT, OUTLINE, FlxColor.BLACK);
+		coinText.y = coinSpr.y + coinSpr.height / 2 - coinText.height / 2;
+		coinText.x = coinSpr.x + coinSpr.width + 10;
+		add(coinText);
+		coinText.cameras = [camHUD];
+		coinText.text = '0';
 
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
@@ -1882,6 +1935,26 @@ class PlayState extends MusicBeatState
 				{
 					noteTypeMap.set(swagNote.noteType, true);
 				}
+				if (swagNote.mustPress && FlxG.random.bool(5)) // Randomly spawn coin
+				{
+					var coinNote = new Note(daStrumTime, FlxG.random.int(0, 3, [swagNote.noteData]), null);
+
+					coinNote.noteType = 'Coin';
+					coinNote.mustPress = swagNote.mustPress;
+					unspawnNotes.push(coinNote);
+					if (coinNote.mustPress)
+					{
+						coinNote.x += FlxG.width / 2; // general offset
+					}
+					else if (ClientPrefs.middleScroll)
+					{
+						coinNote.x += 310;
+						if (daNoteData > 1) // Up and Right
+						{
+							coinNote.x += FlxG.width / 2 + 25;
+						}
+					}
+				}
 			}
 			daBeats += 1;
 		}
@@ -2429,10 +2502,19 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.anyJustPressed(debugKeysChart) && !endingSong && !inCutscene)
 		{
+			#if FLX_DEBUG
 			openChartEditor();
-		}
+			#else
+			var fuck = new FlxSprite().loadGraphic(Paths.image('WTFAREYOUDOING'));
+			fuck.setGraphicSize(0, FlxG.height - 60);
+			fuck.cameras = [camHUD];
+			fuck.screenCenter();
+			add(fuck);
+			FlxTween.tween(fuck, {'alpha': 0}, 1, {ease: FlxEase.smootherStepOut, startDelay: 0.25});
+			FlxG.sound.play(Paths.sound('boom'));
+			#end
+		} // FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 
-		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
@@ -3337,7 +3419,11 @@ class PlayState extends MusicBeatState
 
 	public function finishSong(?ignoreNoteOffset:Bool = false):Void
 	{
-		var finishCallback:Void->Void = endSong; // In case you want to change it in a specific song.
+		var finishCallback:Void->Void = function()
+		{
+			persistentUpdate = false;
+			openSubState(new PlayResult(coinsHit, endSong));
+		}; // In case you want to change it in a specific song.
 
 		updateTime = false;
 		FlxG.sound.music.volume = 0;
@@ -4131,7 +4217,7 @@ class PlayState extends MusicBeatState
 				char = gf;
 			}
 
-			if (char != null)
+			if (char != null && !note.isSustainNote)
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
@@ -4203,6 +4289,12 @@ class PlayState extends MusicBeatState
 				}
 				return;
 			}
+			if (note.noteType == 'Coin')
+			{
+				coinsHit++;
+				FlxG.sound.play(Paths.sound('coinsplash'));
+				coinText.text = '$coinsHit';
+			}
 
 			if (!note.isSustainNote)
 			{
@@ -4229,7 +4321,7 @@ class PlayState extends MusicBeatState
 						gf.holdTimer = 0;
 					}
 				}
-				else
+				else if (!note.isSustainNote)
 				{
 					boyfriend.playAnim(animToPlay + daAlt, true);
 					boyfriend.holdTimer = 0;
@@ -4633,6 +4725,9 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 		}
+
+		for (dancer in boppers)
+			dancer.animation.play('idle', true);
 
 		switch (curStage)
 		{
