@@ -43,6 +43,6 @@ class PlayResult extends MusicBeatSubstate
 			if (PlayState.isStoryMode)
 				LoadingState.loadAndSwitchState(new StoryMenuState());
 			else
-				LoadingState.loadAndSwitchState(new FreeplayState());
+				LoadingState.loadAndSwitchState(new OSTMenu());
 	}
 }

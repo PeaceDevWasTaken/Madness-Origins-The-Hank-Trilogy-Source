@@ -8,7 +8,6 @@ import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
 import haxe.format.JsonParser;
-import sys.io.File;
 
 using StringTools;
 
@@ -145,6 +144,12 @@ class WeekData
 		#end
 
 		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
+		#if allsongs
+		var moreSongs:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/extraweeks.txt'));
+		for (song in moreSongs)
+			sexList.push(song);
+		#end
+
 		for (i in 0...sexList.length)
 		{
 			for (j in 0...directories.length)

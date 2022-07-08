@@ -66,6 +66,15 @@ class MainMenuState extends MusicBeatState
 	{
 		FlxG.mouse.visible = true;
 
+		if (FlxG.sound.music == null)
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
+		}
+		else if (!FlxG.sound.music.playing)
+			FlxG.sound.music.play();
+
 		WeekData.loadTheFirstEnabledMod();
 
 		#if desktop
@@ -276,6 +285,9 @@ class MainMenuState extends MusicBeatState
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
 			FlxG.switchState(new CharacterSelect());
+
+		if (FlxG.keys.justPressed.FIVE)
+			FlxG.switchState(new OSTMenu());
 		#end
 		if (!selectedSomethin)
 		{
@@ -329,7 +341,7 @@ class MainMenuState extends MusicBeatState
 									case 'story':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
+										MusicBeatState.switchState(new OSTMenu());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 									default:
@@ -342,7 +354,7 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 
-			#if desktop
+			#if FLX_DEBUG
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;

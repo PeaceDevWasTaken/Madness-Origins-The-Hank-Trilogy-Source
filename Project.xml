@@ -39,6 +39,7 @@
 
 	<set name="BUILD_DIR" value="export/debug" if="debug" />
 	<set name="BUILD_DIR" value="export/release" unless="debug" />
+	<set name="BUILD_DIR" value="export/songsincluded" if="allsongs" />
 	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
 
 	<classpath name="source" />
@@ -51,6 +52,7 @@
 	<define name="PSYCH_WATERMARKS" /> <!-- DELETE THIS TO REMOVE WATERMARKS/DEV NAMES ON TITLE SCREEN -->
 	<define name="TITLE_SCREEN_EASTER_EGG" if="officialBuild" /> <!-- DELETE THE if="officialBuild" for enabling this on an unofficial build -->
 
+	<assets path="assets/preload/weeks/" exclude="extraweeks.txt" unless="allsongs" />
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web" />
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web" />
 	<section if="TITLE_SCREEN_EASTER_EGG">
@@ -79,10 +81,23 @@
 	<assets path="plugins/" rename='' if="VIDEOS_ALLOWED windows" />
 	<assets path="dlls/" rename='' if="VIDEOS_ALLOWED windows" />
 	<assets path="assets/videos" library="videos" if="VIDEOS_ALLOWED" />
+	<assets path="assets/ogicons" rename="assets/images/icons" if="allsongs" />
+	<assets path="assets/ogsongs" rename="assets/songs" if="allsongs" />
+	<assets path="assets/ogcharts" rename="assets/data" if="allsongs" />
+	<assets path="assets/ogcharacters" rename="assets/characters" if="allsongs" />
 	<assets path="assets/songs" library="songs" exclude="*.ogg" if="web" />
 	<assets path="assets/songs" library="songs" exclude="*.mp3" unless="web" />
+
+
 	<assets path="assets/shared" library="shared" exclude="*.ogg" if="web" />
 	<assets path="assets/shared" library="shared" exclude="*.mp3" unless="web" />
+
+	<assets path="assets/week2" rename="assets/shared" library="shared" if="allsongs" />
+	<assets path="assets/week3" rename="assets/shared" library="shared" if="allsongs" />
+	<assets path="assets/week4" rename="assets/shared" library="shared" if="allsongs" />
+	<assets path="assets/week5" rename="assets/shared" library="shared" if="allsongs" />
+	<assets path="assets/week6" rename="assets/shared" library="shared" if="allsongs" />
+	<assets path="assets/week7" rename="assets/shared" library="shared" if="allsongs" />
 
 	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED" />
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />

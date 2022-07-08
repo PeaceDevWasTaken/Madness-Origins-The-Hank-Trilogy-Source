@@ -115,12 +115,25 @@ class PlayerSettings
 		}
 
 	 */
-	static public function init():Void
+	static public function init(mp:Bool = false):Void
 	{
 		if (player1 == null)
 		{
-			player1 = new PlayerSettings(0, Solo);
+			if (mp)
+				player1 = new PlayerSettings(0, Duo(true));
+			else
+				player1 = new PlayerSettings(0, Solo);
+
 			++numPlayers;
+		}
+
+		if (mp)
+		{
+			if (player2 == null)
+			{
+				player2 = new PlayerSettings(1, Duo(false));
+				++numPlayers;
+			}
 		}
 
 		var numGamepads = FlxG.gamepads.numActiveGamepads;

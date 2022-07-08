@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="GridClosing.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="close0000" x="25" y="25" width="2773" height="2399" />
+	<SubTexture name="close0001" x="2798" y="25" width="2370" height="2399" frameX="-207" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0002" x="5168" y="25" width="2057" height="2399" frameX="-368" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0003" x="25" y="2424" width="2082" height="2399" frameX="-359" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0004" x="2107" y="2424" width="2216" height="2399" frameX="-294" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0005" x="4323" y="2424" width="2261" height="2399" frameX="-272" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0006" x="25" y="4823" width="2255" height="2399" frameX="-275" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0007" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0008" x="4539" y="4823" width="2257" height="2399" frameX="-274" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0009" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0010" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0011" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0012" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0013" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0014" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0015" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0016" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0017" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0018" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0019" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0020" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0021" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0022" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0023" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0024" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0025" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0026" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0027" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0028" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+	<SubTexture name="close0029" x="2280" y="4823" width="2259" height="2399" frameX="-273" frameY="0" frameWidth="2773" frameHeight="2399" />
+</TextureAtlas>

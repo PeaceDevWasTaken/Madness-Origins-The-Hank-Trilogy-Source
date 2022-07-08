@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.typeLimit.OneOfTwo;
 import animateatlas.AtlasFrameMaker;
 import flixel.math.FlxPoint;
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
@@ -121,6 +122,8 @@ class Paths
 		if (currentLevel != null)
 		{
 			var levelPath:String = '';
+
+			// trace('searching in the $currentLevel');
 			if (currentLevel != 'shared')
 			{
 				levelPath = getLibraryPathForce(file, currentLevel);
@@ -237,6 +240,9 @@ class Paths
 		return returnAsset;
 	}
 
+	inline static public function stringImage(key:String, ?library:String):String
+		return getPath('images/$key.png', IMAGE, library);
+
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
 		#if sys
@@ -280,13 +286,6 @@ class Paths
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
 	{
-		#if MODS_ALLOWED
-		if (FileSystem.exists(mods(currentModDirectory + '/' + key)) || FileSystem.exists(mods(key)))
-		{
-			return true;
-		}
-		#end
-
 		if (OpenFlAssets.exists(getPath(key, type)))
 		{
 			return true;
@@ -364,7 +363,7 @@ class Paths
 			localTrackedAssets.push(path);
 			return currentTrackedAssets.get(path);
 		}
-		trace('oh no its returning null NOOOO');
+		trace('Couldn\'t find $path, tf??');
 		return null;
 	}
 

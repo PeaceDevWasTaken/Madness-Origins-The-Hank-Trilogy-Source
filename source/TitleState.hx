@@ -200,7 +200,7 @@ class TitleState extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
+		MusicBeatState.switchState(new OSTMenu());
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
 		#else
@@ -266,7 +266,7 @@ class TitleState extends MusicBeatState
 			{
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
+				FlxG.sound.music.fadeIn(4, 0, FlxG.sound.volume);
 			}
 		}
 
