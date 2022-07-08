@@ -66,6 +66,15 @@ class MainMenuState extends MusicBeatState
 	{
 		FlxG.mouse.visible = true;
 
+		if (FlxG.sound.music == null)
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
+		}
+		else if (!FlxG.sound.music.playing)
+			FlxG.sound.music.play();
+
 		WeekData.loadTheFirstEnabledMod();
 
 		#if desktop
@@ -110,50 +119,61 @@ class MainMenuState extends MusicBeatState
 		add(movingbgidiots);
 		movingbgidiots.alive = false;
 
-		var randomChar:Int = FlxG.random.int(0, charList.length - 1);
-		grunt = new FlxSprite(-80);
-		grunt.frames = Paths.getSparrowAtlas('mainmenu/chars/${charList[randomChar].path}');
-		grunt.animation.addByPrefix('idle', charList[randomChar].prefix, 24, false);
-
-		grunt.scale.set(charList[randomChar].scale, charList[randomChar].scale);
-		grunt.updateHitbox();
-		grunt.screenCenter();
-		grunt.antialiasing = ClientPrefs.globalAntialiasing;
-		grunt.setPosition(75, 215);
-		switch (charList[randomChar].path)
+		if (!FlxG.random.bool(1))
 		{
-			case 'ded_bf':
-				grunt.x -= 75;
+			var randomChar:Int = FlxG.random.int(0, charList.length - 1);
+			grunt = new FlxSprite(-80);
+			grunt.frames = Paths.getSparrowAtlas('mainmenu/chars/${charList[randomChar].path}');
+			grunt.animation.addByPrefix('idle', charList[randomChar].prefix, 24, false);
 
-			case 'Auditor':
-				grunt.x -= 50;
-				grunt.y -= 100;
+			grunt.scale.set(charList[randomChar].scale, charList[randomChar].scale);
+			grunt.updateHitbox();
+			grunt.screenCenter();
+			grunt.antialiasing = ClientPrefs.globalAntialiasing;
+			grunt.setPosition(75, 215);
+			switch (charList[randomChar].path)
+			{
+				case 'ded_bf':
+					grunt.x -= 75;
 
-			case 'grunt':
-				grunt.y -= 100;
+				case 'Auditor':
+					grunt.x -= 50;
+					grunt.y -= 100;
 
-			case 'skellytricky':
-				grunt.x -= 120;
-				grunt.y -= 200;
+				case 'grunt':
+					grunt.y -= 100;
 
-			case 'menu_grunt2':
-				grunt.x -= 50;
-				grunt.y -= 100;
+				case 'skellytricky':
+					grunt.x -= 120;
+					grunt.y -= 200;
+
+				case 'menu_grunt2':
+					grunt.x -= 50;
+					grunt.y -= 100;
+			}
+
+			add(grunt);
+
+			hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuOG'));
+			hankmenu.scrollFactor.set(0, yScroll);
+			hankmenu.setGraphicSize(Std.int(hankmenu.width * 0.45));
+			hankmenu.updateHitbox();
+			hankmenu.screenCenter();
+			hankmenu.antialiasing = ClientPrefs.globalAntialiasing;
+			hankmenu.x = 0;
+			hankmenu.y = 0;
+			hankmenu.height = 1;
+			add(hankmenu);
+			hankmenu.alive = false;
 		}
-
-		add(grunt);
-
-		hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuOG'));
-		hankmenu.scrollFactor.set(0, yScroll);
-		hankmenu.setGraphicSize(Std.int(hankmenu.width * 0.45));
-		hankmenu.updateHitbox();
-		hankmenu.screenCenter();
-		hankmenu.antialiasing = ClientPrefs.globalAntialiasing;
-		hankmenu.x = 0;
-		hankmenu.y = 0;
-		hankmenu.height = 1;
-		add(hankmenu);
-		hankmenu.alive = false;
+		else
+		{
+			var DONOT = new FlxSprite().loadGraphic(Paths.image('mainmenuSECRET'));
+			DONOT.setGraphicSize(FlxG.width, FlxG.height);
+			DONOT.updateHitbox();
+			DONOT.screenCenter();
+			add(DONOT);
+		}
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -257,13 +277,17 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		grunt.animation.play('idle');
+		if (grunt != null)
+			grunt.animation.play('idle');
 
 		movingbgidiots.animation.play('idle');
 
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
 			FlxG.switchState(new CharacterSelect());
+
+		if (FlxG.keys.justPressed.FIVE)
+			FlxG.switchState(new OSTMenu());
 		#end
 		if (!selectedSomethin)
 		{
@@ -313,11 +337,11 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'bfs':
-										trace('no bf customize menu yet :trolled:');
+										MusicBeatState.switchState(new CharacterSelect());
 									case 'story':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
+										MusicBeatState.switchState(new OSTMenu());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 									default:
@@ -330,7 +354,7 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 
-			#if desktop
+			#if FLX_DEBUG
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;

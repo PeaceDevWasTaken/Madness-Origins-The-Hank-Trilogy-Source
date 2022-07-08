@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DiscSpin.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="spin0000" x="25" y="25" width="205" height="205" />
+	<SubTexture name="spin0001" x="230" y="25" width="205" height="205" />
+	<SubTexture name="spin0002" x="435" y="25" width="205" height="205" />
+	<SubTexture name="spin0003" x="640" y="25" width="204" height="205" frameX="-1" frameY="0" frameWidth="205" frameHeight="205" />
+	<SubTexture name="spin0004" x="25" y="230" width="205" height="205" />
+	<SubTexture name="spin0005" x="230" y="230" width="205" height="205" />
+</TextureAtlas>
