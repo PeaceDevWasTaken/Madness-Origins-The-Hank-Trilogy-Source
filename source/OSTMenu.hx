@@ -33,8 +33,7 @@ class OSTMenu extends MusicBeatState
 	var curNumSong:Int = 3;
 	var weeks:Array<String> = [
 		"MadnessOriginsStory"
-		#if allsongs, 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7'
-		#end
+		#if allsongs, 'week1', 'week2', 'week3', 'week4', 'week5', 'week6', 'week7' #end
 	];
 
 	var songs:Array<Array<SongData>> = [
@@ -250,7 +249,7 @@ class OSTMenu extends MusicBeatState
 		sect.visible = false;
 		sect.scale.set(0.8, 0.8);
 		sect.setPosition(shart.x + shart.width / 2 - sect.width / 2, shart.y + shart.height / 2 - sect.height / 2);
-		FlxTween.angle(sect, -15, 15, 2, {ease: FlxEase.smootherStepInOut, type: PINGPONG});
+		// FlxTween.angle(sect, -15, 15, 2, {ease: FlxEase.smootherStepInOut, type: PINGPONG});
 		add(sect);
 
 		grid = new FlxSprite(-700, -810);
