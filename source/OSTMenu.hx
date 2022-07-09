@@ -159,7 +159,7 @@ class OSTMenu extends MusicBeatState
 
 		for (i in 0...weeks.length)
 		{
-			var bg = new FlxSprite().loadGraphic(Paths.image('ost/week$i'));
+			var bg = new FlxSprite().loadGraphic(Paths.image('ost/weekBG/${weeks[i]}'));
 			bg.setGraphicSize(0, FlxG.height);
 			bg.screenCenter();
 			if (i == 4)
@@ -175,10 +175,10 @@ class OSTMenu extends MusicBeatState
 
 			weekThing.visible = bg.visible = false;
 
-			if (Paths.fileExists('images/ost/week$i-evil.png', IMAGE))
+			if (Paths.fileExists('images/ost/weekBG/${weeks[i]}evil.png', IMAGE))
 			{
 				trace('its evilin time');
-				var bg2 = new FlxSprite().loadGraphic(Paths.image('ost/week${i}-evil'));
+				var bg2 = new FlxSprite().loadGraphic(Paths.image('ost/weekBG/${weeks[i]}-evil'));
 				bg2.setGraphicSize(0, FlxG.height);
 				bg2.screenCenter();
 				if (i == 6)

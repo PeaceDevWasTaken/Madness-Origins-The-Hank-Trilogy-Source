@@ -3457,7 +3457,7 @@ class PlayState extends MusicBeatState
 						heyTimer = time;
 					}
 				}
-				if (value != 1)
+				if (value != 1 && boyfriend.animation.exists('hey'))
 				{
 					boyfriend.playAnim('hey', true);
 					boyfriend.specialAnim = true;
@@ -4849,7 +4849,7 @@ class PlayState extends MusicBeatState
 
 				if (note.noteType == 'Hey!')
 				{
-					if (boyfriend.animOffsets.exists('hey'))
+					if (boyfriend.animOffsets.exists('hey') && boyfriend.animation.exists('hey'))
 					{
 						boyfriend.playAnim('hey', true);
 						boyfriend.specialAnim = true;
@@ -5248,12 +5248,21 @@ class PlayState extends MusicBeatState
 		{
 			for (dancer in boppers)
 				dancer.animation.play('idle', true);
-			for (sprite in foregroundSprites)
-				sprite.dance(true);
 		}
 
 		switch (curStage)
 		{
+			case 'tank':
+				if (curBeat % 2 == 0)
+				{
+					if (!ClientPrefs.lowQuality)
+						tankWatchtower.dance(true);
+					foregroundSprites.forEach(function(spr:BGSprite)
+					{
+						spr.dance(true);
+					});
+				}
+
 			case 'school':
 				if (!ClientPrefs.lowQuality)
 				{

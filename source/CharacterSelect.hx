@@ -18,30 +18,17 @@ using StringTools;
 class CharacterSelect extends MusicBeatState
 {
 	public static var characterList:Array<String> = [
-		'bf',
-		'bf-christmas',
-		'bf-pixel',
-		'meh',
-		'twitter',
-		'nerve',
-		'tricky',
-		'tricky-ex'
+		'bf', 'bf-christmas', 'bf-pixel', 'pico-player', 'tankman-player', 'meh', 'twitter', 'nerve', 'tricky', 'tricky-ex'
 	];
 
 	var characterName:Array<String> = [
-		'Classic Boyfriend',
-		'Christmas Boyfriend',
-		'Pixel Boyfriend',
-		'Mr. Meh',
-		'Average Twitter User',
-		'Exposed Nerve',
-		'Tricky',
+		'Classic Boyfriend', 'Christmas Boyfriend', 'Pixel Boyfriend', 'Pico', 'Tankman', 'Mr. Meh', 'Average Twitter User', 'Exposed Nerve', 'Tricky',
 		'Expurgation Tricky'
 	];
 
-	public static var initScale:Array<Float> = [1, 1, 7.3, 1, 1, .65, 1.15, 1.15];
+	public static var initScale:Array<Float> = [1, 1, 7.3, 1, 1, 1, 1, .65, 1.15, 1.15];
 
-	var characterCost:Array<Int> = [0, 100, 250, 500, 750, 750, 1000, 1500];
+	var characterCost:Array<Int> = [0, 100, 250, 500, 500, 500, 750, 750, 1000, 1500];
 	var unlocked:Array<Bool> = [];
 
 	var characters:FlxTypedGroup<FlxSprite>;
