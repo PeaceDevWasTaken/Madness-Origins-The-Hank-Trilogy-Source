@@ -2,76 +2,76 @@
 	"animations": [
 		{
 			"offsets": [
-				94,
-				59
+				14,
+				29
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "Friend idle"
+			"name": "Mehs Idle dance"
 		},
 		{
 			"offsets": [
-				94,
-				194
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "Friend up"
-		},
-		{
-			"offsets": [
-				94,
-				157
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "Friend left"
-		},
-		{
-			"offsets": [
-				94,
-				131
+				36,
+				19
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "Friend down"
+			"name": "Mehs down note"
 		},
 		{
 			"offsets": [
-				94,
-				97
+				-1,
+				41
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
+			"anim": "singUP",
 			"indices": [],
-			"name": "Friend right"
+			"name": "Mehs up note"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-40,
+				-8
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Mehs left note",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				83,
+				12
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Mehs Right note",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/ur friend",
+	"image": "characters/Meh_Sprites",
 	"position": [
 		0,
 		350
 	],
-	"healthicon": "Friend",
-	"flip_x": true,
+	"healthicon": "meh",
+	"flip_x": false,
 	"healthbar_colors": [
-		214,
-		214,
-		214
+		245,
+		215,
+		255
 	],
 	"camera_position": [
-		10,
-		-70
+		-140,
+		20
 	],
 	"sing_duration": 4,
 	"scale": 1
