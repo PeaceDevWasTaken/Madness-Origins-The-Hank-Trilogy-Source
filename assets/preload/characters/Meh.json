@@ -9,7 +9,7 @@
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "Mehs Idle dance"
+			"name": "idle"
 		},
 		{
 			"offsets": [
@@ -20,7 +20,7 @@
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "Mehs down note"
+			"name": "down"
 		},
 		{
 			"offsets": [
@@ -31,7 +31,7 @@
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "Mehs up note"
+			"name": "up"
 		},
 		{
 			"loop": false,
@@ -41,7 +41,7 @@
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Mehs left note",
+			"name": "left",
 			"indices": []
 		},
 		{
@@ -52,12 +52,12 @@
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "Mehs Right note",
+			"name": "right",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Meh_Sprites",
+	"image": "BFchar/meh",
 	"position": [
 		0,
 		350
