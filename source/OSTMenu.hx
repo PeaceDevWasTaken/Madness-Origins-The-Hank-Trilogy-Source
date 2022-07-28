@@ -422,7 +422,7 @@ class OSTMenu extends MusicBeatState
 					vocal = null;
 				}
 
-				LoadingState.loadAndSwitchState(new PlayState());
+				LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 			});
 		}
 	}

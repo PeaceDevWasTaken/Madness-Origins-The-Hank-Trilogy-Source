@@ -2672,7 +2672,13 @@ class PlayState extends MusicBeatState
 			#if desktop
 			if (startTimer.finished)
 			{
-				DiscordClient.changePresence(detailsText, "No leaks Jon -Phil Swift" + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, "No leaks Jon -Phil Swift"
+					+ " ("
+					+ storyDifficultyText
+					+ ")", iconP2.getCharacter(), true,
+					songLength
+					- Conductor.songPosition
+					- ClientPrefs.noteOffset);
 			}
 			else
 			{
@@ -2691,7 +2697,13 @@ class PlayState extends MusicBeatState
 		{
 			if (Conductor.songPosition > 0.0)
 			{
-				DiscordClient.changePresence(detailsText, "No leaks Jon -Phil Swift" + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, "No leaks Jon -Phil Swift"
+					+ " ("
+					+ storyDifficultyText
+					+ ")", iconP2.getCharacter(), true,
+					songLength
+					- Conductor.songPosition
+					- ClientPrefs.noteOffset);
 			}
 			else
 			{
@@ -4100,13 +4112,13 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(1.5, function(tmr:FlxTimer)
 						{
 							cancelMusicFadeTween();
-							LoadingState.loadAndSwitchState(new PlayState());
+							LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 						});
 					}
 					else
 					{
 						cancelMusicFadeTween();
-						LoadingState.loadAndSwitchState(new PlayState());
+						LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 					}
 				}
 			}

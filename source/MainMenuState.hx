@@ -284,7 +284,7 @@ class MainMenuState extends MusicBeatState
 
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
-			FlxG.switchState(new CharacterSelect());
+			FlxG.switchState(new LoadingScreen(null, true));
 
 		if (FlxG.keys.justPressed.FIVE)
 			FlxG.switchState(new OSTMenu());
@@ -337,7 +337,7 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'bfs':
-										MusicBeatState.switchState(new CharacterSelect());
+										MusicBeatState.switchState(new LoadingScreen(null, true));
 									case 'story':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
