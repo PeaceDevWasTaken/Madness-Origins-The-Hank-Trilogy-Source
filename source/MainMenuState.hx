@@ -97,7 +97,8 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		cursorSprite = new FlxSprite(FlxG.mouse.x, FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
+		cursorSprite = new FlxSprite(FlxG.mouse.x,
+			FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
 		cursorSprite.visible = false;
 
 		var yScroll:Float = Math.max(0 - (0 * (optionShit.length - 0)), 0);
@@ -374,17 +375,17 @@ class MainMenuState extends MusicBeatState
 		{
 			var isSel:Bool = false;
 
-			menuItems.forEach(function(spr:FlxSprite)
-			{				
-				if (curSelected != spr.ID && FlxG.pixelPerfectOverlap(spr, cursorSprite))
+			menuItems.forEach(spr ->
+			{
+				if (FlxG.pixelPerfectOverlap(spr, cursorSprite, 50))
 				{
-					trace(optionShit[spr.ID]);
-					changeItem(spr.ID);
+					if (curSelected != spr.ID)
+						changeItem(spr.ID);
 					isSel = true;
 				}
 			});
 
-			if (!isSel)
+			if (!isSel && curSelected != menuItems.members.length)
 				changeItem(menuItems.members.length);
 		}
 	}
@@ -392,6 +393,8 @@ class MainMenuState extends MusicBeatState
 	function changeItem(newSel:Int = 0)
 	{
 		curSelected = newSel;
+
+		trace(optionShit[newSel]);
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{

@@ -31,15 +31,16 @@ class Enemy extends FlxSprite
 	override public function new(x:Float, y:Float)
 	{
 		super(x, y);
-		frames = FlxAtlasFrames.fromTexturePackerJson(Paths.image('characters/enemy_grunt_final', 'minigame'), Paths.file('images/characters/enemy_grunt_final.json', 'minigame'));
+		frames = FlxAtlasFrames.fromTexturePackerJson(Paths.image('characters/enemy_grunt_final', 'minigame'),
+			Paths.file('images/characters/enemy_grunt_final.json', 'minigame'));
 		animation.addByPrefix('die', 'die0', 12, false);
 		animation.addByPrefix('die_despawn', 'die_despawn', 12, false);
 		animation.addByPrefix('victory', 'victory', 12, true);
 		animation.addByPrefix('run', 'run', 12, false);
 		animation.addByPrefix('idle', 'idle', 12, false);
-		animation.finishCallback = name -> 
+		animation.finishCallback = name ->
 		{
-			switch(name)
+			switch (name)
 			{
 				case 'die':
 					animation.play('die_despawn');
@@ -49,7 +50,7 @@ class Enemy extends FlxSprite
 					trace('victory ENDED');
 			}
 		}
-		antialiasing = false;		
+		antialiasing = false;
 
 		setFacingFlip(RIGHT, false, false);
 		setFacingFlip(LEFT, true, false);
@@ -58,8 +59,9 @@ class Enemy extends FlxSprite
 
 		setGraphicSize(30, 30);
 		updateHitbox();
-		// offset.set(-3, -20);
-		offset.set(4, -4);
+		width = 12 * scale.x;
+		height = 20 * scale.x;
+		offset.set(15, 10);
 
 		health = 6;
 		healthBar = new FlxBar(0, 0, LEFT_TO_RIGHT, (8 + 2) * 3, 2 + 2, this, 'health', 0, health, true);
@@ -197,14 +199,12 @@ class Conditions
 {
 	public static function seesPlayer(owner:FlxSprite):Bool
 		return (SAState.instance.tilemap.ray(new FlxPoint(owner.x + owner.width / 2, owner.y + owner.height / 2),
-			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2,
-				SAState.instance.player.y + SAState.instance.player.height / 2))
+			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2, SAState.instance.player.y + SAState.instance.player.height / 2))
 			&& SAState.instance.player.alive);
 
 	public static function doesntSeesPlayer(owner:FlxSprite):Bool
 		return !(SAState.instance.tilemap.ray(new FlxPoint(owner.x + owner.width / 2, owner.y + owner.height / 2),
-			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2,
-				SAState.instance.player.y + SAState.instance.player.height / 2))
+			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2, SAState.instance.player.y + SAState.instance.player.height / 2))
 			&& SAState.instance.player.alive);
 
 	public static function playerDead(owner:FlxSprite):Bool
