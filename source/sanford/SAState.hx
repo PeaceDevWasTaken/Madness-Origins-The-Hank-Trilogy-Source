@@ -120,6 +120,10 @@ class SAState extends MusicBeatState
 	override public function create()
 	{
 		super.create();
+
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
 		group = new FlxTypedGroup();
 		if (Sound.gameMus == null)
 		{
@@ -149,7 +153,7 @@ class SAState extends MusicBeatState
 		tilemap = map.loadTilemap(Paths.image('tilesets/autotiles_alt'), 'tiles');
 		for (i in 0...14)
 		{
-			tilemap.setTileProperties(i, i == 1 ?ANY :NONE);
+			tilemap.setTileProperties(i, i == 1 ? ANY : NONE);
 		}
 		tilemap.follow(FlxG.camera, 0);
 
@@ -536,7 +540,7 @@ class SAState extends MusicBeatState
 					return;
 
 				trace(e.animation.curAnim.name);
-		
+
 				e.animation.play('victory');
 			});
 		}

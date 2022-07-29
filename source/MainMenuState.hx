@@ -301,7 +301,8 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.fadeOut(1, 0, twn ->
 			{
 				FlxG.sound.music.stop();
-				LoadingState.loadAndSwitchState(new sanford.Intro());
+				sanford.SAState.resetData();
+				LoadingState.loadAndSwitchState(new sanford.SAState());
 			});
 		}
 		#end

@@ -11,7 +11,7 @@ import Controls;
 
 class PauseSubstate extends DefaultSubstate
 {
-	var menuOptions:Array<String> = ['Resume', 'Options', 'Exit'];
+	var menuOptions:Array<String> = ['Resume', 'Exit'];
 	var items:FlxTypedGroup<Text>;
 	var coolThing:FlxSprite;
 	var curSel:Int = 0;
@@ -93,11 +93,9 @@ class PauseSubstate extends DefaultSubstate
 				close();
 				selected = true;
 
-			case 'Options':
-				openSubState(new sanford.Options());
-
 			case 'Exit':
-				FlxG.switchState(new sanford.MainMenu());
+				StageData.forceNextDirectory = 'preload';
+				FlxG.switchState(new MainMenuState());
 
 			default:
 				trace('unhandled $selection');

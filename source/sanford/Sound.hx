@@ -17,7 +17,7 @@ class Sound
 	public static function play(key:String, ?source:FlxObject, ?playa:FlxObject):FlxSound
 	{
 		var newSound = new FlxSound().loadEmbedded(Paths.sound(key));
-		newSound.volume = FlxG.save.data.soundVolume * FlxG.save.data.masterVolume;
+		// newSound.volume = FlxG.save.data.soundVolume * FlxG.save.data.masterVolume;
 		if (key == 'fire_shotgun')
 			newSound.volume *= .4;
 
@@ -56,7 +56,7 @@ class Sound
 			if (sound != null)
 			{
 				sound.update(elapsed);
-				sound.volume = FlxG.save.data.musicVolume * FlxG.save.data.masterVolume;
+				// sound.volume = FlxG.save.data.musicVolume * FlxG.save.data.masterVolume;
 			}
 	}
 }

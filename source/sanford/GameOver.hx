@@ -181,7 +181,8 @@ class GameOver extends DefaultSubstate
 				FlxG.switchState(new SAState());
 
 			case 'Exit to Menu':
-				FlxG.switchState(new MainMenu());
+				StageData.forceNextDirectory = 'preload';
+				FlxG.switchState(new MainMenuState());
 
 			default:
 				trace('unhandled $selection');
