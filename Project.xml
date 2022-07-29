@@ -71,11 +71,13 @@
 	<section if="PRELOAD_ALL">
 		<library name="songs" preload="true" />
 		<library name="shared" preload="true" />
+		<library name="minigame" preload="true" />
 	</section>
 
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs" preload="false" />
 		<library name="shared" preload="false" />
+		<library name="minigame" preload="false" />
 	</section>
 
 	<assets path="plugins/" rename='' if="VIDEOS_ALLOWED windows" />
@@ -88,9 +90,10 @@
 	<assets path="assets/songs" library="songs" exclude="*.ogg" if="web" />
 	<assets path="assets/songs" library="songs" exclude="*.mp3" unless="web" />
 
-
 	<assets path="assets/shared" library="shared" exclude="*.ogg" if="web" />
 	<assets path="assets/shared" library="shared" exclude="*.mp3" unless="web" />
+
+	<assets path="assets/minigame" library="minigame" exclude="*.mp3" unless="web" />
 
 	<assets path="assets/week2" rename="assets/shared" library="shared" if="allsongs" />
 	<assets path="assets/week3" rename="assets/shared" library="shared" if="allsongs" />
@@ -111,6 +114,7 @@
 		NOT USING A DIRECT THING TO THE ASSET!!!
 	-->
 	<assets path="assets/fonts" embed='true' />
+	<assets path="assets/minigame/fonts" embed='true' />
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />

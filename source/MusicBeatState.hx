@@ -13,6 +13,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxBasic;
+import sanford.Sound;
 
 class MusicBeatState extends FlxUIState
 {
@@ -31,9 +32,11 @@ class MusicBeatState extends FlxUIState
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
 		super.create();
 
+		// /*
 		if(!skip) {
 			openSubState(new CustomFadeTransition(0.7, true));
 		}
+		// */
 		FlxTransitionableState.skipNextTransOut = false;
 	}
 	
@@ -65,6 +68,7 @@ class MusicBeatState extends FlxUIState
 		if(FlxG.save.data != null) FlxG.save.data.fullscreen = FlxG.fullscreen;
 
 		super.update(elapsed);
+		Sound.updateSounds(elapsed);
 	}
 
 	private function updateBeat():Void

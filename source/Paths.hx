@@ -175,6 +175,11 @@ class Paths
 		return getPath('data/$key.json', TEXT, library);
 	}
 
+	inline static public function ogmo(key:String, ?library:String)
+	{
+		return getPath('data/$key.ogmo', TEXT, library);
+	}
+
 	inline static public function shaderFragment(key:String, ?library:String)
 	{
 		return getPath('shaders/$key.frag', TEXT, library);

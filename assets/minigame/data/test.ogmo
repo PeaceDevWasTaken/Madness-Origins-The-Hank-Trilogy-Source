@@ -1,0 +1,115 @@
+{
+  "name": "New Project",
+  "ogmoVersion": "3.4.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 400, "y": 400},
+  "levelMaxSize": {"x": 400, "y": 400},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "tile",
+      "name": "tiles",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "99054794",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "New Tileset"
+    },
+    {
+      "definition": "entity",
+      "name": "entities",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "99060204",
+      "requiredTags": [],
+      "excludedTags": []
+    }
+  ],
+  "entities": [
+    {
+      "exportID": "99066464",
+      "name": "playerSpawnpoint",
+      "limit": -1,
+      "size": {"x": 8, "y": 8},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": true,
+      "resizeableY": true,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": []
+    },
+    {
+      "exportID": "99061382",
+      "name": "validEnemySpawn",
+      "limit": -1,
+      "size": {"x": 8, "y": 8},
+      "origin": {"x": 0, "y": 0},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": true,
+      "resizeableY": true,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": []
+    }
+  ],
+  "tilesets": [
+    {"label": "New Tileset", "path": "../images/tilesets/autotiles_alt.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAAAICAYAAAAhkXvnAAAAAXNSR0IArs4c6QAAAXBJREFUSInNl71ugzAUhU+kioqJpYygIgYqJJYuHdn7EH2UDn2Uvkm2douUCIkhIiJjsmSKksUdiqkBG9s4Fv0m4p97j32ubGcBCS8fb+SyO6IqakRpiPvHh07/9/vnQhZDFzcOSJJnKJdrnLf7QXw3Dojje5226+HEHauSSzZmTIsopuN7uB5OAAD6LVqLrmaWO5PJc9FsRGviVPOA382lRGnYFiqlXK7NxGrkpxoAoCrqtgCSPENV1Nz5UgMvu+Po77mgJjLfk6CbBPyZZds0UX6a2/E9RGnY6qBFxdMlNZB1XlQFNlDJZWKcagw3DojNdQvyD3KKjnCpgU+vz4M29k5cfW005Kojqrg5+E9a+hjfgbJLeKzC3Tggov5bVf1YDlXGtPDWn+QZgO5RnOQZyubIZzHVpn0H9pE9AlbbPXcefamdBf23otFnbKIkfgvdA15bfywA4/Vr3YG8vimPAN7fAJvYNJH3COlj8/j9Adb/3deppaoOAAAAAElFTkSuQmCC", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0, "tileMarginX": 0, "tileMarginY": 0}
+  ]
+}

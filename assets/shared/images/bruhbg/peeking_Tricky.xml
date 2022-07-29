@@ -2,7 +2,7 @@
 <TextureAtlas imagePath="peeking_Tricky.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="peeking_Tricky0000" x="0" y="0" width="0" height="0" frameX="415" frameY="160" frameWidth="268" frameHeight="246" />
+	<SubTexture name="peeking_Tricky0000" x="0" y="0" width="1" height="1" frameX="415" frameY="160" frameWidth="268" frameHeight="246" />
 	<SubTexture name="peeking_Tricky0001" x="0" y="0" width="213" height="226" frameX="0" frameY="-19" frameWidth="268" frameHeight="246" />
 	<SubTexture name="peeking_Tricky0002" x="213" y="0" width="213" height="228" frameX="-10" frameY="-17" frameWidth="268" frameHeight="246" />
 	<SubTexture name="peeking_Tricky0003" x="426" y="0" width="163" height="193" frameX="-36" frameY="-52" frameWidth="268" frameHeight="246" />
