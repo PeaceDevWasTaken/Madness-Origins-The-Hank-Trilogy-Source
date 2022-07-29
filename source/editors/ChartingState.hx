@@ -1724,7 +1724,7 @@ class ChartingState extends MusicBeatState
 
 				// if(_song.stage == null) _song.stage = stageDropDown.selectedLabel;
 				StageData.loadDirectory(_song);
-				LoadingState.loadAndSwitchState(new PlayState());
+				LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 			}
 
 			if (curSelectedNote != null && curSelectedNote[1] > -1)

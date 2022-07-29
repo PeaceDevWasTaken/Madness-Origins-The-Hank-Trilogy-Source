@@ -399,7 +399,7 @@ class FreeplayState extends MusicBeatState
 			}
 			else
 			{
-				LoadingState.loadAndSwitchState(new PlayState());
+				LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 			}
 
 			FlxG.sound.music.volume = 0;
