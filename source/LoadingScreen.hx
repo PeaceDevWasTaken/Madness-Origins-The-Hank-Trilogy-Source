@@ -88,9 +88,9 @@ class LoadingScreen extends MusicBeatState
 		else
 			foldersToLoad = [pathShit];
 
-		sys.thread.Thread.create(() -> update(1 / 60));
 		sys.thread.Thread.create(() ->
 		{
+			trace('Asset grab thread started');
 			for (folder in foldersToLoad)
 				for (file in FileSystem.readDirectory(FileSystem.absolutePath(folder)))
 				{
@@ -125,6 +125,7 @@ class LoadingScreen extends MusicBeatState
 		});
 		sys.thread.Thread.create(() ->
 		{
+			trace('Asset loading thread started');
 			while (!readyToLoad)
 				continue;
 
@@ -147,6 +148,7 @@ class LoadingScreen extends MusicBeatState
 						FlxG.switchState(new PlayState());
 			}
 		});
+		sys.thread.Thread.create(() -> update(1 / 60));
 		#end
 	}
 
