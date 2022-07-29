@@ -31,26 +31,20 @@ class Enemy extends FlxSprite
 	override public function new(x:Float, y:Float)
 	{
 		super(x, y);
-		frames = FlxAtlasFrames.fromTexturePackerJson(Paths.image('characters/enemy_grunt_final', 'minigame'),
-			Paths.file('images/characters/enemy_grunt_final.json', 'minigame'));
-		animation.addByPrefix('die', 'die0', 12, false);
-		animation.addByPrefix('die_despawn', 'die_despawn', 12, false);
+		frames = FlxAtlasFrames.fromTexturePackerJson(Paths.image('characters/enemy_grunt_final', 'minigame'), Paths.file('images/characters/enemy_grunt_final.json', 'minigame'));
+		animation.addByPrefix('die', 'die-', 12, false);
 		animation.addByPrefix('victory', 'victory', 12, true);
 		animation.addByPrefix('run', 'run', 12, false);
 		animation.addByPrefix('idle', 'idle', 12, false);
-		animation.finishCallback = name ->
+		animation.finishCallback = name -> 
 		{
-			switch (name)
+			switch(name)
 			{
 				case 'die':
-					animation.play('die_despawn');
-				case 'die_despawn':
 					FlxSpriteUtil.flicker(this, .5, 0.1, false, true, flick -> exists = false);
-				case 'victory':
-					trace('victory ENDED');
 			}
 		}
-		antialiasing = false;
+		antialiasing = false;		
 
 		setFacingFlip(RIGHT, false, false);
 		setFacingFlip(LEFT, true, false);
@@ -59,9 +53,7 @@ class Enemy extends FlxSprite
 
 		setGraphicSize(30, 30);
 		updateHitbox();
-		width = 12 * scale.x;
-		height = 20 * scale.x;
-		offset.set(15, 10);
+		offset.set(4, -4);
 
 		health = 6;
 		healthBar = new FlxBar(0, 0, LEFT_TO_RIGHT, (8 + 2) * 3, 2 + 2, this, 'health', 0, health, true);
@@ -79,6 +71,8 @@ class Enemy extends FlxSprite
 			.add(Chilling, Pathfinding, Conditions.doesntSeesPlayer)
 			.add(Pathfinding, Pursuing, Conditions.seesPlayer)
 			.add(Pathfinding, Chilling, Conditions.playerDead)
+			.add(Pursuing, Chilling, Conditions.dead)
+			.add(Pathfinding, Chilling, Conditions.dead)
 			.start(Chilling);
 	}
 
@@ -114,16 +108,24 @@ class Enemy extends FlxSprite
 		else if (velocity.x > 0)
 			facing = RIGHT;
 
-		if (velocity.x != 0 || velocity.y != 0)
-			animation.play('run');
-		else if (alive)
-			animation.play('idle');
+		if (SAState.instance.player.alive)
+		{
+			if (velocity.x != 0 || velocity.y != 0)
+				animation.play('run');
+			else if (alive)
+				animation.play('idle');
+		}
+		else
+			animation.play('victory');
 	}
 
 	override public function kill()
 	{
 		Sound.play('diesplat${FlxG.random.int(1, 2)}', this, SAState.instance.player);
 		alive = false;
+		allowCollisions = NONE;
+
+		velocity.set();
 
 		animation.play('die', true);
 
@@ -199,14 +201,19 @@ class Conditions
 {
 	public static function seesPlayer(owner:FlxSprite):Bool
 		return (SAState.instance.tilemap.ray(new FlxPoint(owner.x + owner.width / 2, owner.y + owner.height / 2),
-			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2, SAState.instance.player.y + SAState.instance.player.height / 2))
+			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2,
+				SAState.instance.player.y + SAState.instance.player.height / 2))
 			&& SAState.instance.player.alive);
 
 	public static function doesntSeesPlayer(owner:FlxSprite):Bool
 		return !(SAState.instance.tilemap.ray(new FlxPoint(owner.x + owner.width / 2, owner.y + owner.height / 2),
-			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2, SAState.instance.player.y + SAState.instance.player.height / 2))
+			new FlxPoint(SAState.instance.player.x + SAState.instance.player.width / 2,
+				SAState.instance.player.y + SAState.instance.player.height / 2))
 			&& SAState.instance.player.alive);
 
 	public static function playerDead(owner:FlxSprite):Bool
 		return (!SAState.instance.player.alive);
+
+	public static function dead(owner:FlxSprite):Bool
+        return (!owner.alive);
 }

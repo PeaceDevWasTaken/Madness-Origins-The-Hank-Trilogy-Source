@@ -532,18 +532,7 @@ class SAState extends MusicBeatState
 		FlxG.overlap(bullets, hurtables, bulletHit); // bullets hit hurty stuff
 
 		if (!player.alive)
-		{
 			canShoot = false;
-			hurtables.forEachOfType(Enemy, e ->
-			{
-				if (!e.alive || e.animation.curAnim.name == 'victory')
-					return;
-
-				trace(e.animation.curAnim.name);
-
-				e.animation.play('victory');
-			});
-		}
 		if (FlxG.mouse.pressed && canShoot)
 			fireShot();
 
