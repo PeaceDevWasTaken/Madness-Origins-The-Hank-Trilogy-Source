@@ -1,5 +1,7 @@
 package;
 
+import flixel.util.FlxGradient;
+import flixel.util.FlxTimer;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -23,83 +25,189 @@ using StringTools;
 
 class ExtrasState extends MusicBeatState
 {
-	var optionShit:Array<String> = ['trophies\nand\nachievements', 'do not open', 'original soundtracks'];
+	var optionShit:Array<String> = ['do not open', 'trophies__and__achievements', 'original soundtracks'];
 	var curSelected:Int = 0;
 
-	var bgs:FlxTypedGroup<FlxSprite>;
+	var cursorSprite:FlxSprite;
+
+	var bgGrp:FlxTypedGroup<FlxSprite>;
+	var textGrp:FlxTypedGroup<FlxText>;
 
 	override function create()
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
+		FlxG.mouse.visible = true;
+		
+		cursorSprite = new FlxSprite(FlxG.mouse.x,
+			FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
+		cursorSprite.visible = false;
+
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		bgs = new FlxTypedGroup<FlxSprite>();
-		add(bgs);
+		bgGrp = new FlxTypedGroup<FlxSprite>();
+		add(bgGrp);
 
 		var bgArray:Array<String> = [
-			'left screen',
-			'Lbar',
 			'middle screen',
-			'Rbar',
-			'right screen'
+			'left screen',
+			'right screen',
 		];
 
 		for (i in 0...bgArray.length)
 		{
-			var bgItem:FlxSprite = new FlxSprite().loadGraphic(Paths.image('extra/${bgArray[i]}'));
-			bgItem.setGraphicSize(0, 720);
-			bgItem.updateHitbox();
-			if (i > 0)
-				bgItem.x = bgs.members[i-1].x + bgs.members[i-1].width;
-			bgs.add(bgItem);
+			var bgItem:FlxSprite = new FlxSprite();
+			switch(bgArray[i])
+			{
+				case 'left screen':
+					bgItem.loadGraphic(Paths.image('extra/left screen'));
+					bgItem.y -= 20;
+				case 'middle screen':
+					bgItem = FlxGradient.createGradientFlxSprite(634, 746, [FlxColor.BLACK, FlxColor.fromRGB(20, 0, 0), FlxColor.fromRGB(130, 0, 0), FlxColor.RED], 13);
+					bgItem.setPosition(310, -20);
+				case 'right screen':
+					bgItem.loadGraphic(Paths.image('extra/right screen'));
+					bgItem.setPosition(FlxG.width - bgItem.width, -20);
+			}
+			bgItem.ID = i;
+			bgGrp.add(bgItem);
+
+			trace('bg added : id = ${bgItem.ID}, text = ${bgArray[i]}');
 
 			bgItem.antialiasing = ClientPrefs.globalAntialiasing;
 		}
 
-		// for (i in 0...optionShit.length)
-		// {
 
-		// }
+		var lBar:FlxSprite = new FlxSprite(311, -20).loadGraphic(Paths.image('extra/Lbar'));
+		add(lBar);
+		var rBar:FlxSprite = new FlxSprite(740, -20).loadGraphic(Paths.image('extra/Rbar'));
+		add(rBar);
+
+		textGrp = new FlxTypedGroup<FlxText>();
+		add(textGrp);
+
+		add(cursorSprite);
+
+		for (i in 0...optionShit.length)
+		{
+			var text:FlxText = new FlxText(0, 0, FlxG.width, optionShit[i].toUpperCase().replace('__', '\n'));
+			text.setFormat(Paths.font("impact.ttf"), 32, FlxColor.WHITE, CENTER).screenCenter();
+			switch(optionShit[i])
+			{
+				case 'do not open':
+					text.screenCenter(X);
+					text.y = 50;
+				case 'trophies__and__achievements':
+					text.screenCenter(X);
+					text.x -= 400;
+					text.y = 50;
+				case 'original soundtracks':
+					text.screenCenter(X);
+					text.x += 400;
+					text.y = 50;
+			}
+			text.ID = i;
+			textGrp.add(text);
+			trace('text added : id = ${text.ID}, text = ${optionShit[i]}, x = ${text.x}, y = ${text.y}');
+		}
 
 		super.create();
 	}
 
+	var selectedSomethin:Bool = false;
 	override function update(elapsed:Float)
 	{
-		if (controls.BACK)
+		if (!selectedSomethin)
 		{
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
-		}
-		if (controls.ACCEPT)
-		{
-			if (FlxG.keys.pressed.SHIFT)
+			if (cursorSprite.x != FlxG.mouse.x)
+				cursorSprite.setPosition(FlxG.mouse.x, FlxG.mouse.y);
+
+			if (controls.BACK)
 			{
-				LoadingState.loadAndSwitchState(new ChartingState());
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.switchState(new MainMenuState());
 			}
-			else
+			if (controls.ACCEPT || FlxG.mouse.justPressed)
 			{
-				LoadingState.loadAndSwitchState(new PlayState());
+				var sel:Int = curSelected;
+				
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+
+				textGrp.forEach(function(spr:FlxSprite)
+				{
+					if (sel == spr.ID)
+					{
+						var daChoice:String = optionShit[sel];
+						if (daChoice == 'trophies__and__achievements')
+						{
+							FlxTransitionableState.skipNextTransOut = true;
+							StageData.forceNextDirectory = 'minigame';
+							FlxG.sound.music.fadeOut(1, 0, twn ->
+							{
+								FlxG.sound.music.stop();
+								sanford.SAState.resetData();
+								LoadingState.loadAndSwitchState(new sanford.SAState());
+							});
+						}
+						else
+						{
+							new FlxTimer().start(1, function(tmr:FlxTimer)
+							{
+								switch (daChoice)
+								{
+									case 'do not open':
+										MusicBeatState.switchState(new MainMenuState());
+									case 'original soundtracks':
+										MusicBeatState.switchState(new OSTMenu());
+									default:
+										trace('clicked an unhandled button, $daChoice, curSelected $sel');
+										FlxG.resetState();
+								}
+							});
+						}
+					}
+				});
 			}
 		}
+
 		super.update(elapsed);
+
+		if (!selectedSomethin)
+		{
+			var isSel:Bool = false;
+			bgGrp.forEach(spr ->
+			{
+				if (!isSel && FlxG.pixelPerfectOverlap(spr, cursorSprite, 100))
+				{
+					if (curSelected != spr.ID)
+						changeItem(spr.ID);
+					isSel = true;
+				}
+			});
+		}
 	}
 
-	function changeSelection(change:Int = 0, playSound:Bool = true)
+	function changeItem(newSel:Int = 0)
 	{
-		if (playSound)
-			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-
-		curSelected += change;
-
-		if (curSelected < 0)
-			curSelected = optionShit.length - 1;
-		if (curSelected >= optionShit.length)
-			curSelected = 0;
+		curSelected = newSel;
+		
+		// textGrp.forEach(function(txt:FlxText)
+		// {
+		// 	if (txt.ID == curSelected)
+		// 	{
+		// 		txt.color = FlxColor.BLACK;
+		// 		txt.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.WHITE);
+		// 	}
+		// 	else
+		// 	{
+		// 		txt.color = FlxColor.WHITE;
+		// 		txt.setBorderStyle(NONE, FlxColor.TRANSPARENT);
+		// 	}
+		// });
 	}
 }

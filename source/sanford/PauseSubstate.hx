@@ -19,6 +19,8 @@ class PauseSubstate extends DefaultSubstate
 	override public function new()
 	{
 		super();
+		canEsc = false;
+		
 		var title = new Text(0, 0, FlxG.width, 'PAUSED', 96);
 		title.alignment = CENTER;
 		add(title);
@@ -94,6 +96,12 @@ class PauseSubstate extends DefaultSubstate
 				selected = true;
 
 			case 'Exit':
+				if (Sound.gameMus != null)
+				{
+					Sound.gameMus.stop();
+					Sound.gameMus = null;
+				}
+				selected = true;
 				StageData.forceNextDirectory = 'preload';
 				FlxG.switchState(new MainMenuState());
 

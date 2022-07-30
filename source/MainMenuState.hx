@@ -101,9 +101,8 @@ class MainMenuState extends MusicBeatState
 			FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
 		cursorSprite.visible = false;
 
-		var yScroll:Float = Math.max(0 - (0 * (optionShit.length - 0)), 0);
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.scrollFactor.set(0, yScroll);
+		bg.scrollFactor.set();
 		bg.setGraphicSize(Std.int(bg.width * 0.45));
 		bg.updateHitbox();
 		bg.screenCenter();
@@ -114,7 +113,7 @@ class MainMenuState extends MusicBeatState
 		movingbgidiots = new FlxSprite(-80);
 		movingbgidiots.frames = Paths.getSparrowAtlas('mainmenu/Ugly_mofos');
 		movingbgidiots.animation.addByPrefix('idle', 'movin dudes0', 24, false);
-		movingbgidiots.scrollFactor.set(0, yScroll);
+		movingbgidiots.scrollFactor.set();
 		movingbgidiots.setGraphicSize(Std.int(movingbgidiots.width * 1.6));
 		movingbgidiots.updateHitbox();
 		movingbgidiots.screenCenter();
@@ -161,7 +160,7 @@ class MainMenuState extends MusicBeatState
 			add(grunt);
 
 			hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuOG'));
-			hankmenu.scrollFactor.set(0, yScroll);
+			hankmenu.scrollFactor.set();
 			hankmenu.setGraphicSize(Std.int(hankmenu.width * 0.45));
 			hankmenu.updateHitbox();
 			hankmenu.screenCenter();
@@ -217,16 +216,17 @@ class MainMenuState extends MusicBeatState
 				case 'extras':
 					menuItem.setGraphicSize(260);
 					menuItem.updateHitbox();
-					menuItem.setPosition(531, 387);
+					menuItem.setPosition(540, 385);
 					menuItem.angle -= 16;
 				case 'options':
 					menuItem.setGraphicSize(260);
 					menuItem.updateHitbox();
-					menuItem.setPosition(745, 310);
+					menuItem.setPosition(752, 303);
+					menuItem.angle += 1;
 				case 'credits':
 					menuItem.setGraphicSize(260);
 					menuItem.updateHitbox();
-					menuItem.setPosition(975, 264);
+					menuItem.setPosition(968, 265);
 					menuItem.angle -= 16;
 			}
 
@@ -284,7 +284,8 @@ class MainMenuState extends MusicBeatState
 
 		movingbgidiots.animation.play('idle');
 
-		cursorSprite.setPosition(FlxG.mouse.x, FlxG.mouse.y);
+		if (cursorSprite.x != FlxG.mouse.x)
+			cursorSprite.setPosition(FlxG.mouse.x, FlxG.mouse.y);
 
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
@@ -346,7 +347,7 @@ class MainMenuState extends MusicBeatState
 									case 'freeplay':
 										MusicBeatState.switchState(new OSTMenu());
 									case 'extras':
-										MusicBeatState.switchState(new OSTMenu());
+										MusicBeatState.switchState(new ExtrasState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
 									case 'credits':
@@ -378,7 +379,7 @@ class MainMenuState extends MusicBeatState
 
 			menuItems.forEach(spr ->
 			{
-				if (FlxG.pixelPerfectOverlap(spr, cursorSprite, 50))
+				if (!isSel && FlxG.pixelPerfectOverlap(spr, cursorSprite, 50))
 				{
 					if (curSelected != spr.ID)
 						changeItem(spr.ID);
@@ -395,7 +396,7 @@ class MainMenuState extends MusicBeatState
 	{
 		curSelected = newSel;
 
-		trace(optionShit[newSel]);
+		trace(optionShit[newSel] + ' ${newSel}');
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{

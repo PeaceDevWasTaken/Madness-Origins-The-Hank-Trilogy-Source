@@ -40,7 +40,7 @@ class Sound
 
 		newSound.play();
 		newSound.update(0);
-		newSound.persist = true;
+		// newSound.persist = true;
 
 		musics.push(newSound);
 

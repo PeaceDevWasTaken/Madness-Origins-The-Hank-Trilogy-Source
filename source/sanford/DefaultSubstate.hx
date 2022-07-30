@@ -46,8 +46,7 @@ class DefaultSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if (canEsc)
-			if (controls.BACK)
+		if (canEsc && controls.BACK)
 				new FlxTimer().start(.05, tmr -> close());
 
 		super.update(elapsed);

@@ -121,6 +121,8 @@ class SAState extends MusicBeatState
 	{
 		super.create();
 
+		FlxG.mouse.visible = false;
+
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
