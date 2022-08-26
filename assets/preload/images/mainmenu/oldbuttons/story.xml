@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="story.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Story0000" x="0" y="0" width="235" height="174"/>
+	<SubTexture name="select story0000" x="235" y="0" width="238" height="176"/>
+	<SubTexture name="select story0001" x="473" y="0" width="238" height="176"/>
+	<SubTexture name="select story0002" x="711" y="0" width="238" height="176"/>
+	<SubTexture name="select story0003" x="949" y="0" width="238" height="176"/>
+	<SubTexture name="select story0004" x="1187" y="0" width="238" height="176"/>
+	<SubTexture name="select story0005" x="1425" y="0" width="238" height="176"/>
+	<SubTexture name="select story0006" x="1663" y="0" width="238" height="176"/>
+	<SubTexture name="select story0007" x="0" y="176" width="238" height="176"/>
+	<SubTexture name="select story0008" x="238" y="176" width="238" height="176"/>
+	<SubTexture name="select story0009" x="476" y="176" width="238" height="176"/>
+	<SubTexture name="select story0010" x="714" y="176" width="238" height="176"/>
+	<SubTexture name="select story0011" x="952" y="176" width="238" height="176"/>
+	<SubTexture name="select story0012" x="1190" y="176" width="238" height="176"/>
+	<SubTexture name="select story0013" x="1428" y="176" width="238" height="176"/>
+	<SubTexture name="select story0014" x="1666" y="176" width="238" height="176"/>
+	<SubTexture name="select story0015" x="0" y="352" width="238" height="176"/>
+	<SubTexture name="select story0016" x="238" y="352" width="238" height="176"/>
+	<SubTexture name="select story0017" x="476" y="352" width="238" height="176"/>
+	<SubTexture name="select story0018" x="714" y="352" width="238" height="176"/>
+	<SubTexture name="select story0019" x="952" y="352" width="238" height="176"/>
+	<SubTexture name="select story0020" x="1190" y="352" width="238" height="176"/>
+	<SubTexture name="select story0021" x="1428" y="352" width="238" height="176"/>
+	<SubTexture name="select story0022" x="1666" y="352" width="238" height="176"/>
+	<SubTexture name="select story0023" x="0" y="528" width="238" height="176"/>
+</TextureAtlas>

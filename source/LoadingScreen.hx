@@ -19,12 +19,9 @@ class LoadingScreen extends MusicBeatState
 	var loading:FlxText;
 	var ticks:Float = 0;
 
-	var _done:Bool = false;
-
 	var load:Array<String> = [];
 	var totalLoad:Int = 0;
 	var loaded:Int = 0;
-	var readyToLoad:Bool = false;
 
 	var players:Array<String> = []; // characters we need to load
 	var songName:String; // so we can load inst/vocal
@@ -32,8 +29,11 @@ class LoadingScreen extends MusicBeatState
 
 	var coolFolder:String;
 
+	final lock = new sys.thread.Lock();
+
 	override public function new(?song:SwagSong, ?charSelect:Bool)
 	{
+		super();
 		if (song != null)
 		{
 			players[0] = song.player1;
@@ -48,14 +48,13 @@ class LoadingScreen extends MusicBeatState
 		}
 		else if (charSelect != null)
 			this.charSelect = charSelect;
-		super();
 	}
 
 	override public function create()
 	{
 		super.create();
 
-		#if !sys // What are you doing
+		#if !target.threaded // What are you doing
 		if (charSelect)
 			FlxG.switchState(new CharacterSelect());
 		else
@@ -87,6 +86,8 @@ class LoadingScreen extends MusicBeatState
 			foldersToLoad = ['assets/images/BFchar/', 'assets/images/charmenu/'];
 		else
 			foldersToLoad = [pathShit];
+
+		sys.thread.Thread.create(() -> update(1 / ClientPrefs.framerate));
 
 		sys.thread.Thread.create(() ->
 		{
@@ -121,13 +122,13 @@ class LoadingScreen extends MusicBeatState
 			}
 
 			totalLoad = load.length;
-			readyToLoad = true;
+			lock.release();
 		});
+
 		sys.thread.Thread.create(() ->
 		{
+			lock.wait();
 			trace('Asset loading thread started');
-			while (!readyToLoad)
-				continue;
 
 			for (item in load)
 			{
@@ -148,7 +149,6 @@ class LoadingScreen extends MusicBeatState
 						FlxG.switchState(new PlayState());
 			}
 		});
-		sys.thread.Thread.create(() -> update(1 / 60));
 		#end
 	}
 

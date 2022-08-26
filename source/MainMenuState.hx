@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxCollision;
 import flixel.util.FlxTimer;
 #if desktop
@@ -41,28 +42,10 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 
-	var optionShit:Array<String> = ['bfs', 'story', 'freeplay', 'extras', 'options', 'credits'];
-
-	var charList:Array<MenuChar> = [
-		{path: "ded_bf", prefix: 'died bf', scale: 1},
-		{path: "sheriff", prefix: 'Sariff', scale: 1.25},
-		{path: "Auditor", prefix: 'Grunt idle', scale: 1.15},
-		{path: "GruntDead", prefix: 'Grunt idle', scale: 1.25},
-		{path: "Zombie", prefix: 'Grunt idle', scale: 1.25},
-		{path: "grunt", prefix: 'Grunt idle', scale: 1.25},
-		{path: "skellytricky", prefix: 'Grunt idle', scale: 1},
-		{path: "menu_grunt2", prefix: 'Grunt idle', scale: 1.25},
-		{path: "menu_scrapeface", prefix: 'Grunt idle', scale: 1.25}
-	];
+	var optionShit:Array<String> = ['story', 'freeplay', 'shop', 'extras', 'options', /* 'credits' */];
 
 	var hankmenu:FlxSprite;
-	var movingbgidiots:FlxSprite;
-	var grunt:FlxSprite;
-	var camFollow:FlxObject;
-	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
-
-	var cursorSprite:FlxSprite;
 
 	override function create()
 	{
@@ -97,137 +80,46 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		cursorSprite = new FlxSprite(FlxG.mouse.x,
-			FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
-		cursorSprite.visible = false;
+		var bdrop:FlxBackdrop = new FlxBackdrop(Paths.image('mainmenu/scrollbg'), 1, 0, true, false);
+		bdrop.scale.set(0.46, 0.46);
+		bdrop.updateHitbox();
+		bdrop.offset.y += 50;
+		bdrop.velocity.x = 100;
+		bdrop.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bdrop);
+		bdrop.alive = false;
 
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.scrollFactor.set();
-		bg.setGraphicSize(Std.int(bg.width * 0.45));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
-		bg.alive = false;
-
-		movingbgidiots = new FlxSprite(-80);
-		movingbgidiots.frames = Paths.getSparrowAtlas('mainmenu/Ugly_mofos');
-		movingbgidiots.animation.addByPrefix('idle', 'movin dudes0', 24, false);
-		movingbgidiots.scrollFactor.set();
-		movingbgidiots.setGraphicSize(Std.int(movingbgidiots.width * 1.6));
-		movingbgidiots.updateHitbox();
-		movingbgidiots.screenCenter();
-		movingbgidiots.antialiasing = ClientPrefs.globalAntialiasing;
-		movingbgidiots.x = -1800;
-		movingbgidiots.y = -1535;
-		movingbgidiots.height = 1;
-		add(movingbgidiots);
-		movingbgidiots.alive = false;
-
-		if (!FlxG.random.bool(1))
-		{
-			var randomChar:Int = FlxG.random.int(0, charList.length - 1);
-			grunt = new FlxSprite(-80);
-			grunt.frames = Paths.getSparrowAtlas('mainmenu/chars/${charList[randomChar].path}');
-			grunt.animation.addByPrefix('idle', charList[randomChar].prefix, 24, false);
-
-			grunt.scale.set(charList[randomChar].scale, charList[randomChar].scale);
-			grunt.updateHitbox();
-			grunt.screenCenter();
-			grunt.antialiasing = ClientPrefs.globalAntialiasing;
-			grunt.setPosition(75, 215);
-			switch (charList[randomChar].path)
-			{
-				case 'ded_bf':
-					grunt.x -= 75;
-
-				case 'Auditor':
-					grunt.x -= 50;
-					grunt.y -= 100;
-
-				case 'grunt':
-					grunt.y -= 100;
-
-				case 'skellytricky':
-					grunt.x -= 120;
-					grunt.y -= 200;
-
-				case 'menu_grunt2':
-					grunt.x -= 50;
-					grunt.y -= 100;
-			}
-
-			add(grunt);
-
-			hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenuOG'));
-			hankmenu.scrollFactor.set();
-			hankmenu.setGraphicSize(Std.int(hankmenu.width * 0.45));
-			hankmenu.updateHitbox();
-			hankmenu.screenCenter();
-			hankmenu.antialiasing = ClientPrefs.globalAntialiasing;
-			hankmenu.x = 0;
-			hankmenu.y = 0;
-			hankmenu.height = 1;
-			add(hankmenu);
-			hankmenu.alive = false;
-		}
-		else
-		{
-			var DONOT = new FlxSprite().loadGraphic(Paths.image('mainmenuSECRET'));
-			DONOT.setGraphicSize(FlxG.width, FlxG.height);
-			DONOT.updateHitbox();
-			DONOT.screenCenter();
-			add(DONOT);
-		}
-
-		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-		add(camFollowPos);
+		hankmenu = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/bg'));
+		hankmenu.scrollFactor.set();
+		hankmenu.setGraphicSize(FlxG.width, FlxG.height);
+		hankmenu.updateHitbox();
+		hankmenu.screenCenter();
+		hankmenu.antialiasing = ClientPrefs.globalAntialiasing;
+		hankmenu.x = 0;
+		hankmenu.y = 0;
+		hankmenu.height = 1;
+		add(hankmenu);
+		hankmenu.alive = false;
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var spr:FlxSprite = new FlxSprite().loadGraphic(Paths.image('mainmenu/select_screen'));
-		spr.setPosition(480, 123);
-		add(spr);
-		spr.alive = false;
-
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite();
+			var menuItem:FlxSprite = new FlxSprite(50, (i * 130) + 60);
 
-			menuItem.frames = Paths.getSparrowAtlas('mainmenu/buttons/' + optionShit[i]);
-			menuItem.animation.addByIndices('idle', 'select ${optionShit[i]}', [0], "", 24);
-			menuItem.animation.addByPrefix('selected', 'select ${optionShit[i]}', 12, false);
-			menuItem.animation.play('idle');
-			menuItem.updateHitbox();
-
-			switch (optionShit[i])
+			switch(optionShit[i])
 			{
-				case "story":
-					menuItem.setPosition(525, 273);
-				case "freeplay":
-					menuItem.setPosition(737, 207);
-					menuItem.angle += 3;
-				case 'bfs':
-					menuItem.setPosition(950, 145);
-					menuItem.angle += 2;
-				case 'extras':
-					menuItem.setGraphicSize(260);
+				case 'story':
+					menuItem.frames = Paths.getSparrowAtlas('mainmenu/buttons/' + optionShit[i]);
+					menuItem.animation.addByPrefix('idle', 'Symbol 10000', 1, false);
+					menuItem.animation.addByPrefix('selected', 'story slice0', 24, false);
+					menuItem.animation.play('idle');
 					menuItem.updateHitbox();
-					menuItem.setPosition(540, 385);
-					menuItem.angle -= 16;
-				case 'options':
-					menuItem.setGraphicSize(260);
+
+				default:
+					menuItem.loadGraphic(Paths.image('mainmenu/buttons/${optionShit[i]}'));
 					menuItem.updateHitbox();
-					menuItem.setPosition(752, 303);
-					menuItem.angle += 1;
-				case 'credits':
-					menuItem.setGraphicSize(260);
-					menuItem.updateHitbox();
-					menuItem.setPosition(968, 265);
-					menuItem.angle -= 16;
 			}
 
 			menuItem.ID = i;
@@ -237,8 +129,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 		// NG.core.calls.event.logEvent('swag').send();
-
-		add(cursorSprite);
 
 		changeItem();
 
@@ -279,13 +169,11 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (grunt != null)
-			grunt.animation.play('idle');
-
-		movingbgidiots.animation.play('idle');
-
-		if (cursorSprite.x != FlxG.mouse.x)
-			cursorSprite.setPosition(FlxG.mouse.x, FlxG.mouse.y);
+		if (FlxG.keys.justPressed.C && !selectedSomethin)
+		{
+			selectedSomethin = true;
+			FlxG.switchState(new CreditsState());
+		}
 
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
@@ -333,19 +221,21 @@ class MainMenuState extends MusicBeatState
 					{
 						if (sel == spr.ID)
 						{
-							spr.animation.play('selected');
+							if (spr.animation.getNameList().contains('selected'))
+								spr.animation.play('selected');
+
 							new FlxTimer().start(1, function(tmr:FlxTimer)
 							{
 								var daChoice:String = optionShit[sel];
 
 								switch (daChoice)
 								{
-									case 'bfs':
-										MusicBeatState.switchState(new LoadingScreen(null, true));
 									case 'story':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new OSTMenu());
+									case 'shop':
+										MusicBeatState.switchState(new LoadingScreen(null, true));
 									case 'extras':
 										MusicBeatState.switchState(new ExtrasState());
 									case 'options':
@@ -379,7 +269,7 @@ class MainMenuState extends MusicBeatState
 
 			menuItems.forEach(spr ->
 			{
-				if (!isSel && FlxG.pixelPerfectOverlap(spr, cursorSprite, 50))
+				if (!isSel && FlxG.mouse.overlaps(spr))
 				{
 					if (curSelected != spr.ID)
 						changeItem(spr.ID);
@@ -400,7 +290,8 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.animation.play('idle');
+			if (spr.animation.getNameList().contains('idle'))
+				spr.animation.play('idle');
 			// spr.updateHitbox();
 		});
 	}
