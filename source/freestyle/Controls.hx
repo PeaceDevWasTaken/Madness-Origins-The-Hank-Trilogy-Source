@@ -144,7 +144,7 @@ class Controls extends YourMother {
         var action = getActionFromKey(key);
         var binds = ["left","down","up","right"];
         var dir = binds.indexOf(action);
-        trace(left);
+        //trace(left);
         //var dir = -1;
         /*switch (action) {
             case "left":
