@@ -21,6 +21,7 @@ import sys.FileSystem;
 import flixel.graphics.FlxGraphic;
 import openfl.display.BitmapData;
 import flash.media.Sound;
+import freestyle.AssetPaths;
 
 using StringTools;
 
@@ -51,7 +52,8 @@ class Paths
 	/// haya I love you for the base cache dump I took to the max
 	public static function clearUnusedMemory()
 	{
-		// clear non local assets in the tracked assets list
+		AssetPaths.clearOpenflAssets();
+		/*// clear non local assets in the tracked assets list
 		for (key in currentTrackedAssets.keys())
 		{
 			// if it is not currently contained within the used local assets
@@ -70,15 +72,16 @@ class Paths
 			}
 		}
 		// run the garbage collector for good measure lmfao
-		System.gc();
+		System.gc();*/
 	}
 
-	// define the locally tracked assets
+	// define tracked assets
 	public static var localTrackedAssets:Array<String> = [];
 
 	public static function clearStoredMemory(?cleanUnused:Bool = false)
 	{
-		// clear anything not in the tracked assets list
+		AssetPaths.clearOpenflAssets();
+		/*// clear anything not in the tracked assets list
 		@:privateAccess
 		for (key in FlxG.bitmap._cache.keys())
 		{
@@ -103,8 +106,11 @@ class Paths
 		}
 		// flags everything to be cleared out next unused memory clear
 		localTrackedAssets = [];
-		openfl.Assets.cache.clear("songs");
+		openfl.Assets.cache.clear("songs");*/
 	}
+
+	/* Freestyle Engine Asset System ported to psy engine */
+	// this is replacing YoShubs Assets system due to texture stacking and crashing.
 
 	static public var currentModDirectory:String = '';
 	static public var currentLevel:String;
@@ -241,7 +247,8 @@ class Paths
 	inline static public function image(key:String, ?library:String):FlxGraphic
 	{
 		// streamlined the assets process more
-		var returnAsset:FlxGraphic = returnGraphic(key, library);
+		//var returnAsset:FlxGraphic = returnGraphic(key, library);
+		var returnAsset:FlxGraphic = AssetPaths.loadAsset(key, true); // literally fixes the lag lmao.
 		return returnAsset;
 	}
 
@@ -301,7 +308,8 @@ class Paths
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
 		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = returnGraphic(key);
+		//var imageLoaded:FlxGraphic = returnGraphic(key);
+		var imageLoaded:FlxGraphic = AssetPaths.loadAsset(key, true);
 		var xmlExists:Bool = false;
 		if (FileSystem.exists(modsXml(key)))
 		{
