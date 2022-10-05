@@ -124,21 +124,41 @@ class Controls extends YourMother {
         106 => "Numpad *"
     ];
 
-    static final left:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left'));
-    final down:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_down'));
-    final up:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_up'));
-    final right:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_right'));
+    private static var left:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left'));
+    private static var down:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_down'));
+    private static var up:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_up'));
+    private static var right:Array<flixel.input.keyboard.FlxKey> = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_right'));
 
-    static var actions:StringMap<Array<Null<Int>>> =  // rebindable keys
+    private static var keyBinds:Array<Dynamic>;
+
+    static var actions:StringMap<Array<Null<flixel.input.keyboard.FlxKey>>> =  // rebindable keys
     [
-        "left"     => [Keyboard.LEFT, Keyboard.D],
-        "down"     => [Keyboard.DOWN, Keyboard.F],
-        "up"     => [Keyboard.UP, Keyboard.J],
-        "right"    => [Keyboard.RIGHT, Keyboard.K],
-        "confirm"   => [Keyboard.ENTER, null],
-        "back"      => [Keyboard.ESCAPE, null],
-        "shift"     => [Keyboard.SHIFT, null],
+        "left"     => [left[0], left[1]],
+        "down"     => [down[0], down[1]],
+        "up"       => [up[0], up[1]],
+        "right"    => [right[0], right[1]],
+        "confirm"  => [Keyboard.ENTER, null],
+        "back"     => [Keyboard.ESCAPE, null],
+        "shift"    => [Keyboard.SHIFT, null],
     ];
+
+    inline public static function setKeyBinds(keys:Array<Dynamic>) {
+        left = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left'));
+        down = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_down'));
+        up = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_up'));
+        right = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_right'));
+
+        actions =  // rebindable keys // this sucks on god.
+        [
+            "left"     => [left[0], left[1]],
+            "down"     => [down[0], down[1]],
+            "up"       => [up[0], up[1]],
+            "right"    => [right[0], right[1]],
+            "confirm"  => [Keyboard.ENTER, null],
+            "back"     => [Keyboard.ESCAPE, null],
+            "shift"    => [Keyboard.SHIFT, null],
+        ];
+    }
 
     inline public static function getKeyID(key:Int){
         var action = getActionFromKey(key);

@@ -345,6 +345,8 @@ class PlayState extends MusicBeatState
 			ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_up')),
 			ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_right'))
 		];
+		Controls.setKeyBinds(keysArray);
+		//trace(keysArray[0][1]);
 
 		// For the "Just the Two of Us" achievement
 		for (i in 0...keysArray.length)
