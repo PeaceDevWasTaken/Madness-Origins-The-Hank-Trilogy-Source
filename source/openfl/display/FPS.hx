@@ -1,5 +1,7 @@
 package openfl.display;
 
+import freestyle.Memory;
+import lime.system.Display;
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.text.TextField;
@@ -85,10 +87,16 @@ class FPS extends TextField
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 			
-			#if openfl
+			/*#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " MB";
-			#end
+			#end*/
+			
+			// Freestyle Memory which actually represents Asset MEM.
+			//memoryMegas = freestyle.Memory.calc(0);
+			memoryMegas = Memory.calc(0);
+			//text = "FPS: " + times.length + " MB\nGC MEM: " + current + " MB" + "\nUSAGE " + virRam + " / " + hRam + " GB";
+			text += "\nMemory: " + memoryMegas + " MB" + "\nUsage " + Memory.physical() + " / " + Memory.virtual() + " GB";
 
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
