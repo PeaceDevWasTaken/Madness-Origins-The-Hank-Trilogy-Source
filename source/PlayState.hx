@@ -4,6 +4,7 @@ import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
+import freestyle.Controls;
 import Section.SwagSection;
 import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
@@ -324,10 +325,12 @@ class PlayState extends MusicBeatState
 	var coinText:FlxText;
 
 	var targetHBY:Float = 0;
+	var prevTime:Float = 0;
 
 	override public function create()
 	{
-		Paths.clearStoredMemory();
+		//Paths.clearStoredMemory(); // Redacted 
+		FlxGraphic.defaultPersist = false; // set graphics to not persist to clear everything from last create call.
 
 		// for lua
 		instance = this;
@@ -1652,7 +1655,10 @@ class PlayState extends MusicBeatState
 
 		super.create();
 
-		Paths.clearUnusedMemory();
+		Paths.clearUnusedMemory(); // Redacted
+		//Paths.clearOpenflAssets(); // call Paths to remove local assets. 
+		FlxGraphic.defaultPersist = true; // set graphics to persist so anything on screen is not removed.
+
 		CustomFadeTransition.nextCamera = camOther;
 	}
 
@@ -2278,6 +2284,7 @@ class PlayState extends MusicBeatState
 		#end
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
+		openfl.system.System.gc(); // clear music //
 	}
 
 	var debugNum:Int = 0;
@@ -2735,8 +2742,8 @@ class PlayState extends MusicBeatState
 		vocals.pause();
 
 		FlxG.sound.music.play();
-		Conductor.songPosition = FlxG.sound.music.time;
-		vocals.time = Conductor.songPosition;
+		//Conductor.songPosition = FlxG.sound.music.time;
+		vocals.time = FlxG.sound.music.time;
 		vocals.play();
 	}
 
@@ -3081,13 +3088,16 @@ class PlayState extends MusicBeatState
 			if (startedCountdown)
 			{
 				Conductor.songPosition += FlxG.elapsed * 1000;
-				if (Conductor.songPosition >= 0)
+				if (Conductor.songPosition >= 0) {
+					Conductor.interpTime = 0;
 					startSong();
+				}
 			}
 		}
 		else
 		{
-			Conductor.songPosition += FlxG.elapsed * 1000;
+			//Conductor.songPosition += FlxG.elapsed * 1000;
+			freestyle.DeltaTime.calculateDelta(elapsed);
 
 			if (!paused)
 			{
@@ -4180,8 +4190,9 @@ class PlayState extends MusicBeatState
 	public var showCombo:Bool = true;
 	public var showRating:Bool = true;
 
-	private function popUpScore(note:Note = null):Void
+	private function popUpScore(note:Note = null):Void // possibly optimize this.
 	{
+		//return;
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + ClientPrefs.ratingOffset);
 		// trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
@@ -4231,7 +4242,7 @@ class PlayState extends MusicBeatState
 
 		if (daRating == 'sick' && !note.noteSplashDisabled)
 		{
-			spawnNoteSplashOnNote(note);
+			//spawnNoteSplashOnNote(note);
 		}
 
 		if (!practiceMode && !cpuControlled)
@@ -4393,12 +4404,86 @@ class PlayState extends MusicBeatState
 			startDelay: Conductor.crochet * 0.001
 		});
 	}
+	private var keys = [];
 
-	private function onKeyPress(event:KeyboardEvent):Void
+	private function onKeyPress(event:KeyboardEvent):Void // WHAT THE FUCK IS THIS...
 	{
-		var eventKey:FlxKey = event.keyCode;
+		//var eventKey = event.keyCode; 
+		//var action:Null<String> = Controls.getActionFromKey(event.keyCode);
+		//var binds = ["left","down","up","right"];
+		var dir:Int = Controls.getKeyID(event.keyCode);
+		//trace('Pressed: ' + dir);
+		
+		if (keys[dir]){		
+			return;
+		}
+		keys[dir] = true;
+
+		if (dir != -1) {
+
+			var possibleNotes:Array<Int> = [];	// Possible Notes
+			var inputNotes:Array<Note> = [];	// Possible Notes
+
+			notes.forEachAlive(function(daNote:Note)
+			{
+				if (!daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit) 
+				{
+					if (daNote.noteData == dir)
+						inputNotes.push(daNote);
+						//possibleNotes.push(daNote.noteData);
+					
+				}
+			});
+			inputNotes.sort(sortByShit);
+
+			if (inputNotes.length != 0) {
+				for (i in 0...inputNotes.length) // Based off Freestyle 1.2 Input
+				{
+					var daNote = inputNotes[i];
+					if(keys[daNote.noteData]) 
+					{
+						goodNoteHit(daNote);
+						//daNote.kill();
+						//daNote.destroy();
+						//notes.remove(daNote, true);
+							//boyfriend.holdTimer = 0;
+					}
+					break;
+				}
+			}
+			//var inputNotes:Array<Note> = obtainNotes(dir, false);
+			//inputNotes.sort((a, b) -> Std.int(a.strumTime - b.strumTime)); // Sort by earliest
+
+			/*if (inputNotes.length != 0)
+			{ // IF THERE IS A NOTE TO HIT
+				for (i in 0...inputNotes.length) // Based off Freestyle 1.2 Input
+				{
+					var daNote = inputNotes[i];
+					if(keys[daNote.noteData]) 
+					{
+						//goodNoteHit(daNote);
+						daNote.kill();
+						daNote.destroy();
+						notes.remove(daNote, true);
+							//boyfriend.holdTimer = 0;
+					}
+					break;
+				}
+			}*/
+			
+			var spr:StrumNote = playerStrums.members[dir];
+			if (spr != null && spr.animation.curAnim.name != 'confirm')
+			{
+				spr.playAnim('pressed');
+				spr.resetAnim = 0;
+			}
+		}		
+		
+		//keysArray[i];
+		//var dir = keysArray.indexOf(eventKey);
+		//trace(eventKey, keysArray[0]);
+		/*var eventKey:FlxKey = event.keyCode;
 		var key:Int = getKeyFromEvent(eventKey);
-		// trace('Pressed: ' + eventKey);
 
 		if (!cpuControlled && !paused && key > -1 && (FlxG.keys.checkStatus(eventKey, JUST_PRESSED) || ClientPrefs.controllerMode))
 		{
@@ -4479,12 +4564,20 @@ class PlayState extends MusicBeatState
 			}
 			callOnLuas('onKeyPress', [key]);
 		}
-		// trace('pressed: ' + controlArray);
+		// trace('pressed: ' + controlArray);*/
 	}
 
 	private function onKeyRelease(event:KeyboardEvent):Void
 	{
-		var eventKey:FlxKey = event.keyCode;
+		var dir:Int = Controls.getKeyID(event.keyCode);
+		keys[dir] = false;
+		var spr:StrumNote = playerStrums.members[dir];
+		if (spr != null)
+		{
+			spr.playAnim('static');
+			spr.resetAnim = 0;
+		}
+		/*var eventKey:FlxKey = event.keyCode;
 		var key:Int = getKeyFromEvent(eventKey);
 		if (!cpuControlled && !paused && key > -1)
 		{
@@ -4495,11 +4588,29 @@ class PlayState extends MusicBeatState
 				spr.resetAnim = 0;
 			}
 			callOnLuas('onKeyRelease', [key]);
-		}
+		}*/
 		// trace('released: ' + controlArray);
 	}
 
-	private function getKeyFromEvent(key:FlxKey):Int
+	private function obtainNotes(data:Int = -1, holds:Bool = false):Array<Note>
+	{
+		var inputNotes:Array<Note> = [];
+		for (daNote in notes)
+		{
+			if (daNote.canBeHit
+				&& daNote.alive
+				&& !daNote.wasGoodHit
+				&& !daNote.tooLate
+				&& (data == -1 || daNote.noteData == data)
+				&& (!holds ? !daNote.isSustainNote : daNote.isSustainNote))
+			{
+				inputNotes.push(daNote);
+			}
+		}
+		return inputNotes;
+	}
+
+	private function getKeyFromEvent(key:FlxKey):Int // WHY!? M I S E R Y
 	{
 		if (key != NONE)
 		{
@@ -5375,6 +5486,26 @@ class PlayState extends MusicBeatState
 			spr.playAnim('confirm', true);
 			spr.resetAnim = time;
 		}
+	}
+	
+	// Remove refrences that can interfere with GC on switch state //
+	override function switchTo(nextState:FlxState):Bool
+	{
+		clearDefines();
+		return super.switchTo(nextState);
+	}
+
+	function clearDefines()
+	{
+		// Reset Defines //
+		flixel.graphics.FlxGraphic.defaultPersist = false;
+		FlxG.keys.preventDefaultKeys = []; // Prevents Arrow key input drops;
+		// Handle Refrences //
+		unspawnNotes = [];
+		notes.clear();
+		strumLineNotes.clear();
+		playerStrums.clear();
+		//characters.clear(); // yall don't have that :tro:
 	}
 
 	public var ratingName:String = '?';
