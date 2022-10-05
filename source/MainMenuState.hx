@@ -49,6 +49,7 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+		Paths.clearStoredMemory();
 		FlxG.mouse.visible = true;
 
 		if (FlxG.sound.music == null)
@@ -148,6 +149,7 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		super.create();
+		openfl.system.System.gc();
 	}
 
 	#if ACHIEVEMENTS_ALLOWED

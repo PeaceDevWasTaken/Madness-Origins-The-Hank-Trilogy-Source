@@ -420,7 +420,8 @@ class Note extends FlxSprite
 
 			if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * earlyHitMult))
 			{
-				if ((isSustainNote && prevNote.wasGoodHit) || strumTime <= Conductor.songPosition)
+				// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
+				if ((isSustainNote && prevNote.wasGoodHit) || strumTime - Conductor.songPosition < Main.deltaTime/4) // mean 1/60 /4 = 4.
 					wasGoodHit = true;
 			}
 		}

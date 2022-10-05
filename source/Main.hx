@@ -1,5 +1,7 @@
 package;
 
+import freestyle.Memory;
+import flixel.math.FlxMath;
 import flixel.graphics.FlxGraphic;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -10,6 +12,7 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
+import freestyle.Memory;
 
 class Main extends Sprite
 {
@@ -22,6 +25,7 @@ class Main extends Sprite
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
 	public static var fpsVar:FPS;
+	public static var deltaTime:Float;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -73,16 +77,20 @@ class Main extends Sprite
 		#end
 
 		ClientPrefs.loadDefaultKeys();
-		// fuck you, persistent caching stays ON during sex
-		FlxGraphic.defaultPersist = true;
+		// fuck you, persistent caching stays OFF during sex
+		FlxGraphic.defaultPersist = false; // no need to let Psych handle this anymore.
 		// the reason for this is we're going to be handling our own cache smartly
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
+		Memory.init();
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
+		//fpsVar = new freestyle.Display(10, 10, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
+		// grab the frameTime 1/FPS for botplay and other useful stuff //
+		deltaTime = FlxMath.roundDecimal(1/FlxG.drawFramerate, 3);
 		if (fpsVar != null)
 		{
 			fpsVar.visible = ClientPrefs.showFPS;
