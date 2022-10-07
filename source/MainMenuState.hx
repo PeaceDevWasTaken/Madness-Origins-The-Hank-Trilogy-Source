@@ -35,7 +35,7 @@ typedef MenuChar =
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = 'H.A.N.K'; // This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.01 [DEV BUILD]'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -128,6 +128,13 @@ class MainMenuState extends MusicBeatState
 
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 		}
+		
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Psych Engine v0.5.2h [HEAVILY CUSTOMIZED BUILD + CUSTOM INPUT SYSTEM]", 12);
+		versionShit.scrollFactor.set();
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Madness Origins: The Hank Trilogy   v" + Application.current.meta.get('version'), 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("impact.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
 

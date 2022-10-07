@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Madness Origins: The Hank Trilogy" file="MADNESS-ORIGINS" packageName="com.shadowmario.psychengine" package="com.shadowmario.psychengine" main="Main" version="0.2.7" company="ShadowMario" />
+	<app title="Madness Origins: The Hank Trilogy" file="MADNESS-ORIGINS" packageName="com.MadnessOriginsTeam.FreestylePsychEngine" package="com.shadowmario.psychengine" main="Main" version="0.01 [DEV BUILD]" company="MadnessOriginsTeam" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -107,6 +107,43 @@
 	<!-- <template path='mods' /> -->
 
 	<!-- assets path="CHANGELOG.md" rename='changelog.txt' -->
+
+
+	<!-- Welcome to the best fuckin mod in existance bitches
+	strap your asses in cause shits about to get real
+	
+	also when hank said "BEEP BOOO BOP" I FUCKIN CRIED :sob: :sob: :sob:
+	
+	hey uhh if your one of the dumbfucks who downloaded the source code then congradulations you gained
+	a free right to go to hell, thats right fuck you, why? cause shits open source asshole
+	so go open that asshole and shit all out that code for your own shitty pibby exe mods or whatever the hell
+	funkin' kiddos do these days, idk i open the fuckin front page of gamebanana now and all i see is sonic.exe and piby and a few actually decent mods
+	
+	
+	
+	ena was better anyways /j
+	
+	
+	ever heard of hotline 024? yeah play that shit if you have not.
+	
+	
+	
+	penis~
+	
+	
+	
+	ok seriously tho, if you use the source code for this project give credit to our mod, you must link the mod
+	wherever you used it, your not allowed to create unauthorised web coppies of the project or just create basically bootlegs of this mod
+	
+	now you could argue that because this is a mod that this is a bootleg
+	but, thats not legally the case when dealing with our own code, open source software and original assets.
+	
+	personally I could give 2 shits about what you use our code for, just as long as we are credited nobody cares.
+	
+	with that out out of the way, lets talk about how giant hanks big booty cheeks ar-
+	[corrupt data
+	-->
+
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS FUCKY 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
