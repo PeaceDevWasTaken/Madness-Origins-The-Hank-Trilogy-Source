@@ -1,5 +1,6 @@
 package sanford;
 
+import flixel.graphics.FlxGraphic;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
@@ -110,7 +111,7 @@ class SAState extends MusicBeatState
 	var resetTimeTxt:Text;
 	var kills:Int = 0;
 
-	var weaponStrings:Map<sanford.Player.Weapon, String> = [
+	var weaponStrings:Map<Player.Weapon, String> = [
 		SHOTGUN => 'Shotgun',
 		AK => 'Assault Rifle',
 		ROCKET => 'Rocket Launcher',
@@ -119,12 +120,7 @@ class SAState extends MusicBeatState
 
 	override public function create()
 	{
-		super.create();
-
-		FlxG.mouse.visible = false;
-
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
+		FlxGraphic.defaultPersist = false;
 
 		group = new FlxTypedGroup();
 		if (Sound.gameMus == null)
@@ -230,6 +226,12 @@ class SAState extends MusicBeatState
 		// 	DiscordClient.changePresence('Fighting Dice on Floor ${resetStuff.floors}', 'Playing Singleplayer', null, null,
 		// 		weaponStrings[resetStuff.weapon].toLowerCase().replace(' ', '_'), 'Using the ${weaponStrings[resetStuff.weapon]}', true);
 		// #end
+
+		super.create();
+
+		FlxG.mouse.visible = false;
+		Paths.clearUnusedMemory();
+		FlxGraphic.defaultPersist = true;
 	}
 
 	var weapText:Text;

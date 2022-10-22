@@ -181,6 +181,7 @@ class GameOver extends DefaultSubstate
 				FlxG.switchState(new SAState());
 
 			case 'Exit to Menu':
+				flixel.graphics.FlxGraphic.defaultPersist = false;
 				StageData.forceNextDirectory = 'preload';
 				FlxG.switchState(new MainMenuState());
 
