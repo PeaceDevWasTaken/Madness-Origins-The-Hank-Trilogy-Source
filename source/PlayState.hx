@@ -1458,6 +1458,17 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
+		var freePsychVer:FlxText = new FlxText(30, 0, 0, "FreePsych Engine Beta v0.1.0", 12);
+		freePsychVer.scrollFactor.set();
+		freePsychVer.setFormat("vcr.ttf", 18, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		freePsychVer.alpha = ClientPrefs.healthBarAlpha;
+		freePsychVer.visible = !ClientPrefs.hideHud;
+		freePsychVer.antialiasing = true;
+		freePsychVer.width = 5;
+		freePsychVer.cameras = [camHUD];
+		freePsychVer.screenCenter();
+		add(freePsychVer);
+
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "placeholder", 20);
 		scoreTxt.setFormat(Paths.font("impact.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
