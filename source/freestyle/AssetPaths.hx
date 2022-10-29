@@ -50,7 +50,7 @@ class AssetPaths extends YourGrandmother {
 	{
 		var modKey:String = Paths.modsImages(key);
 		var path:String = Paths.getPath('images/$key.png', IMAGE, library);
-		var extPath:String = path.replace('shared:', '');
+		var extPath:String = path.replace('shared:', '').replace('minigame:', '');
 	
 		if (sys.FileSystem.exists(extPath))
 		{
