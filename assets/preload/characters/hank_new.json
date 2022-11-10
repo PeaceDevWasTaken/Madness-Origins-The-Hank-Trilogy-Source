@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": true,
 			"offsets": [
 				19,
 				-292
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": true,
-			"name": "idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				8,
 				-328
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-57,
 				-356
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				49,
 				-264
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-40,
 				-312
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/REHank",
 	"position": [
 		0,
-		0
+		40
 	],
 	"healthicon": "hank-grunt",
 	"flip_x": false,
