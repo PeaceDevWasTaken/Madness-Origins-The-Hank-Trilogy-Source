@@ -923,9 +923,9 @@ class PlayState extends MusicBeatState
 				add(skyBack);
 
 				var foreground = new FlxSprite().loadGraphic(Paths.image('bruhbg/TouchSomeGrass'));
-				foreground.scale.set(1.3, 1.3);
+				foreground.scale.set(1, 1);
 				foreground.updateHitbox();
-				foreground.setPosition(-600, 485);
+				foreground.setPosition(-600, 140);
 				add(foreground);
 				
 				var trik:FlxSprite = new FlxSprite();
