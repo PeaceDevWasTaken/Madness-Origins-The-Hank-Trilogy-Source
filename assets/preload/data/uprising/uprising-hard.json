@@ -5580,7 +5580,7 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "hank_grunt",
+		"player2": "hank_new",
 		"gfVersion": "gf",
 		"events": [
 			[

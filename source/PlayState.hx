@@ -901,13 +901,6 @@ class PlayState extends MusicBeatState
 			case 'bruhbg':
 				gfGroup.visible = false;
 
-				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/QuandaleDingle'));
-				skyBack.scrollFactor.set(0.3, 0.3);
-				skyBack.scale.set(1.5, 1.5);
-				skyBack.updateHitbox();
-				skyBack.setPosition(-430, -260);
-				add(skyBack);
-
 				var skyFront = new FlxSprite().loadGraphic(Paths.image('bruhbg/IForgor'));
 				skyFront.scrollFactor.set(0.3, 0.3);
 				skyFront.scale.set(1.5, 1.5);
@@ -917,17 +910,24 @@ class PlayState extends MusicBeatState
 
 				var buildings = new FlxSprite().loadGraphic(Paths.image('bruhbg/GothamCity'));
 				buildings.scrollFactor.set(0.5, 0.5);
-				buildings.scale.set(1.35, 1.35);
+				buildings.scale.set(1, 1);
 				buildings.updateHitbox();
 				buildings.setPosition(-445, 80);
 				add(buildings);
+
+				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/CityBack'));
+				skyBack.scrollFactor.set(0.3, 0.3);
+				skyBack.scale.set(1.5, 1.5);
+				skyBack.updateHitbox();
+				skyBack.setPosition(-430, -260);
+				add(skyBack);
 
 				var foreground = new FlxSprite().loadGraphic(Paths.image('bruhbg/TouchSomeGrass'));
 				foreground.scale.set(1.3, 1.3);
 				foreground.updateHitbox();
 				foreground.setPosition(-600, 485);
 				add(foreground);
-
+				
 				var trik:FlxSprite = new FlxSprite();
 				trik.frames = Paths.getSparrowAtlas('bruhbg/peeking_Tricky');
 				trik.animation.addByPrefix('peeking_Tricky', 'peeking_Tricky', 24, false);
@@ -954,18 +954,6 @@ class PlayState extends MusicBeatState
 						defaultCamZoom -= .2;
 					};
 				});
-
-				var sun:FlxSprite = new FlxSprite();
-				sun.frames = Paths.getSparrowAtlas('bruhbg/The_sun');
-				sun.animation.addByPrefix('The_sun', 'The_sun', 24);
-				sun.animation.play('The_sun');
-				sun.antialiasing = ClientPrefs.globalAntialiasing;
-				sun.scrollFactor.set(0.8, 0.8);
-				sun.scale.set(1.6, 1.6);
-				sun.updateHitbox();
-				sun.setPosition(1115, 45);
-				add(sun);
-
 				var tree = new FlxSprite().loadGraphic(Paths.image('bruhbg/DrippyTree'));
 				tree.scale.set(0.65, 0.65);
 				tree.updateHitbox();
@@ -1035,8 +1023,6 @@ class PlayState extends MusicBeatState
 				camPosThingX = foreground.x + foreground.width / 2;
 				camPosThingY = foreground.y + 50;
 
-				debugObjects.push(sun);
-				debugObjects.push(sunshine);
 		}
 
 		if (isPixelStage)
@@ -1458,13 +1444,15 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-		var freePsychVer:FlxText = new FlxText(30, 0, 0, "FreePsych Engine Beta v0.1.0", 12);
+		var freePsychVer:FlxText = new FlxText("FreePsych Engine Beta v0.1.0", 12);
 		freePsychVer.scrollFactor.set();
 		freePsychVer.setFormat("vcr.ttf", 18, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		freePsychVer.alpha = ClientPrefs.healthBarAlpha;
 		freePsychVer.visible = !ClientPrefs.hideHud;
 		freePsychVer.antialiasing = true;
 		freePsychVer.width = 5;
+		freePsychVer.y = 400;
+		freePsychVer.x = 400;
 		freePsychVer.cameras = [camHUD];
 		freePsychVer.screenCenter();
 		add(freePsychVer);
