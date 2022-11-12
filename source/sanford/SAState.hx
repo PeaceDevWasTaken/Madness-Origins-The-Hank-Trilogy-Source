@@ -50,13 +50,15 @@ typedef ResetData =
 	iframes:Float,
 	// how long the run has been alive
 	runTime:Float,
-	kills:Int
+	kills:Int,
+	coins:Int
 }
 
 typedef RunData =
 { // how long alive in MS
 	timeAlive:Float,
 	kills:Int,
+	coins:Int,
 	deathCause:String,
 	floor:Int
 }
@@ -85,6 +87,9 @@ class SAState extends MusicBeatState
 	var hudCam:FlxCamera;
 	var hud:HUD;
 
+	var coinsPerKill:Int = 5;
+	var coinsFloorMult:Int = 10;
+
 	public static var resetStuff:ResetData;
 
 	public var runData(get, null):RunData;
@@ -96,6 +101,7 @@ class SAState extends MusicBeatState
 		runData = {
 			timeAlive: runTime,
 			kills: kills,
+			coins: coins,
 			deathCause: deathCause,
 			floor: resetStuff.floors
 		};
@@ -110,6 +116,7 @@ class SAState extends MusicBeatState
 	var weaponTimer:Float = 0;
 	var resetTimeTxt:Text;
 	var kills:Int = 0;
+	var coins:Int = 0;
 
 	var weaponStrings:Map<Player.Weapon, String> = [
 		SHOTGUN => 'Shotgun',
@@ -209,6 +216,7 @@ class SAState extends MusicBeatState
 		weaponTimer = resetStuff.rerollTime;
 		runTime = resetStuff.runTime;
 		kills = resetStuff.kills;
+		coins = resetStuff.coins;
 
 		resetTimeTxt = new Text(0, 0, FlxG.width, FlxStringUtil.formatTime(weaponTimer / 1000), 64);
 		resetTimeTxt.setPosition(0, FlxG.height - resetTimeTxt.height - 10);
@@ -228,6 +236,10 @@ class SAState extends MusicBeatState
 		// #end
 
 		super.create();
+
+		FlxG.watch.add(this, 'runTime');
+		FlxG.watch.add(this, 'kills');
+		FlxG.watch.add(this, 'coins');
 
 		FlxG.mouse.visible = false;
 		Paths.clearUnusedMemory();
@@ -251,8 +263,9 @@ class SAState extends MusicBeatState
 		resetStuff.damageBuff = 0;
 		resetStuff.runTime = runTime;
 		resetStuff.kills = kills;
+		resetStuff.coins = coins;
 
-		FlxG.camera.fade(FlxColor.BLACK, .5, false, () -> FlxG.resetState());
+		FlxG.camera.fade(FlxColor.BLACK, .5, false, FlxG.resetState);
 	}
 
 	public static var ssCB:() -> Void;
@@ -275,7 +288,8 @@ class SAState extends MusicBeatState
 			speed: 0,
 			iframes: .5,
 			runTime: 0,
-			kills: 0
+			kills: 0,
+			coins: 0
 		};
 	}
 
@@ -582,7 +596,9 @@ class SAState extends MusicBeatState
 		if (allDead && !beatFloor)
 		{
 			beatFloor = true;
-			alert('Cleared Floor ${resetStuff.floors}!', () -> nextLevel());
+			coins += coinsFloorMult * resetStuff.floors;
+			trace(resetStuff.floors);
+			alert('Cleared Floor ${resetStuff.floors}!', nextLevel);
 		}
 
 		bullets.forEach(bullet ->
@@ -788,6 +804,7 @@ class SAState extends MusicBeatState
 				return;
 
 			kills++;
+			coins += 5;
 			trace('just killed a boy');
 		}
 	}

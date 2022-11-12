@@ -248,7 +248,7 @@ class Paths
 	{
 		// streamlined the assets process more
 		//var returnAsset:FlxGraphic = returnGraphic(key, library);
-		var returnAsset:FlxGraphic = AssetPaths.loadAsset(key, true); // literally fixes the lag lmao.
+		var returnAsset:FlxGraphic = AssetPaths.loadAsset(key, library, true); // literally fixes the lag lmao.
 		return returnAsset;
 	}
 

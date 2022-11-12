@@ -21,12 +21,16 @@ class GameOver extends DefaultSubstate
 	var items:FlxTypedGroup<Text>;
 	var coolThing:FlxSprite;
 	var curSel:Int = 0;
+	var coin:FlxSprite;
 
 	override public function new(runData:RunData)
 	{
 		super();
 		canEsc = false;
 		this.runData = runData;
+
+		FlxG.save.data.coins += runData.coins;
+		FlxG.save.flush();
 
 		// #if cpp
 		// DiscordClient.changePresence('Died on Floor ${runData.floor}.',
@@ -97,10 +101,23 @@ class GameOver extends DefaultSubstate
 		killsText.y = lifetimeText.y + lifetimeText.height + 40;
 		add(killsText);
 
-		floorTxt.alpha = lifetimeText.alpha = killsText.alpha = 0;
+		coinsText = new Text(0, 0, 0, '+0', 48);
+		coinsText.setPosition(FlxG.width - 200, (FlxG.height - coinsText.height) / 2);
+		add(coinsText);
+		trace(coinsText.font);
+
+		coin = new FlxSprite().loadGraphic(Paths.image('coin', 'shared'));
+		coin.scale.set(0.4, 0.4);
+		coin.updateHitbox();
+		coin.setPosition((coinsText.x - coin.width) - 7, coinsText.y - 5);
+		add(coin);
+
+		floorTxt.alpha = lifetimeText.alpha = killsText.alpha = coinsText.alpha = coin.alpha = 0;
 		FlxTween.tween(floorTxt, {'alpha': 1}, .5, {ease: FlxEase.smootherStepInOut, startDelay: alphaDelay});
 		FlxTween.tween(lifetimeText, {'alpha': 1}, .5, {ease: FlxEase.smootherStepInOut, startDelay: alphaDelay});
 		FlxTween.tween(killsText, {'alpha': 1}, .5, {ease: FlxEase.smootherStepInOut, startDelay: alphaDelay});
+		FlxTween.tween(coinsText, {'alpha': 1, y: coinsText.y - 10}, .5, {ease: FlxEase.smootherStepInOut, startDelay: alphaDelay * 1.6});
+		FlxTween.tween(coin, {'alpha': 1}, .5, {ease: FlxEase.smootherStepInOut, startDelay: alphaDelay * 1.6});
 
 		items = new FlxTypedGroup();
 
@@ -156,13 +173,24 @@ class GameOver extends DefaultSubstate
 
 		if (killsText.alpha >= .25)
 		{
-			lerpLifetime = FlxMath.lerp(lerpLifetime, runData.timeAlive, 0.1);
+			lerpLifetime = FlxMath.lerp(lerpLifetime, runData.timeAlive, .1);
 			lerpKills = Math.ceil(FlxMath.lerp(lerpKills, runData.kills, .1));
 
 			lifetimeText.text = 'You survived for ${FlxStringUtil.formatTime(lerpLifetime / 1000)}.';
 			killsText.text = 'You killed $lerpKills ${lerpKills == 1 ? 'enemy' : 'enemies'}.';
 		}
+		if (coinsText.alpha >= .25)
+		{
+			lerpCoins = Math.ceil(FlxMath.lerp(lerpCoins, runData.coins, .01));
+			coinsText.text = '+$lerpCoins';
+			if (lerpCoins == runData.coins && !lerpCoinsFinished)
+			{
+				lerpCoinsFinished = true;
+				FlxTween.tween(coinsText, {'y': coinsText.y + 10}, .5, {ease: FlxEase.smootherStepInOut});
+			}
+		}
 	}
+	var lerpCoinsFinished:Bool = false;
 
 	function change(by:Int = 0)
 	{
@@ -193,6 +221,8 @@ class GameOver extends DefaultSubstate
 
 	var lerpLifetime:Float = 0;
 	var lifetimeText:Text;
-	var killsText:Text;
 	var lerpKills:Int = 0;
+	var killsText:Text;
+	var lerpCoins:Int = 0;
+	var coinsText:Text;
 }

@@ -1,5 +1,6 @@
 package;
 
+import flixel.graphics.FlxGraphic;
 import flixel.util.FlxGradient;
 import flixel.util.FlxTimer;
 #if desktop
@@ -34,12 +35,7 @@ class ExtrasState extends MusicBeatState
 	var textGrp:FlxTypedGroup<FlxText>;
 
 	override function create()
-	{
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
-
-		FlxG.mouse.visible = true;
-		
+	{		
 		cursorSprite = new FlxSprite(FlxG.mouse.x,
 			FlxG.mouse.y).makeGraphic(Std.int(FlxG.mouse.cursorContainer.width), Std.int(FlxG.mouse.cursorContainer.height), FlxColor.RED);
 		cursorSprite.visible = false;
@@ -116,6 +112,10 @@ class ExtrasState extends MusicBeatState
 		}
 
 		super.create();
+
+		FlxG.mouse.visible = true;
+		Paths.clearUnusedMemory();
+		FlxGraphic.defaultPersist = true; // need to keep them for the overlap checks
 	}
 
 	var selectedSomethin:Bool = false;
@@ -123,22 +123,54 @@ class ExtrasState extends MusicBeatState
 	{
 		if (!selectedSomethin)
 		{
-			if (cursorSprite.x != FlxG.mouse.x)
+			if (cursorSprite.x != FlxG.mouse.cursorContainer.x)
 				cursorSprite.setPosition(FlxG.mouse.x, FlxG.mouse.y);
 
 			if (controls.BACK)
 			{
+				FlxGraphic.defaultPersist = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 			}
+
 			if (controls.ACCEPT || FlxG.mouse.justPressed)
 			{
-				var sel:Int = curSelected;
+				FlxGraphic.defaultPersist = false;
 				
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
-				textGrp.forEach(function(spr:FlxSprite)
+				var daChoice:String = optionShit[curSelected];
+				if (daChoice == 'trophies__and__achievements')
+				{
+					FlxTransitionableState.skipNextTransOut = true;
+					StageData.forceNextDirectory = 'minigame';
+					FlxG.sound.music.fadeOut(1, 0, twn ->
+					{
+						FlxG.sound.music.stop();
+						sanford.SAState.resetData();
+						LoadingState.loadAndSwitchState(new sanford.SAState());
+					});
+				}
+				else
+				{
+					new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						switch (daChoice)
+						{
+							case 'do not open':
+								MusicBeatState.switchState(new MainMenuState());
+							case 'original soundtracks':
+								MusicBeatState.switchState(new OSTMenu());
+							default:
+								trace('clicked an unhandled button, $daChoice, curSelected $curSelected');
+								FlxG.resetState();
+						}
+					});
+				}
+
+				/*
+				bgGrp.forEach(function(spr:FlxSprite)
 				{
 					if (sel == spr.ID)
 					{
@@ -172,6 +204,7 @@ class ExtrasState extends MusicBeatState
 						}
 					}
 				});
+				*/
 			}
 		}
 
@@ -195,6 +228,8 @@ class ExtrasState extends MusicBeatState
 	function changeItem(newSel:Int = 0)
 	{
 		curSelected = newSel;
+
+		trace(optionShit[curSelected] + ' ' + curSelected);
 		
 		// textGrp.forEach(function(txt:FlxText)
 		// {

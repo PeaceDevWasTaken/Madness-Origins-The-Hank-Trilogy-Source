@@ -2437,6 +2437,7 @@ class PlayState extends MusicBeatState
 				{
 					noteTypeMap.set(swagNote.noteType, true);
 				}
+				/*
 				if (swagNote.mustPress && FlxG.random.bool(5)) // Randomly spawn coin
 				{
 					var coinNote = new Note(daStrumTime, FlxG.random.int(0, 3, [swagNote.noteData]), null);
@@ -2457,6 +2458,7 @@ class PlayState extends MusicBeatState
 						}
 					}
 				}
+				*/
 			}
 			daBeats += 1;
 		}
@@ -4921,12 +4923,14 @@ class PlayState extends MusicBeatState
 				}
 				return;
 			}
+			/*
 			if (note.noteType == 'Coin')
 			{
 				coinsHit++;
 				FlxG.sound.play(Paths.sound('coinsplash'));
 				coinText.text = '$coinsHit';
 			}
+			*/
 
 			if (!note.isSustainNote)
 			{
