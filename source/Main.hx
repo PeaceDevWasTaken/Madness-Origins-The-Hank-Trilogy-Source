@@ -80,7 +80,7 @@ class Main extends Sprite
 		// fuck you, persistent caching stays OFF during sex
 		FlxGraphic.defaultPersist = false; // no need to let Psych handle this anymore.
 		// the reason for this is we're going to be handling our own cache smartly
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, initialState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
 		Memory.init();

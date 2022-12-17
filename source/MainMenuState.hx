@@ -80,7 +80,11 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
+		#if (flixel < "5.0.0")
 		var bdrop:FlxBackdrop = new FlxBackdrop(Paths.image('mainmenu/scrollbg'), 1, 0, true, false);
+		#else
+		var bdrop:FlxBackdrop = new FlxBackdrop(Paths.image('mainmenu/scrollbg'), X);
+		#end
 		bdrop.scale.set(0.46, 0.46);
 		bdrop.updateHitbox();
 		bdrop.offset.y += 50;

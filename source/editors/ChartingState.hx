@@ -280,7 +280,7 @@ class ChartingState extends MusicBeatState
 			curSection = _song.notes.length - 1;
 
 		FlxG.mouse.visible = true;
-		// FlxG.save.bind('funkin', 'ninjamuffin99');
+		// FlxG.save.bind('funkin' #if (flixel < "5.0.0") ,'ninjamuffin99' #end);
 
 		tempBpm = _song.bpm;
 
