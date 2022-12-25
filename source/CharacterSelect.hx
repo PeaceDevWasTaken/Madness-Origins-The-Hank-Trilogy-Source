@@ -377,8 +377,7 @@ class CharacterSelect extends MusicBeatState
 			lol = null;
 		});
 
-		Paths.clearUnusedMemory();
-		Paths.clearStoredMemory();
+		Paths.clearMemory();
 
 		openfl.system.System.gc();
 

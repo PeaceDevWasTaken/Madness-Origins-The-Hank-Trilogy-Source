@@ -60,8 +60,7 @@ class LoadingScreen extends MusicBeatState
 		else
 			FlxG.switchState(new PlayState());
 		#else
-		FlxAssets.FONT_DEFAULT = 'impact.ttf';
-
+		
 		coolBar = new FlxBar(40, FlxG.height - 100, LEFT_TO_RIGHT, FlxG.width - 80, 60);
 		coolBar.createFilledBar(FlxColor.BLACK, FlxColor.WHITE);
 		add(coolBar);
@@ -75,6 +74,7 @@ class LoadingScreen extends MusicBeatState
 
 		loading = new FlxText(0, 0, 0, 'LOADING', 64);
 		loading.setPosition(bfRun.x + bfRun.width + 30, coolBar.y - loading.height - 10);
+		loading.font = Paths.font("impact.ttf");
 		add(loading);
 
 		var weekFolder:String = Paths.currentLevel;

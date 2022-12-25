@@ -111,8 +111,7 @@ class OSTMenu extends MusicBeatState
 
 	override public function create()
 	{
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
+		Paths.clearMemory();
 
 		WeekData.reloadWeekFiles(false);
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
@@ -168,11 +167,14 @@ class OSTMenu extends MusicBeatState
 				bg.scale.set(1.1, 1.1);
 			if (i == 6)
 				bg.antialiasing = false;
+			else
+				bg.antialiasing = ClientPrefs.globalAntialiasing;
 			bg.ID = i;
 			bgs.add(bg);
 
 			var weekThing = new FlxSprite().loadGraphic(Paths.image('storymenu/${weeks[i]}'));
 			weekThing.screenCenter();
+			weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 			weekSprites.add(weekThing);
 
 			weekThing.visible = bg.visible = false;
@@ -185,6 +187,8 @@ class OSTMenu extends MusicBeatState
 				bg2.screenCenter();
 				if (i == 6)
 					bg2.antialiasing = false;
+				else
+					bg2.antialiasing = ClientPrefs.globalAntialiasing;
 				bg2.ID = i + 20;
 				bgs.add(bg2);
 			}
@@ -238,6 +242,7 @@ class OSTMenu extends MusicBeatState
 		disc.frames = Paths.getSparrowAtlas('ost/DiscSpin');
 		disc.animation.addByPrefix('spin', 'spin', 24);
 		disc.animation.play('spin');
+		disc.antialiasing = ClientPrefs.globalAntialiasing;
 		add(disc);
 
 		shart = new FlxSprite().loadGraphic(Paths.image('ost/select'));
@@ -245,6 +250,7 @@ class OSTMenu extends MusicBeatState
 		shart.updateHitbox();
 		shart.setPosition(520, 450);
 		shart.scale.set(0.8, 0.8);
+		shart.antialiasing = ClientPrefs.globalAntialiasing;
 		add(shart);
 
 		sect = new FlxSprite().loadGraphic(Paths.image('ost/StartSelect'));
@@ -252,6 +258,7 @@ class OSTMenu extends MusicBeatState
 		sect.scale.set(0.8, 0.8);
 		sect.setPosition(shart.x + shart.width / 2 - sect.width / 2, shart.y + shart.height / 2 - sect.height / 2);
 		// FlxTween.angle(sect, -15, 15, 2, {ease: FlxEase.smootherStepInOut, type: PINGPONG});
+		sect.antialiasing = ClientPrefs.globalAntialiasing;
 		add(sect);
 
 		grid = new FlxSprite(-700, -810);
@@ -259,6 +266,7 @@ class OSTMenu extends MusicBeatState
 		grid.animation.addByIndices('open', 'close', [0], '', 24, true);
 		grid.animation.addByPrefix('close', 'close', 24, false);
 		grid.animation.play('open');
+		grid.antialiasing = ClientPrefs.globalAntialiasing;
 		add(grid);
 
 		muted = new FlxSprite().loadGraphic(Paths.image('ost/muted'), true, 150, 150);
@@ -655,10 +663,12 @@ class SongTag extends FlxTypedSpriteGroup<FlxSprite>
 	{
 		super(0, 0);
 		bg = new FlxSprite().loadGraphic(Paths.image('ost/songbar'));
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
 		name = new FlxText(0, 0, 0, song, 20);
 		name.setBorderStyle(SHADOW, FlxColor.BLACK, 2, 1);
+		name.font = Paths.font('impact.ttf');
 		add(name);
 		while (name.width > bg.width)
 			name.size -= 2;

@@ -60,7 +60,7 @@
 	"image": "characters/REHank",
 	"position": [
 		0,
-		40
+		30
 	],
 	"healthicon": "hank-grunt",
 	"flip_x": false,

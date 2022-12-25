@@ -83,12 +83,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
+		Paths.clearMemory();
 
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
-		FlxAssets.FONT_DEFAULT = 'impact.ttf';
 		// trace(path, FileSystem.exists(path));
 
 		/*#if (polymod && !html5)

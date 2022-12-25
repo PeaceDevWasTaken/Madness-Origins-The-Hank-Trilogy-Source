@@ -295,9 +295,9 @@ class FunkinLua
 			}
 		});
 
-		Lua_helper.add_callback(lua, "clearUnusedMemory", function()
+		Lua_helper.add_callback(lua, "clearMemory", function()
 		{
-			Paths.clearUnusedMemory();
+			Paths.clearMemory();
 			return true;
 		});
 

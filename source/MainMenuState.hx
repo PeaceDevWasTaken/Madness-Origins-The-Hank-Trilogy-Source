@@ -49,7 +49,7 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		Paths.clearStoredMemory();
+		Paths.clearMemory();
 
 		if (FlxG.sound.music == null)
 		{
@@ -136,7 +136,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Madness Origins: The Hank Trilogy v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
-		versionShit.setFormat("impact.ttf", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("impact.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();

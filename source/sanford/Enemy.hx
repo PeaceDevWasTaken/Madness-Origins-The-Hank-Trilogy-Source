@@ -10,7 +10,11 @@ import flixel.FlxSprite;
 import flixel.addons.util.FlxFSM;
 import flixel.math.FlxAngle;
 import flixel.math.FlxVelocity;
+#if (flixel < "5.0.0")
 import flixel.util.FlxPath;
+#else
+import flixel.path.FlxPath;
+#end
 import flixel.ui.FlxBar;
 import flixel.util.FlxSpriteUtil;
 import sanford.Player.Weapon;

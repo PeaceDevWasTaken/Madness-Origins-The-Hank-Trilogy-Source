@@ -242,7 +242,7 @@ class SAState extends MusicBeatState
 		FlxG.watch.add(this, 'coins');
 
 		FlxG.mouse.visible = false;
-		Paths.clearUnusedMemory();
+		Paths.clearMemory();
 		FlxGraphic.defaultPersist = true;
 	}
 

@@ -114,7 +114,7 @@ class ExtrasState extends MusicBeatState
 		super.create();
 
 		FlxG.mouse.visible = true;
-		Paths.clearUnusedMemory();
+		Paths.clearMemory();
 		FlxGraphic.defaultPersist = true; // need to keep them for the overlap checks
 	}
 

@@ -49,6 +49,9 @@ class Paths
 		'assets/shared/music/tea-time.$SOUND_EXT',
 	];
 
+	public static function clearMemory()
+		AssetPaths.clearOpenflAssets();
+
 	/// haya I love you for the base cache dump I took to the max
 	public static function clearUnusedMemory()
 	{

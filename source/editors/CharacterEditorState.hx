@@ -79,6 +79,7 @@ class CharacterEditorState extends MusicBeatState
 
 	override function create()
 	{
+		Paths.clearMemory();
 		// FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
 
 		camEditor = new FlxCamera();
@@ -197,8 +198,8 @@ class CharacterEditorState extends MusicBeatState
 		addAnimationsUI();
 		UI_characterbox.selected_tab_id = 'Character';
 
-		FlxG.mouse.visible = true;
 		reloadCharacterOptions();
+		FlxG.mouse.visible = true;
 
 		super.create();
 	}
