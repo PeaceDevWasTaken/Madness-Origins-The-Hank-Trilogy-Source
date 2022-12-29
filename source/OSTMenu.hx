@@ -318,7 +318,7 @@ class OSTMenu extends MusicBeatState
 		{
 			if (!selectingDiff)
 			{
-				FlxG.switchState(new MainMenuState());
+				MusicBeatState.switchState(new MainMenuState());
 				if (inst != null)
 				{
 					inst.destroy();

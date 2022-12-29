@@ -1,28 +1,21 @@
 package;
 
-import flixel.addons.display.FlxBackdrop;
-import flixel.util.FlxCollision;
-import flixel.util.FlxTimer;
 #if desktop
 import Discord.DiscordClient;
 #end
 import flixel.FlxG;
-import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
+import flixel.addons.display.FlxBackdrop;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
-import flixel.math.FlxMath;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import lime.app.Application;
-import Achievements;
-import editors.MasterEditorMenu;
+import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
+import lime.app.Application;
+import editors.MasterEditorMenu;
+import Achievements;
 
 using StringTools;
 
@@ -139,6 +132,19 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat(Paths.font("impact.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
+		if (FlxG.save.data.clownClicked != null && FlxG.save.data.clownClicked)
+		{
+			var trick:FlxSprite = new FlxSprite();
+			trick.frames = Paths.getSparrowAtlas('mainmenu/tricky');
+			trick.animation.addByPrefix('idle', 'Tricky0', 24);
+			trick.animation.play('idle');
+			trick.scale.set(.9, .9);
+			trick.updateHitbox();
+			trick.setPosition(FlxG.width - 200, 10);
+			trick.antialiasing = ClientPrefs.globalAntialiasing;
+			add(trick);
+		}
+
 		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
@@ -191,9 +197,6 @@ class MainMenuState extends MusicBeatState
 		#if FLX_DEBUG
 		if (FlxG.keys.justPressed.FOUR)
 			FlxG.switchState(new LoadingScreen(null, true));
-
-		if (FlxG.keys.justPressed.FIVE)
-			FlxG.switchState(new OSTMenu());
 
 		if (FlxG.keys.justPressed.S && !selectedSomethin)
 		{
@@ -248,7 +251,8 @@ class MainMenuState extends MusicBeatState
 									case 'freeplay':
 										MusicBeatState.switchState(new OSTMenu());
 									case 'shop':
-										MusicBeatState.switchState(new LoadingScreen(null, true));
+										MusicBeatState.switchState(new ShopState());
+										// MusicBeatState.switchState(new LoadingScreen(null, true));
 									case 'extras':
 										MusicBeatState.switchState(new ExtrasState());
 									case 'options':

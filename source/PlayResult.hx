@@ -8,11 +8,11 @@ class PlayResult extends MusicBeatSubstate
 
 	var onExit:() -> Void = null;
 
-	override public function new(coins:Int, ?onExit:() -> Void)
+	override public function new(?onExit:() -> Void)
 	{
 		super();
 
-		this.coins = coins;
+		this.coins = 0; // temp
 		this.onExit = onExit;
 
 		FlxG.save.data.coins += coins;

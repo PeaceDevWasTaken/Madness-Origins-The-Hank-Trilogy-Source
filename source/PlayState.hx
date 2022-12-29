@@ -1,6 +1,5 @@
 package;
 
-import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -22,6 +21,7 @@ import flixel.addons.effects.FlxTrailArea;
 import flixel.addons.effects.chainable.FlxEffectSprite;
 import flixel.addons.effects.chainable.FlxWaveEffect;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.graphics.FlxGraphic;
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -320,11 +320,14 @@ class PlayState extends MusicBeatState
 	// Stores list of objects that bob to the beat, keeps objects local. Note that it needs the animation to be named `idle`
 	var boppers:Array<FlxSprite> = [];
 
-	// amount of coins you hit during a song
-	var coinsHit:Int = 0;
-
 	var targetHBY:Float = 0;
 	var prevTime:Float = 0;
+
+	// Clown has been engaged !!!
+	var hasClown:Bool = false;
+	var clown:FlxSprite;
+	var clownText:FlxSpriteGroup; // Background sprite & text
+	var clownClicked:Bool = false;
 
 	override public function create()
 	{
@@ -900,6 +903,9 @@ class PlayState extends MusicBeatState
 			case 'bruhbg':
 				gfGroup.visible = false;
 
+				if (SONG.song.toLowerCase() == 'origins')
+					hasClown = true;
+
 				var buildings = new FlxSprite().loadGraphic(Paths.image('bruhbg/GothamCity'));
 				buildings.scrollFactor.set(0.5, 0.5);
 				buildings.scale.set(.97, .97);
@@ -907,6 +913,17 @@ class PlayState extends MusicBeatState
 				buildings.setPosition(-265, -270);
 				buildings.antialiasing = ClientPrefs.globalAntialiasing;
 				add(buildings);
+
+				var teletubbiesmfsun:FlxSprite = new FlxSprite();
+				teletubbiesmfsun.frames = Paths.getSparrowAtlas('bruhbg/The_sun');
+				teletubbiesmfsun.animation.addByPrefix('idle', 'Sun', 24);
+				teletubbiesmfsun.animation.play('idle');
+				teletubbiesmfsun.scrollFactor.set(0.3, 0.3);
+				teletubbiesmfsun.scale.set(1.4, 1.4);
+				teletubbiesmfsun.updateHitbox();
+				teletubbiesmfsun.setPosition(1080, 0);
+				teletubbiesmfsun.antialiasing = ClientPrefs.globalAntialiasing;
+				add(teletubbiesmfsun);
 
 				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/CityBack'));
 				skyBack.scrollFactor.set(0.3, 0.3);
@@ -916,17 +933,27 @@ class PlayState extends MusicBeatState
 				skyBack.antialiasing = ClientPrefs.globalAntialiasing;
 				add(skyBack);
 
-				if (SONG.song.toLowerCase() == 'origins')
-				{		
-					var clown:FlxSprite = new FlxSprite();
+				var dancingfuck:FlxSprite = new FlxSprite();
+				dancingfuck.frames = Paths.getSparrowAtlas('bruhbg/dancing_dancing');
+				dancingfuck.animation.addByPrefix('dance1', 'dancing dancing instance', 24);
+				dancingfuck.animation.addByPrefix('dance2', 'dancing dancing dancing', 24);
+				dancingfuck.animation.play('dance1');
+				dancingfuck.scale.set(0.28, 0.28);
+				dancingfuck.updateHitbox();
+				dancingfuck.setPosition(1170, 465);
+				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
+
+				if (hasClown)
+				{
+					clown = new FlxSprite();
 					clown.frames = Paths.getSparrowAtlas('bruhbg/tiky_tree');
 					clown.animation.addByPrefix('tiky', 'tiky', 24, false);
 					clown.animation.play('tiky');
-					clown.antialiasing = ClientPrefs.globalAntialiasing;
-					clown.scale.set(1.8, 1.8);
+					clown.scale.set(1.9, 1.9);
 					clown.updateHitbox();
 					clown.setPosition(560, 320);
 					clown.alpha = 0.00000000000001;
+					clown.antialiasing = ClientPrefs.globalAntialiasing;
 					add(clown);
 
 					beatFunctions.set(202, function()
@@ -935,13 +962,18 @@ class PlayState extends MusicBeatState
 						clown.animation.play('tiky', true);
 
 						isCameraOnForcedPos = true;
-						camFollow.set(clown.x + clown.width / 2, clown.y + clown.width / 2);
-						defaultCamZoom += .2;
+						camFollow.set(clown.x + clown.width / 2.5, clown.y + clown.width / 2.5);
+						defaultCamZoom += .4;
 						clown.animation.finishCallback = function(name:String)
 						{
+							dancingfuck.animation.play('dance2', true);
+							dancingfuck.offset.x -= 90;
+
 							clown.kill();
+							clown.destroy();
+							clown = null;
 							isCameraOnForcedPos = false;
-							defaultCamZoom -= .2;
+							defaultCamZoom -= .4;
 						};
 					});
 				}
@@ -964,14 +996,6 @@ class PlayState extends MusicBeatState
 				add(dedfuck);
 				boppers.push(dedfuck);
 
-				var dancingfuck:FlxSprite = new FlxSprite();
-				dancingfuck.frames = Paths.getSparrowAtlas('bruhbg/Untitled-1');
-				dancingfuck.animation.addByPrefix('Untitled-1', 'Untitled-1', 24);
-				dancingfuck.animation.play('Untitled-1');
-				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
-				dancingfuck.scale.set(1.35, 1.35);
-				dancingfuck.updateHitbox();
-				dancingfuck.setPosition(1285, 415);
 				add(dancingfuck);
 
 				var gruntoes:FlxSprite = new FlxSprite();
@@ -987,21 +1011,21 @@ class PlayState extends MusicBeatState
 				var sunshine = new FlxSprite().loadGraphic(Paths.image('bruhbg/sunshine'));
 				sunshine.antialiasing = ClientPrefs.globalAntialiasing;
 				sunshine.scrollFactor.set(0.8, 0.8);
-				sunshine.scale.set(1.4, 1.4);
+				sunshine.setGraphicSize(Std.int(buildings.width), Std.int(buildings.height));
 				sunshine.updateHitbox();
-				sunshine.setPosition(255, -50);
-				// add(sunshine);
-
-				addOnTop = function()
-				{
-					add(gruntoes);
-				}
+				sunshine.setPosition(buildings.x, buildings.y);
 
 				var vignette = new FlxSprite().loadGraphic(Paths.image('bruhbg/wacky_effects_lmao'));
 				vignette.setGraphicSize(FlxG.width);
 				vignette.cameras = [camHUD];
 				vignette.screenCenter();
-				add(vignette);
+
+				addOnTop = function()
+				{
+					add(sunshine);
+					add(gruntoes);
+					add(vignette);
+				}
 
 				defaultCamZoom = .75;
 
@@ -1009,7 +1033,6 @@ class PlayState extends MusicBeatState
 
 				camPosThingX = foreground.x + foreground.width / 2.1;
 				camPosThingY = foreground.y + foreground.height / 2.1;
-
 		}
 
 		if (isPixelStage)
@@ -1025,6 +1048,29 @@ class PlayState extends MusicBeatState
 
 		add(dadGroup);
 		add(boyfriendGroup);
+
+		if (hasClown)
+		{
+			clownText = new FlxSpriteGroup(0, -60);
+			clownText.cameras = [camHUD];
+				
+			var bg1:FlxSprite = new FlxSprite().makeGraphic(160, 60, FlxColor.WHITE);
+			var bg2:FlxSprite = new FlxSprite(3, 3).makeGraphic(154, 54, FlxColor.BLACK);
+			bg1.screenCenter(X);
+			bg2.screenCenter(X);
+			var text:FlxText = new FlxText(30, 30, 0, 'Tricky caught !');
+			text.setFormat(Paths.font("impact.ttf"), 21, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			text.setPosition(bg1.x + (bg1.width - text.width) / 2, bg1.y + (bg1.height - text.height) / 2);
+	
+			for (obj in [bg1, bg2, text])
+			{
+				obj.antialiasing = ClientPrefs.globalAntialiasing;
+				clownText.add(obj);
+			}
+			add(clownText);
+	
+			// precacheList.set('clickText', 'sound');
+		}
 
 		if (addOnTop != null)
 			addOnTop();
@@ -1441,7 +1487,7 @@ class PlayState extends MusicBeatState
 		freePsychVer.setFormat(Paths.font("impact.ttf"), 18, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		freePsychVer.alpha = ClientPrefs.healthBarAlpha;
 		freePsychVer.visible = !ClientPrefs.hideHud;
-		freePsychVer.antialiasing = true;
+		freePsychVer.antialiasing = ClientPrefs.globalAntialiasing;
 		freePsychVer.width = 5;
 		freePsychVer.cameras = [camHUD];
 		add(freePsychVer);
@@ -1627,10 +1673,12 @@ class PlayState extends MusicBeatState
 		super.create();
 
 		Paths.clearMemory(); // Redacted
-		//Paths.clearOpenflAssets(); // call Paths to remove local assets. 
 		FlxGraphic.defaultPersist = true; // set graphics to persist so anything on screen is not removed.
 
 		CustomFadeTransition.nextCamera = camOther;
+
+		if (hasClown)
+			FlxG.mouse.visible = true;
 	}
 
 	function set_songSpeed(value:Float):Float
@@ -2745,10 +2793,12 @@ class PlayState extends MusicBeatState
 		/*if (FlxG.keys.justPressed.NINE)
 		{
 			iconP1.swapOldIcon();
-	}*/
+		}*/
 
 		#if FLX_DEBUG
 		// health = 2;
+		if (FlxG.keys.justPressed.SIX)
+			cpuControlled = !cpuControlled;
 
 		if (FlxG.keys.justPressed.Q)
 			debugSelected--;
@@ -2796,6 +2846,15 @@ class PlayState extends MusicBeatState
 
 		iconP1.y = healthBar.y + healthBar.height / 2 - iconP1.height / 2;
 		iconP2.y = healthBar.y + healthBar.height / 2 - iconP2.height / 2;
+
+		if (clown != null && FlxG.mouse.justPressed && !clownClicked && clown.alpha == 1 && FlxG.mouse.overlaps(clown))
+		{
+			clownClicked = true;
+			modchartTweens.set('clownTxt', FlxTween.tween(clownText, {y: (ClientPrefs.downScroll ? timeBarBG.y : timeBarBG.y + timeBarBG.height)}, 0.6, {ease: FlxEase.quartOut, onComplete: _ ->
+				modchartTweens.set('clownTxt', FlxTween.tween(clownText, {y: (ClientPrefs.downScroll ? FlxG.height : -60)}, 0.6, {startDelay: 4, ease: FlxEase.quartIn}))
+			}));
+		}
+
 		switch (curStage)
 		{
 			case 'tank':
@@ -3908,7 +3967,7 @@ class PlayState extends MusicBeatState
 		var finishCallback:Void->Void = function()
 		{
 			persistentUpdate = false;
-			openSubState(new PlayResult(coinsHit, endSong));
+			openSubState(new PlayResult(endSong));
 		}; // In case you want to change it in a specific song.
 
 		updateTime = false;
@@ -4010,6 +4069,12 @@ class PlayState extends MusicBeatState
 			{
 				openChartEditor();
 				return;
+			}
+
+			if (clownClicked)
+			{
+				FlxG.save.data.clownClicked = true;
+				FlxG.save.flush();
 			}
 
 			if (isStoryMode)

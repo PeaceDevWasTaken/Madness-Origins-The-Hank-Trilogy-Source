@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="shop_tricky.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="trickerhimself0000" x="0" y="0" width="818" height="477"/>
+	<SubTexture name="trickerhimself0001" x="818" y="0" width="818" height="477"/>
+	<SubTexture name="trickerhimself0002" x="1636" y="0" width="818" height="477"/>
+	<SubTexture name="trickerhimself0003" x="2454" y="0" width="818" height="477"/>
+	<SubTexture name="trickerhimself0004" x="3272" y="0" width="818" height="477"/>
+	<SubTexture name="trickerhimself0005" x="0" y="477" width="818" height="477"/>
+	<SubTexture name="trickerhimself0006" x="818" y="477" width="818" height="477"/>
+	<SubTexture name="trickerhimself0007" x="1636" y="477" width="818" height="477"/>
+	<SubTexture name="trickerhimself0008" x="2454" y="477" width="818" height="477"/>
+	<SubTexture name="trickerhimself0009" x="3272" y="477" width="818" height="477"/>
+	<SubTexture name="trickerhimself0010" x="0" y="954" width="818" height="477"/>
+	<SubTexture name="trickerhimself0011" x="818" y="954" width="818" height="477"/>
+	<SubTexture name="trickerhimself0012" x="1636" y="954" width="818" height="477"/>
+	<SubTexture name="trickerhimself0013" x="2454" y="954" width="818" height="477"/>
+	<SubTexture name="trickerhimself0014" x="3272" y="954" width="818" height="477"/>
+	<SubTexture name="trickerhimself0015" x="0" y="1431" width="818" height="477"/>
+	<SubTexture name="trickerhimself0016" x="818" y="1431" width="818" height="477"/>
+	<SubTexture name="trickerhimself0017" x="1636" y="1431" width="818" height="477"/>
+	<SubTexture name="trickerhimself0018" x="2454" y="1431" width="818" height="477"/>
+	<SubTexture name="trickerhimself0019" x="3272" y="1431" width="818" height="477"/>
+	<SubTexture name="trickerhimself0020" x="0" y="1908" width="818" height="477"/>
+	<SubTexture name="trickerhimself0021" x="818" y="1908" width="818" height="477"/>
+	<SubTexture name="trickerhimself0022" x="1636" y="1908" width="818" height="477"/>
+	<SubTexture name="trickerhimself0023" x="2454" y="1908" width="818" height="477"/>
+</TextureAtlas>

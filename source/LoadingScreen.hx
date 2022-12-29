@@ -27,6 +27,8 @@ class LoadingScreen extends MusicBeatState
 	var songName:String; // so we can load inst/vocal
 	var charSelect:Bool; // whether we are loading into character select
 
+	var transitioning:Bool = false;
+
 	var coolFolder:String;
 
 	final lock = new sys.thread.Lock();
@@ -142,11 +144,14 @@ class LoadingScreen extends MusicBeatState
 
 				coolBar.value = (loaded / totalLoad) * 100;
 
-				if (coolBar.value >= 100)
+				if (coolBar.value >= 100 && !transitioning)
+				{
+					transitioning = true;
 					if (charSelect)
-						FlxG.switchState(new CharacterSelect());
+						MusicBeatState.switchState(new CharacterSelect());
 					else
-						FlxG.switchState(new PlayState());
+						MusicBeatState.switchState(new PlayState());
+				}
 			}
 		});
 		#end

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="tiky tree.png">
+<TextureAtlas imagePath="tiky_tree.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="tiky0000" x="0" y="0" width="111" height="165" frameX="-5" frameY="-69" frameWidth="243" frameHeight="234"/>
@@ -27,19 +27,9 @@
 	<SubTexture name="tiky0022" x="0" y="631" width="183" height="135" frameX="-44" frameY="-4" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0023" x="183" y="631" width="178" height="132" frameX="-49" frameY="-4" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0024" x="361" y="631" width="193" height="136" frameX="-38" frameY="-2" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0025" x="554" y="631" width="229" height="139" frameX="-14" frameY="-3" frameWidth="243" frameHeight="234"/>
+	<SubTexture name="tiky0025" x="554" y="631" width="229" height="124" frameX="-14" frameY="-3" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0026" x="783" y="631" width="202" height="154" frameX="-2" frameY="-4" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0027" x="0" y="785" width="178" height="157" frameX="-3" frameY="-5" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0028" x="178" y="785" width="98" height="161" frameX="-3" frameY="-5" frameWidth="243" frameHeight="234"/>
 	<SubTexture name="tiky0029" x="276" y="785" width="87" height="163" frameX="0" frameY="-5" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0030" x="363" y="785" width="47" height="51" frameX="-35" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0031" x="363" y="785" width="47" height="51" frameX="-34" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0032" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0033" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0034" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0035" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0036" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0037" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0038" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
-	<SubTexture name="tiky0039" x="363" y="785" width="47" height="51" frameX="-29" frameY="-91" frameWidth="243" frameHeight="234"/>
 </TextureAtlas>

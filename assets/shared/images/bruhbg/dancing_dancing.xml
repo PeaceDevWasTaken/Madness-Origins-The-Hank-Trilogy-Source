@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dancing dancing.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dancing dancing dancing instance 10000" x="0" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10001" x="792" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10002" x="1584" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10003" x="2376" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10004" x="3168" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10005" x="3960" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10006" x="4752" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10007" x="5544" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10008" x="6336" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10009" x="7128" y="0" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10010" x="0" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10011" x="792" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10012" x="1584" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10013" x="2376" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10014" x="3168" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10015" x="3960" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10016" x="4752" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing dancing instance 10017" x="5544" y="1026" width="792" height="1026"/>
+	<SubTexture name="dancing dancing instance 10000" x="6336" y="1026" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10001" x="0" y="2052" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10002" x="1450" y="2052" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10003" x="2900" y="2052" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10004" x="4350" y="2052" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10005" x="5800" y="2052" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10006" x="0" y="3025" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10007" x="1450" y="3025" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10008" x="2900" y="3025" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10009" x="4350" y="3025" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10010" x="5800" y="3025" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10011" x="0" y="3998" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10012" x="1450" y="3998" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10013" x="2900" y="3998" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10014" x="4350" y="3998" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10015" x="5800" y="3998" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10016" x="0" y="4971" width="1450" height="973"/>
+	<SubTexture name="dancing dancing instance 10017" x="1450" y="4971" width="1450" height="973"/>
+</TextureAtlas>
