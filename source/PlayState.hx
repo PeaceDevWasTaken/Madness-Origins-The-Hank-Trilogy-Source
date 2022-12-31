@@ -142,6 +142,8 @@ class PlayState extends MusicBeatState
 	private var camFollow:FlxPoint;
 	private var camFollowPos:FlxObject;
 
+	var camFollowOffset:FlxPoint;
+
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 
@@ -906,13 +908,13 @@ class PlayState extends MusicBeatState
 				if (SONG.song.toLowerCase() == 'origins')
 					hasClown = true;
 
-				var buildings = new FlxSprite().loadGraphic(Paths.image('bruhbg/GothamCity'));
-				buildings.scrollFactor.set(0.5, 0.5);
-				buildings.scale.set(.97, .97);
-				buildings.updateHitbox();
-				buildings.setPosition(-265, -270);
-				buildings.antialiasing = ClientPrefs.globalAntialiasing;
-				add(buildings);
+				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/GothamCity'));
+				skyBack.scrollFactor.set(0.5, 0.5);
+				skyBack.scale.set(.97, .97);
+				skyBack.updateHitbox();
+				skyBack.setPosition(-270, -270);
+				skyBack.antialiasing = ClientPrefs.globalAntialiasing;
+				add(skyBack);
 
 				var teletubbiesmfsun:FlxSprite = new FlxSprite();
 				teletubbiesmfsun.frames = Paths.getSparrowAtlas('bruhbg/The_sun');
@@ -925,23 +927,25 @@ class PlayState extends MusicBeatState
 				teletubbiesmfsun.antialiasing = ClientPrefs.globalAntialiasing;
 				add(teletubbiesmfsun);
 
-				var skyBack = new FlxSprite().loadGraphic(Paths.image('bruhbg/CityBack'));
-				skyBack.scrollFactor.set(0.3, 0.3);
-				skyBack.scale.set(buildings.scale.x, buildings.scale.y);
-				skyBack.updateHitbox();
-				skyBack.setPosition(buildings.x - 10, 120);
-				skyBack.antialiasing = ClientPrefs.globalAntialiasing;
-				add(skyBack);
+				var buildings = new FlxSprite().loadGraphic(Paths.image('bruhbg/CityBack'));
+				buildings.scrollFactor.set(0.3, 0.3);
+				buildings.scale.set(skyBack.scale.x, skyBack.scale.y);
+				buildings.updateHitbox();
+				buildings.setPosition(skyBack.x - 10, 120);
+				buildings.antialiasing = ClientPrefs.globalAntialiasing;
+				add(buildings);
 
 				var dancingfuck:FlxSprite = new FlxSprite();
 				dancingfuck.frames = Paths.getSparrowAtlas('bruhbg/dancing_dancing');
 				dancingfuck.animation.addByPrefix('dance1', 'dancing dancing instance', 24);
 				dancingfuck.animation.addByPrefix('dance2', 'dancing dancing dancing', 24);
-				dancingfuck.animation.play('dance1');
+				dancingfuck.animation.play('dance' + FlxG.random.int(1, 2));
 				dancingfuck.scale.set(0.28, 0.28);
 				dancingfuck.updateHitbox();
 				dancingfuck.setPosition(1170, 465);
 				dancingfuck.antialiasing = ClientPrefs.globalAntialiasing;
+				if(dancingfuck.animation.name == 'dance2')
+					dancingfuck.offset.x -= 90;
 
 				if (hasClown)
 				{
@@ -962,12 +966,12 @@ class PlayState extends MusicBeatState
 						clown.animation.play('tiky', true);
 
 						isCameraOnForcedPos = true;
-						camFollow.set(clown.x + clown.width / 2.5, clown.y + clown.width / 2.5);
+						camFollow.set(clown.x + clown.width / 2.5, clown.y + clown.width / 2.6);
 						defaultCamZoom += .4;
 						clown.animation.finishCallback = function(name:String)
 						{
-							dancingfuck.animation.play('dance2', true);
-							dancingfuck.offset.x -= 90;
+							dancingfuck.animation.play((dancingfuck.animation.name == 'dance1') ? 'dance2' : 'dance1', true);
+							dancingfuck.offset.x += (dancingfuck.animation.name == 'dance2') ? -90 : 90;
 
 							clown.kill();
 							clown.destroy();
@@ -1011,9 +1015,9 @@ class PlayState extends MusicBeatState
 				var sunshine = new FlxSprite().loadGraphic(Paths.image('bruhbg/sunshine'));
 				sunshine.antialiasing = ClientPrefs.globalAntialiasing;
 				sunshine.scrollFactor.set(0.8, 0.8);
-				sunshine.setGraphicSize(Std.int(buildings.width), Std.int(buildings.height));
+				sunshine.setGraphicSize(Std.int(skyBack.width), Std.int(skyBack.height));
 				sunshine.updateHitbox();
-				sunshine.setPosition(buildings.x, buildings.y);
+				sunshine.setPosition(skyBack.x, skyBack.y);
 
 				var vignette = new FlxSprite().loadGraphic(Paths.image('bruhbg/wacky_effects_lmao'));
 				vignette.setGraphicSize(FlxG.width);
@@ -1277,7 +1281,7 @@ class PlayState extends MusicBeatState
 				gf.visible = false;
 		}
 
-		camPosThingX = (dad.x + dad.origin.x) + (FlxMath.distanceBetween(dad, boyfriend) / 2);
+		camPosThingX = (dad.x + (dad.origin.x / 1.1)) + (FlxMath.distanceBetween(dad, boyfriend) / 2);
 
 		switch (curStage)
 		{
@@ -1418,6 +1422,7 @@ class PlayState extends MusicBeatState
 
 		camFollow = new FlxPoint();
 		camFollowPos = new FlxObject(0, 0, 1, 1);
+		camFollowOffset = new FlxPoint();
 
 		snapCamFollowToPos(camPos.x, camPos.y);
 		if (prevCamFollow != null)
@@ -2798,7 +2803,13 @@ class PlayState extends MusicBeatState
 		#if FLX_DEBUG
 		// health = 2;
 		if (FlxG.keys.justPressed.SIX)
+		{
 			cpuControlled = !cpuControlled;
+			changedDifficulty = true;
+			botplayTxt.visible = cpuControlled;
+			botplayTxt.alpha = 1;
+			botplaySine = 0;
+		}
 
 		if (FlxG.keys.justPressed.Q)
 			debugSelected--;
@@ -2996,7 +3007,7 @@ class PlayState extends MusicBeatState
 		if (!inCutscene)
 		{
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4 * cameraSpeed, 0, 1);
-			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
+			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x + (isCameraOnForcedPos ? 0 : camFollowOffset.x), lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y + (isCameraOnForcedPos ? 0 : camFollowOffset.y), lerpVal));
 			if (!startingSong && !endingSong && boyfriend.animation.curAnim.name.startsWith(' idle '))
 			{
 				boyfriendIdleTime += elapsed;
@@ -3933,11 +3944,13 @@ class PlayState extends MusicBeatState
 		if (isDad)
 		{
 			camFollow.set(camPosThingX - 135, camPosThingY);
+			camOffset(true);
 			tweenCamIn(1.3);
 		}
 		else
 		{
 			camFollow.set(camPosThingX + 135, camPosThingY);
+			camOffset(false);
 			tweenCamIn(1);
 		}
 	}
@@ -4889,6 +4902,8 @@ class PlayState extends MusicBeatState
 		StrumPlayAnim(true, Std.int(Math.abs(note.noteData)) % 4, time);
 		note.hitByOpponent = true;
 
+		camOffset(true);
+
 		callOnLuas('opponentNoteHit', [
 			notes.members.indexOf(note),
 			Math.abs(note.noteData),
@@ -5014,6 +5029,8 @@ class PlayState extends MusicBeatState
 			}
 			note.wasGoodHit = true;
 			vocals.volume = 1;
+
+			camOffset(false);
 
 			var isSus:Bool = note.isSustainNote; // GET OUT OF MY HEAD, GET OUT OF MY HEAD, GET OUT OF MY HEAD
 			var leData:Int = Math.round(Math.abs(note.noteData));
@@ -5366,10 +5383,12 @@ class PlayState extends MusicBeatState
 			&& !boyfriend.stunned)
 		{
 			boyfriend.playAnim('idle', true);
+			camOffset(false);
 		}
 		if (curBeat % 2 == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 		{
 			dad.playAnim('idle', true);
+			camOffset(true);
 		}
 
 		if (curBeat % 2 == 0)
@@ -5689,4 +5708,25 @@ class PlayState extends MusicBeatState
 
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
+
+	function camOffset(isDad:Bool)
+	{
+		if (!SONG.notes[Math.floor(curStep / 16)].mustHitSection != isDad)
+			return;
+
+		var char:Character = isDad ? dad : boyfriend;
+
+		camFollowOffset.set();
+		switch(char.animation.name)
+		{
+			case 'singLEFT':
+				camFollowOffset.x = -30;
+			case 'singDOWN':
+				camFollowOffset.y = 30;
+			case 'singUP':
+				camFollowOffset.y = -30;
+			case 'singRIGHT':
+				camFollowOffset.x = 30;
+		}
+	}
 }
