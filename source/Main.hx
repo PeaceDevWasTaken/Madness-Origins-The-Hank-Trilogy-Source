@@ -83,7 +83,9 @@ class Main extends Sprite
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, #if (flixel < "5.0.0") zoom, #end framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
+		#if cpp
 		Memory.init();
+		#end
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		//fpsVar = new freestyle.Display(10, 10, 0xFFFFFF);
 		addChild(fpsVar);

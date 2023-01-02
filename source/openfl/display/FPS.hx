@@ -96,7 +96,7 @@ class FPS extends TextField
 			//memoryMegas = freestyle.Memory.calc(0);
 			memoryMegas = Memory.calc(0);
 			//text = "FPS: " + times.length + " MB\nGC MEM: " + current + " MB" + "\nUSAGE " + virRam + " / " + hRam + " GB";
-			text += "\nMemory: " + memoryMegas + " MB" + "\nUsage " + Memory.physical() + " / " + Memory.virtual() + " GB";
+			text += "\nMemory: " + memoryMegas + " MB" + "\nUsage " + Memory.physical() #if cpp + " / " + Memory.virtual() + " GB"#end;
 
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
