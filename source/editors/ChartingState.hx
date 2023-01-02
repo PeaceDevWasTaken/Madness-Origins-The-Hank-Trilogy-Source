@@ -207,6 +207,8 @@ class ChartingState extends MusicBeatState
 
 	override function create()
 	{
+		Paths.clearMemory();
+
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
 		else
@@ -230,8 +232,6 @@ class ChartingState extends MusicBeatState
 			addSection();
 			PlayState.SONG = _song;
 		}
-
-		// Paths.clearMemory();
 
 		#if desktop
 		// Updating Discord Rich Presence

@@ -1,5 +1,6 @@
 package editors;
 
+import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -37,6 +38,7 @@ class MasterEditorMenu extends MusicBeatState
 
 	override function create()
 	{
+		FlxGraphic.defaultPersist = false;
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		#if desktop
 		// Updating Discord Rich Presence
@@ -83,6 +85,7 @@ class MasterEditorMenu extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		super.create();
+		FlxGraphic.defaultPersist = true;
 	}
 
 	override function update(elapsed:Float)
@@ -113,6 +116,7 @@ class MasterEditorMenu extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
+			FlxGraphic.defaultPersist = false;
 			switch (options[curSelected])
 			{
 				case 'Character Editor':

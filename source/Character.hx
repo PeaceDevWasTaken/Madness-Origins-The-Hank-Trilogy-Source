@@ -283,6 +283,8 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
+			case 'hank_new':
+				skipDance = true;
 			case 'spooky':
 				danceIdle = true;
 			case 'pico-speaker':
@@ -351,15 +353,22 @@ class Character extends FlxSprite
 			}
 			if (!isPlayer)
 			{
-				if (animation.curAnim.name.startsWith('sing'))
+				switch(curCharacter)
 				{
-					holdTimer += elapsed;
-				}
+					case 'hank_new':
+						if (animation.name.startsWith('sing') && animation.curAnim.finished)
+							playAnim('idle', true);
 
-				if (holdTimer >= Conductor.stepCrochet * 0.001 * singDuration)
-				{
-					dance();
-					holdTimer = 0;
+					default:
+						if (animation.curAnim.name.startsWith('sing'))
+								holdTimer += elapsed;
+
+						if (holdTimer >= Conductor.stepCrochet * 0.001 * singDuration)
+						{
+							dance();
+							holdTimer = 0;
+						}
+
 				}
 			}
 

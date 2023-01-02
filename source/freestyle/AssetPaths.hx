@@ -48,7 +48,7 @@ class AssetPaths extends YourGrandmother {
 
     public static function loadAsset(key:String, ?library:String, ?texture:Bool = false)
 	{
-		var modKey:String = Paths.modsImages(key);
+		// var modKey:String = Paths.modsImages(key);
 		var path:String = Paths.getPath('images/$key.png', IMAGE, library);
 		var extPath:String = path.replace('shared:', '').replace('minigame:', '');
 	

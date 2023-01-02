@@ -172,7 +172,7 @@ class OSTMenu extends MusicBeatState
 			bg.ID = i;
 			bgs.add(bg);
 
-			var weekThing = new FlxSprite().loadGraphic(Paths.image('storymenu/${weeks[i]}'));
+			var weekThing = new FlxSprite().loadGraphic(Paths.image('storymenu/weeks/${weeks[i]}'));
 			weekThing.screenCenter();
 			weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 			weekSprites.add(weekThing);
@@ -434,6 +434,11 @@ class OSTMenu extends MusicBeatState
 					vocal = null;
 				}
 
+				#if FLX_DEBUG
+				if (FlxG.keys.pressed.SHIFT)
+					LoadingState.loadAndSwitchState(new PlayState());
+				else
+				#end
 				LoadingState.loadAndSwitchState(new LoadingScreen(PlayState.SONG));
 			});
 		}
@@ -669,6 +674,7 @@ class SongTag extends FlxTypedSpriteGroup<FlxSprite>
 		name = new FlxText(0, 0, 0, song, 20);
 		name.setBorderStyle(SHADOW, FlxColor.BLACK, 2, 1);
 		name.font = Paths.font('impact.ttf');
+		name.antialiasing = ClientPrefs.globalAntialiasing;
 		add(name);
 		while (name.width > bg.width)
 			name.size -= 2;

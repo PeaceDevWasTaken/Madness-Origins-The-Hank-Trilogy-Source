@@ -322,8 +322,11 @@ class PlayState extends MusicBeatState
 	// Stores list of objects that bob to the beat, keeps objects local. Note that it needs the animation to be named `idle`
 	var boppers:Array<FlxSprite> = [];
 
+	// Healthbar y target
 	var targetHBY:Float = 0;
-	var prevTime:Float = 0;
+
+	// x and y offset for the combo sprites per stage
+	var stageComboOffset:Array<Float> = [];
 
 	// Clown has been engaged !!!
 	var hasClown:Bool = false;
@@ -1034,6 +1037,8 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = .75;
 
 				// FlxG.camera.setScrollBoundsRect(skyBack.x, skyBack.y, skyBack.width, skyBack.height);
+
+				// stageComboOffset = [300, 100];
 
 				camPosThingX = foreground.x + foreground.width / 2.1;
 				camPosThingY = foreground.y + foreground.height / 2.1;
@@ -4332,8 +4337,8 @@ class PlayState extends MusicBeatState
 		rating.velocity.y -= FlxG.random.int(140, 175);
 		rating.velocity.x -= FlxG.random.int(0, 10);
 		rating.visible = (!ClientPrefs.hideHud && showRating);
-		rating.x += ClientPrefs.comboOffset[0];
-		rating.y -= ClientPrefs.comboOffset[1];
+		rating.x += ClientPrefs.comboOffset[0] + stageComboOffset[0];
+		rating.y -= ClientPrefs.comboOffset[1] + -stageComboOffset[1];
 
 		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
 		// comboSpr.cameras = [camHUD];
@@ -4342,8 +4347,8 @@ class PlayState extends MusicBeatState
 		comboSpr.acceleration.y = 600;
 		comboSpr.velocity.y -= 150;
 		comboSpr.visible = (!ClientPrefs.hideHud && showCombo);
-		comboSpr.x += ClientPrefs.comboOffset[0];
-		comboSpr.y -= ClientPrefs.comboOffset[1];
+		comboSpr.x += ClientPrefs.comboOffset[0] + stageComboOffset[0];
+		comboSpr.y -= ClientPrefs.comboOffset[1] + -stageComboOffset[1];
 
 		comboSpr.velocity.x += FlxG.random.int(1, 10);
 		insert(members.indexOf(strumLineNotes), rating);
@@ -4383,8 +4388,8 @@ class PlayState extends MusicBeatState
 			numScore.x = coolText.x + (43 * daLoop) - 90;
 			numScore.y += 80;
 
-			numScore.x += ClientPrefs.comboOffset[2];
-			numScore.y -= ClientPrefs.comboOffset[3];
+			numScore.x += ClientPrefs.comboOffset[2] + stageComboOffset[0];
+			numScore.y -= ClientPrefs.comboOffset[3] + -stageComboOffset[1];
 
 			if (!PlayState.isPixelStage)
 			{
@@ -5387,7 +5392,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curBeat % 2 == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 		{
-			dad.playAnim('idle', true);
+			dad.dance();
 			camOffset(true);
 		}
 

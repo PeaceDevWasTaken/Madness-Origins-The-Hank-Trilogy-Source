@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arrowup11.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Symbol 8 instance 10000" x="25" y="25" width="53" height="66" frameX="0" frameY="-14" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10001" x="25" y="25" width="53" height="66" frameX="0" frameY="-12" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10002" x="78" y="25" width="49" height="66" frameX="-2" frameY="-6" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10003" x="127" y="25" width="52" height="65" frameX="0" frameY="-3" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10004" x="25" y="91" width="53" height="66" frameX="0" frameY="-1" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10005" x="78" y="91" width="53" height="66" frameX="0" frameY="0" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10006" x="78" y="91" width="53" height="66" frameX="0" frameY="0" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10007" x="131" y="91" width="53" height="66" frameX="0" frameY="-1" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10008" x="25" y="157" width="51" height="65" frameX="-1" frameY="-3" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10009" x="127" y="25" width="52" height="65" frameX="0" frameY="-6" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10010" x="76" y="157" width="53" height="65" frameX="0" frameY="-12" frameWidth="53" frameHeight="80"/>
+	<SubTexture name="Symbol 8 instance 10011" x="25" y="25" width="53" height="66" frameX="0" frameY="-14" frameWidth="53" frameHeight="80"/>
+</TextureAtlas>

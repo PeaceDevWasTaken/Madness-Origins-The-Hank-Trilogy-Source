@@ -188,31 +188,33 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (FlxG.keys.justPressed.C && !selectedSomethin)
-		{
-			selectedSomethin = true;
-			FlxG.switchState(new CreditsState());
-		}
-
-		#if FLX_DEBUG
-		if (FlxG.keys.justPressed.FOUR)
-			FlxG.switchState(new LoadingScreen(null, true));
-
-		if (FlxG.keys.justPressed.S && !selectedSomethin)
-		{
-			selectedSomethin = true;
-			FlxTransitionableState.skipNextTransOut = true;
-			StageData.forceNextDirectory = 'minigame';
-			FlxG.sound.music.fadeOut(1, 0, twn ->
-			{
-				FlxG.sound.music.stop();
-				sanford.SAState.resetData();
-				LoadingState.loadAndSwitchState(new sanford.SAState());
-			});
-		}
-		#end
 		if (!selectedSomethin)
 		{
+			if (FlxG.keys.justPressed.C)
+			{
+				selectedSomethin = true;
+				FlxG.switchState(new CreditsState());
+			}
+		
+			if (FlxG.keys.justPressed.FOUR)
+			{
+				selectedSomethin = true;
+				FlxG.switchState(new LoadingScreen(null, true));
+			}
+		
+			if (FlxG.keys.justPressed.S)
+			{
+				selectedSomethin = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				StageData.forceNextDirectory = 'minigame';
+				FlxG.sound.music.fadeOut(1, 0, twn ->
+				{
+					FlxG.sound.music.stop();
+					sanford.SAState.resetData();
+					LoadingState.loadAndSwitchState(new sanford.SAState());
+				});
+			}
+
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
@@ -223,7 +225,7 @@ class MainMenuState extends MusicBeatState
 			if ((controls.ACCEPT || FlxG.mouse.justPressed) && curSelected != menuItems.members.length)
 			{
 				var sel:Int = curSelected;
-				if (optionShit[sel] == 'donate')
+				if (optionShit[sel] == 'donate' || optionShit[sel] == 'story') // temp until story menu is finished
 				{
 					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
 				}
@@ -246,8 +248,8 @@ class MainMenuState extends MusicBeatState
 
 								switch (daChoice)
 								{
-									case 'story':
-										MusicBeatState.switchState(new StoryMenuState());
+									// case 'story':
+										// MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new OSTMenu());
 									case 'shop':
