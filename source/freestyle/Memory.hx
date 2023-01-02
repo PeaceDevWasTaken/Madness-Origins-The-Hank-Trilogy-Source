@@ -101,8 +101,10 @@ class Memory
 	#end*/
 
 	public inline static function init() {
+		#if windows
         rMEM = obtainRAM() / 1000;
 		pMEM = Math.floor(rMEM);
+		#end
     }
 
 	#if windows
