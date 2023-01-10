@@ -55,8 +55,6 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		Paths.clearMemory();
-
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);

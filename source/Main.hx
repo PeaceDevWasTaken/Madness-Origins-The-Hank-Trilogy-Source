@@ -97,9 +97,18 @@ class Main extends Sprite
 		}
 		#end
 
+		FlxG.signals.preStateSwitch.add(preStateSwitch);
+		FlxG.signals.preStateCreate.add(postStateCreate);
+
 		#if html5
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
 		#end
 	}
+
+	function preStateSwitch()
+		FlxGraphic.defaultPersist = false;
+
+	function postStateCreate(state:FlxState)
+		FlxGraphic.defaultPersist = true;
 }

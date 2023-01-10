@@ -102,7 +102,6 @@ class PauseSubstate extends DefaultSubstate
 					Sound.gameMus = null;
 				}
 				selected = true;
-				flixel.graphics.FlxGraphic.defaultPersist = false;
 				StageData.forceNextDirectory = 'preload';
 				FlxG.switchState(new MainMenuState());
 

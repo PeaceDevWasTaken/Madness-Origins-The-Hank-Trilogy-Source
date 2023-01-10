@@ -111,8 +111,6 @@ class OSTMenu extends MusicBeatState
 
 	override public function create()
 	{
-		Paths.clearMemory();
-
 		WeekData.reloadWeekFiles(false);
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 

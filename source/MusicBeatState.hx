@@ -38,6 +38,8 @@ class MusicBeatState extends FlxUIState
 		}
 		// */
 		FlxTransitionableState.skipNextTransOut = false;
+
+		Paths.clearMemory();
 	}
 	
 	#if (VIDEOS_ALLOWED && windows)

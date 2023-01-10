@@ -127,8 +127,6 @@ class SAState extends MusicBeatState
 
 	override public function create()
 	{
-		FlxGraphic.defaultPersist = false;
-
 		group = new FlxTypedGroup();
 		if (Sound.gameMus == null)
 		{
@@ -242,8 +240,6 @@ class SAState extends MusicBeatState
 		FlxG.watch.add(this, 'coins');
 
 		FlxG.mouse.visible = false;
-		Paths.clearMemory();
-		FlxGraphic.defaultPersist = true;
 	}
 
 	var weapText:Text;

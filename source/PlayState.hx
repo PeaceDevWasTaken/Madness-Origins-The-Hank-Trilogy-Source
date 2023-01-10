@@ -336,9 +336,6 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		//Paths.clearMemory(); // Redacted 
-		FlxGraphic.defaultPersist = false; // set graphics to not persist to clear everything from last create call.
-
 		// for lua
 		instance = this;
 
@@ -1681,10 +1678,6 @@ class PlayState extends MusicBeatState
 		callOnLuas('onCreatePost', []);
 
 		super.create();
-
-		Paths.clearMemory(); // Redacted
-		FlxGraphic.defaultPersist = true; // set graphics to persist so anything on screen is not removed.
-
 		CustomFadeTransition.nextCamera = camOther;
 
 		if (hasClown)
@@ -5539,7 +5532,6 @@ class PlayState extends MusicBeatState
 	function clearDefines()
 	{
 		// Reset Defines //
-		FlxGraphic.defaultPersist = false;
 		FlxG.keys.preventDefaultKeys = []; // Prevents Arrow key input drops;
 		// Handle Refrences //
 		unspawnNotes = [];

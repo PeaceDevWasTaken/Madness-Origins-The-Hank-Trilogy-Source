@@ -114,8 +114,6 @@ class ExtrasState extends MusicBeatState
 		super.create();
 
 		FlxG.mouse.visible = true;
-		Paths.clearMemory();
-		FlxGraphic.defaultPersist = true; // need to keep them for the overlap checks
 	}
 
 	var selectedSomethin:Bool = false;
@@ -128,15 +126,12 @@ class ExtrasState extends MusicBeatState
 
 			if (controls.BACK)
 			{
-				FlxGraphic.defaultPersist = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 			}
 
 			if (controls.ACCEPT || FlxG.mouse.justPressed)
-			{
-				FlxGraphic.defaultPersist = false;
-				
+			{				
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
